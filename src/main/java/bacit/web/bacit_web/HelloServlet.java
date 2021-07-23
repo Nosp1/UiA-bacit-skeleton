@@ -20,6 +20,12 @@ public class HelloServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("<h1>" + message + "</h1>");
+        out.println("<h1>Get someone from the database :-)</h1>");
+        out.println("<form action='GetUserServlet' method='GET'>");
+        out.println("  <label for='uname'>First name:</label>");
+        out.println("  <input type='text' name='uname'/>");
+        out.println("  <input type='submit' />");
+        out.println("</form>");
         out.println("</body></html>");
     }
 
