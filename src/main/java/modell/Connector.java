@@ -2,11 +2,11 @@ package modell;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import jaca.sql.SQLException;
+import java.sql.SQLException;
 
 //her har vi en klasse som brukes til å starte opp tilkoblingen til databasen
 
-Public class Connector {
+public class Connector {
     private static Connection con;
 
     public static Connection initializaDatabase()

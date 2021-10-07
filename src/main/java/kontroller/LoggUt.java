@@ -19,7 +19,7 @@ public class LoggUt extends HttpServlet {
         res.setContentType("text/html");
         PrintWriter out = res.getWriter();
 
-        HttpsSession session = req.getSession();
+        HttpSession session = req.getSession();
         session.removeAttribute("logUser");
         res.sendRedirect("index.jsp");
     }

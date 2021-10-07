@@ -3,10 +3,10 @@ package modell;
 
 public class Ansatt {
     int id;
-    string navn;
-    string email;
-    string telefon;
-    string passord;
+    String navn;
+    String email;
+    String telefon;
+    String passord;
     boolean sertifisert;
     boolean union;
 
@@ -14,7 +14,7 @@ public class Ansatt {
 
     }
 
-    public Ansatt (int id, String navn, String, email, String telefon, String passord,
+    public Ansatt (int id, String navn, String email, String telefon, String passord,
                    boolean sertifisert, boolean union){
         this.id = id;
         this.navn = navn;
@@ -34,31 +34,31 @@ public class Ansatt {
         this.id = id;
     }
 
-    public string getNavn(){
+    public String getNavn(){
         return navn;
     }
-    public void setNavn(string navn){
+    public void setNavn(String navn){
         this.navn = navn;
     }
 
-    public string getEmail(){
+    public String getEmail(){
         return email;
     }
-    public void setEmail(string email){
+    public void setEmail(String email){
         this.email = email;
     }
 
-    public string getTelefon(){
+    public String getTelefon(){
         return telefon;
     }
-    public void setTelefon(string telefon){
+    public void setTelefon(String telefon){
         this.telefon = telefon;
     }
 
-    public string getPassord(){
+    public String getPassord(){
         return passord;
     }
-    public void setPassord(string passord){
+    public void setPassord(String passord){
         this.passord = passord;
     }
 
@@ -72,7 +72,7 @@ public class Ansatt {
     public boolean getUnion(){
         return union;
     }
-    public void setUniont id){
+    public void setUniont(){
         this.union = union;
     }
 
