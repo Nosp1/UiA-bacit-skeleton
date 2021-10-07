@@ -1,4 +1,4 @@
-package main.modell.LoggInn;
+package modell;
 //Her har vi laget en modell klasse for Ansatt
 
 public class Ansatt {
@@ -14,7 +14,7 @@ public class Ansatt {
 
     }
 
-    public Ansatt (int id, string navn, string, email, string telefon, string passord,
+    public Ansatt (int id, String navn, String, email, String telefon, String passord,
                    boolean sertifisert, boolean union){
         this.id = id;
         this.navn = navn;

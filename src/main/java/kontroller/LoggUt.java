@@ -1,4 +1,4 @@
-package main.kontroller.servlets;
+package kontroller;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
