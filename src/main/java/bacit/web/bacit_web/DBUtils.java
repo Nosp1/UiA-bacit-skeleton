@@ -35,7 +35,7 @@ public class DBUtils {
             toReturn = (connection != null)
                 ? connection
                 : DriverManager.getConnection(
-                    "jdbc:mariadb://172.17.0.1:3308/MytestDB",
+                    "jdbc:mariadb://172.17.0.1:3308/mariaDB",
                     "root",
                     "12345");
         } catch (SQLException e) {

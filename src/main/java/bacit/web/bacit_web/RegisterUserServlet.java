@@ -71,6 +71,12 @@ public class RegisterUserServlet extends HttpServlet {
         out.println("<input type='text' name='fullName'/>");
         out.println("<label for='phoneNumber'>Telefonnummer</label> ");
         out.println("<input type='tel' name='phoneNumber'/>");
+        out.println("<label for='email'>E-post</label> ");
+        out.println("<input type='text' name='email'/>");
+        out.println("<label for='password'>Passord</label> ");
+        out.println("<input type='text' name='password'/>");
+        out.println("<label for='username'>Brukernavn</label> ");
+        out.println("<input type='text' name='username'/>");
         out.println("<input type='submit' value='Registrer bruker'/>");
         out.println("</form>");
         writeHtmlEnd(out);
