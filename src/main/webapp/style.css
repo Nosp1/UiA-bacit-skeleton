@@ -46,10 +46,9 @@ header nav{
 }
 nav input[type=text] {
     float: right;
-    padding: 6px;
+    padding: 0;
     border: none;
-    margin-top: 8px;
-    margin-right: 16px;
+    margin: 0;
     font-size: 17px;
 }
 nav input[type=text] {
