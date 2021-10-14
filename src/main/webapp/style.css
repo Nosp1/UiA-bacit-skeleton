@@ -42,8 +42,10 @@ header{
 header a{
     color:#ffffff;
     text-decoration:none;
-    text-transform:uppercase;
     font-size:15px;
+}
+header .current a{
+    text-transform:uppercase;
 }
 
 header li{
