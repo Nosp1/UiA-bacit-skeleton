@@ -21,8 +21,8 @@ public class DBUtils {
     /**
      * Establishes a connection with a mariaDB or returns an existing one.
      * username=root
-     * password=12345
-     * URL=jdbc:mariadb://172.17.0.1:3308/MytestDB
+     * password=TestTest123
+     * URL=jdbc:mariadb://172.17.0.1:3308/Gruppe9
      *
      * @param out for html printing in front-end e.g. (for errors or content)
      * @return connection to db
@@ -35,9 +35,9 @@ public class DBUtils {
             toReturn = (connection != null)
                 ? connection
                 : DriverManager.getConnection(
-                    "jdbc:mariadb://172.17.0.1:3308/mariaDB",
+                    "jdbc:mariadb://172.17.0.1:3308/Gruppe9",
                     "root",
-                    "12345");
+                    "TestTest123");
         } catch (SQLException e) {
             e.printStackTrace();
             out.println("SQL Exception " + e);

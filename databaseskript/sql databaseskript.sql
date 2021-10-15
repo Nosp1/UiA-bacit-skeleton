@@ -57,3 +57,5 @@ CREATE TABLE Reservasjoner (
                                FOREIGN KEY (Bruker_ID) REFERENCES Brukere(Bruker_ID)
 );
 
+ALTER TABLE Brukere MODIFY COLUMN Telefonnummer VARCHAR(11);
+

@@ -31,6 +31,10 @@ public class RegisterUserServlet extends HttpServlet {
         RegisterUserModel user = new RegisterUserModel();
         user.setFullName(request.getParameter("fullName"));
         user.setPhoneNumber(request.getParameter("phoneNumber"));
+        user.seteMail(request.getParameter("email"));
+        user.setFagforbund(false);
+        user.setUserName(request.getParameter("username"));
+        user.setPassword(request.getParameter("password"));
         PrintWriter out = response.getWriter();
         if(validateUser(user)){
             try{
@@ -40,8 +44,8 @@ public class RegisterUserServlet extends HttpServlet {
                 out.println(ex.getMessage());
             }
             writeHtmlStart(out, "Register user response");
-            out.println("User with fullname: "+user.getFullName()+" and phone number: "
-                    +user.getPhoneNumber()+" registered");
+            out.println("User: "+user.getFullName()+" and phone number: "
+                    +user.getPhoneNumber()+" is registered");
             writeHtmlEnd(out);
         }
         else
@@ -52,10 +56,14 @@ public class RegisterUserServlet extends HttpServlet {
 
     private void writeUserToDb(RegisterUserModel user,PrintWriter out) throws SQLException, ClassNotFoundException {
         Connection db = DBUtils.getINSTANCE().getConnection(out);
-        String insertUserCommand = "insert into users (User_fullName, User_phoneNumber) values(?,?);";
+        String insertUserCommand = "insert into Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Brukernavn, Passord) values(?,?,?,?,?,?);";
         PreparedStatement statement = db.prepareStatement(insertUserCommand);
         statement.setString(1, user.getFullName());
         statement.setString(2, user.getPhoneNumber());
+        statement.setString(3, user.geteMail());
+        statement.setBoolean(4, user.getFagforbund());
+        statement.setString(5, user.getUserName());
+        statement.setString(6, user.getPassword());
 
         statement.executeUpdate();
     }
@@ -73,10 +81,10 @@ public class RegisterUserServlet extends HttpServlet {
         out.println("<input type='tel' name='phoneNumber'/>");
         out.println("<label for='email'>E-post</label> ");
         out.println("<input type='text' name='email'/>");
-        out.println("<label for='password'>Passord</label> ");
-        out.println("<input type='text' name='password'/>");
         out.println("<label for='username'>Brukernavn</label> ");
         out.println("<input type='text' name='username'/>");
+        out.println("<label for='password'>Passord</label> ");
+        out.println("<input type='password' name='password'/>");
         out.println("<input type='submit' value='Registrer bruker'/>");
         out.println("</form>");
         writeHtmlEnd(out);
@@ -103,6 +111,21 @@ public class RegisterUserServlet extends HttpServlet {
             return false;
         if(model.getPhoneNumber().trim().equalsIgnoreCase(""))
             return false;
+        if(model.geteMail()==null)
+            return false;
+        if(model.geteMail().trim().equalsIgnoreCase(""))
+            return false;
+        if(model.getFagforbund()==null)
+            return false;
+        if(model.getUserName()==null)
+            return false;
+        if(model.getUserName().trim().equalsIgnoreCase(""))
+            return false;
+        if(model.getPassword()==null)
+            return false;
+        if(model.getPassword().trim().equalsIgnoreCase(""))
+            return false;
+
         return true;
     }
 }
