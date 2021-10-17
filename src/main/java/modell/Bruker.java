@@ -1,7 +1,7 @@
 package modell;
 //Her har vi laget en modell klasse for Ansatt
 
-public class Ansatt {
+public class Bruker {
     int id;
     String navn;
     String email;
@@ -10,11 +10,11 @@ public class Ansatt {
     boolean sertifisert;
     boolean union;
 
-    public Ansatt(){
+    public Bruker(){
 
     }
 
-    public Ansatt (int id, String navn, String email, String telefon, String passord,
+    public Bruker (int id, String navn, String email, String telefon, String passord,
                    boolean sertifisert, boolean union){
         this.id = id;
         this.navn = navn;
