@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0b324;
+    background-image: url("");
+    background-size: cover;
+    font-family: sans-serif;
+
+}
+.title{
+    text-align: center;
+    padding: 50px 0 20px;
+    color: #021e46;
+}
+
+.title h1{
+    margin: 0;
+    padding: 0;
+    color: #021e46;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+.container{
+    width: 50%;
+    height: 400px;
+    background: #fff;
+    margin: 0 auto;
+    border: 2px solid #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,.5);
+}
+.container .left{
+    float: left;
+    width: 50%;
+    height: 400px;
+    background: url("https://images.squarespace-cdn.com/content/v1/5bcf4baf90f904e66e8eb8bf/1599731477060-WW5M2RLNXHXSG44ON8QB/arnfinn-surdal-amv-andersen-mekaniske-verksted.jpg?format=750w");
+    background-size: cover;
+    box-sizing: border-box;
+}
+.container .right{
+    float: right;
+    width: 50%;
+    height: 400px;
+    box-sizing: border-box;
+}
+.formBox{
+    width: 100%;
+    padding: 80px 40px;
+    box-sizing: border-box;
+    height: 400px;
+    background: #fff;
+
+}
+.formBox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: darkblue;
+}
+.formBox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.formBox input[type="text"]
+.formBox input[type="Password"]
+.formBox input[type="text"]
+{
+    border: none;
+    border-bottom: 2px solid #fff;
+    outline: none;
+    height: 40px;
+}
+.formBox input[type="text"]:focus,
+.formBox input[type="Password"]:focus
+.formBox input[type="text"]:focus
+{
+    border-bottom: 2px solid #262626;
+}
+.formBox input[type="submit"]{
+    border: none;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    background: #262626;
+    cursor: pointer;
+}
+.formBox input[type="text"]:hover{
+    background: #fff;
+}
+.formBox a{
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/*
+body{
+   margin: 0;
+   padding: 0;
+   font-family: sans-serif´, serif;
+   background-color: black;
+   height: 100vh;
+   overflow: hidden;
+  //  background-size: cover;
+}
+.box{
+   width: 300px;
+   padding: 40px;
+   pasition: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   background: #fff;
+}
+.loggInn-box{
+   width: 280px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   color: white;
+}
+.loggInn-box h1{
+   float: left;
+   font-size: 40px;
+   border-bottom: 6px solid #fff;
+   margin-bottom: 50px;
+   padding: 13px 0
+}
+.textbox{
+   width: 100%;
+   overflow: hidden;
+   font-size: 20px;
+   padding: 8px 0;
+   margin: 8px 0;
+   border-bottom: 1px solid #fff;
+}
+.textbox i{
+   width: 26px;
+   float: left;
+   text-align: center;
+}
+.textbox input{
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  font-size: 18px;
+   width: 80%;
+   float: left;
+   margin: 0 10px;
+}
+.btn {
+   width: 100%;
+   background: none;
+   border: 2px solid #fff;
+   color: white;
+   font-size: 18px;
+   padding: 15px;
+   cursor: pointer;
+   margin: 12px 0;
+}
+.remember-group{
+   position: relative;
+   margin-bottom: 20px;
+   background: none;
+}
+.remember-me{
+   position: absolute;
+   top:0;}
+.pass {
+   margin: -5px 0 20px 5px;
+   color: white;
+   cursor: pointer;
+}
+.pass:hover{
+   text-decoration: underline;
+}
+*/
