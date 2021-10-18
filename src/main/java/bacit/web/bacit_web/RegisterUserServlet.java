@@ -33,7 +33,6 @@ public class RegisterUserServlet extends HttpServlet {
         user.setPhoneNumber(request.getParameter("phoneNumber"));
         user.seteMail(request.getParameter("email"));
         user.setFagforbund(false);
-        user.setUserName(request.getParameter("username"));
         user.setPassword(request.getParameter("password"));
         PrintWriter out = response.getWriter();
         if(validateUser(user)){
@@ -56,14 +55,13 @@ public class RegisterUserServlet extends HttpServlet {
 
     private void writeUserToDb(RegisterUserModel user,PrintWriter out) throws SQLException, ClassNotFoundException {
         Connection db = DBUtils.getINSTANCE().getConnection(out);
-        String insertUserCommand = "insert into Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Brukernavn, Passord) values(?,?,?,?,?,?);";
+        String insertUserCommand = "insert into Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord) values(?,?,?,?,?);";
         PreparedStatement statement = db.prepareStatement(insertUserCommand);
         statement.setString(1, user.getFullName());
         statement.setString(2, user.getPhoneNumber());
         statement.setString(3, user.geteMail());
         statement.setBoolean(4, user.getFagforbund());
-        statement.setString(5, user.getUserName());
-        statement.setString(6, user.getPassword());
+        statement.setString(5, user.getPassword());
 
         statement.executeUpdate();
     }
@@ -81,8 +79,6 @@ public class RegisterUserServlet extends HttpServlet {
         out.println("<input type='tel' name='phoneNumber'/>");
         out.println("<label for='email'>E-post</label> ");
         out.println("<input type='text' name='email'/>");
-        out.println("<label for='username'>Brukernavn</label> ");
-        out.println("<input type='text' name='username'/>");
         out.println("<label for='password'>Passord</label> ");
         out.println("<input type='password' name='password'/>");
         out.println("<input type='submit' value='Registrer bruker'/>");
@@ -116,10 +112,6 @@ public class RegisterUserServlet extends HttpServlet {
         if(model.geteMail().trim().equalsIgnoreCase(""))
             return false;
         if(model.getFagforbund()==null)
-            return false;
-        if(model.getUserName()==null)
-            return false;
-        if(model.getUserName().trim().equalsIgnoreCase(""))
             return false;
         if(model.getPassword()==null)
             return false;

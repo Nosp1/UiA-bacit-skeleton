@@ -59,3 +59,5 @@ CREATE TABLE Reservasjoner (
 
 ALTER TABLE Brukere MODIFY COLUMN Telefonnummer VARCHAR(11);
 
+ALTER TABLE Brukere DROP COLUMN Brukernavn;
+
