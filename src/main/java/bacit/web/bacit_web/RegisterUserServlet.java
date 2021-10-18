@@ -73,12 +73,15 @@ public class RegisterUserServlet extends HttpServlet {
             out.println("<h3>"+errorMessage+"</h3>");
         }
         out.println("<form action='register_user' method='POST'>");
-        out.println("<label for='fullName'>Fullt navn</label> ");
+        out.println("<label for='fullName'>Fullt navn</label>");
         out.println("<input type='text' name='fullName'/>");
-        out.println("<label for='phoneNumber'>Telefonnummer</label> ");
+        out.println("<br>");
+        out.println("<label for='phoneNumber'>Telefonnummer</label>");
         out.println("<input type='tel' name='phoneNumber'/>");
-        out.println("<label for='email'>E-post</label> ");
+        out.println("<br>");
+        out.println("<label for='email'>E-post</label>");
         out.println("<input type='text' name='email'/>");
+        out.println("<br>");
         out.println("<label for='password'>Passord</label> ");
         out.println("<input type='password' name='password'/>");
         out.println("<input type='submit' value='Registrer bruker'/>");

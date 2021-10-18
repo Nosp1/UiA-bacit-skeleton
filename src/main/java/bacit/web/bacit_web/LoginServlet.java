@@ -11,6 +11,13 @@ import java.sql.*;
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
 
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html");
+
+        PrintWriter out = response.getWriter();
+        writeLoginForm(out,null);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
@@ -20,22 +27,42 @@ public class LoginServlet extends HttpServlet {
         String Passord = request.getParameter("Passord");
 
         if(Validate.checkUser(Telefonnummer, Passord)) {
-            RequestDispatcher rs = request.getRequestDispatcher("Velkommen");
+            RequestDispatcher rs = request.getRequestDispatcher("Welcome");
             rs.forward(request, response);
         }
         else {
             out.println("Brukernavn eller passord er feil");
-            RequestDispatcher rs = request.getRequestDispatcher("login.html");
+            RequestDispatcher rs = request.getRequestDispatcher("LoginServlet");
             rs.include(request, response);
         }
     }
-    public static boolean checkUser(String Telefonnummer, String Passord) throws SQLException, ClassNotFoundException {
-        Connection db = DBUtils.getINSTANCE().getConnection(out);
-        String insertUserCommand = "SELECT * FROM Brukere WHERE Telefonnumer=? and Passord=?;";
-        PreparedStatement statement = db.prepareStatement(insertUserCommand);
-        statement.setString(1, user.getTelefonnummer());
-        statement.setString(2, user.getPassord());
- 
-        statement.executeUpdate();
+
+    private void writeLoginForm(PrintWriter out, String errorMessage) {
+        writeHtmlStart(out, "Logg inn");
+        if(errorMessage!=null)
+        {
+            out.println("<h3>"+errorMessage+"</h3>");
+        }
+        out.println("<form action='login' method='post'/>");
+        out.println("<label for='Telefonnummer'>Telefonnummer</label>");
+        out.println("<input type='text' name='Telefonnummer'/>");
+        out.println("<label for='Passord'>Passord</label>");
+        out.println("<input type='password' name='Passord'/>");
+        out.println("<input type='submit' value='login'/>");
+        out.println("</form>");
+        writeHtmlEnd(out);
+    }
+    private void writeHtmlStart(PrintWriter out, String title) {
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<title>"+title+"</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h2>"+title+"</h2>");
+    }
+    private void writeHtmlEnd(PrintWriter out) {
+        out.println("</body>");
+        out.println("</html>");
+    }
 }
 
