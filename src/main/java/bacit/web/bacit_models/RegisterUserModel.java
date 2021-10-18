@@ -5,7 +5,6 @@ public class RegisterUserModel {
     private String phoneNumber;
     private String eMail;
     private Boolean fagforbund;
-    private String userName;
     private String password;
 
     public String getFullName() { return fullName; }
@@ -23,10 +22,6 @@ public class RegisterUserModel {
     public Boolean getFagforbund() { return fagforbund; }
 
     public void setFagforbund(Boolean fagforbund) { this.fagforbund = fagforbund; }
-
-    public String getUserName() { return userName; }
-
-    public void setUserName(String userName) { this.userName = userName; }
 
     public String getPassword() { return password; }
 
