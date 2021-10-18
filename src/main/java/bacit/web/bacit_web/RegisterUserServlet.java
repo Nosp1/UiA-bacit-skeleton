@@ -90,8 +90,8 @@ public class RegisterUserServlet extends HttpServlet {
                 "        <nav>\n" +
                 "            <ul>\n" +
                 "                <li><a href=\"http://localhost:8081/bacit-web-1.0-SNAPSHOT/product_list\">Startside</a></li>\n" +
-                "                <li><a href=\"http://localhost:8081/bacit-web-1.0-SNAPSHOT/register_user\">Cheerios</a></li>\n" +
-                "                <li class=\"current\"><a href=\"Iskaffe.html\">Iskaffe</a></li>\n" +
+                "                <li class=\"current\"><a href=\"http://localhost:8081/bacit-web-1.0-SNAPSHOT/register_user\">Cheerios</a></li>\n" +
+                "                <li><a href=\"Iskaffe.html\">Iskaffe</a></li>\n" +
                 "                <li><input type=\"text\" placeholder=\"Search..\"></li>\n" +
                 "            </ul>\n" +
                 "        </nav>\n" +
