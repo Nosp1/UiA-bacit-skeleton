@@ -13,7 +13,7 @@ docker image build -t gruppe9/tomcat .
 docker container run --rm -it -d --name tomcat --publish 8081:8080 gruppe9/tomcat
 
 echo.
-echo "Link: http://localhost:8081/bacit-web-1.0-SNAPSHOT/register_user"
+echo "Link: http://localhost:8081/bacit-web-1.0-SNAPSHOT/login"
 echo.
 
 pause
