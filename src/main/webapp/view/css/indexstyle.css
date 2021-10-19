@@ -60,8 +60,8 @@ body {
     width: 100%;
     margin-bottom: 20px;
 }
-.formBox input[type="text"]
-.formBox input[type="Password"]
+.formBox input[type="text"],
+.formBox input[type="Password"],
 .formBox input[type="text"]
 {
     border: none;
@@ -70,7 +70,7 @@ body {
     height: 40px;
 }
 .formBox input[type="text"]:focus,
-.formBox input[type="Password"]:focus
+.formBox input[type="Password"]:focus,
 .formBox input[type="text"]:focus
 {
     border-bottom: 2px solid #262626;
