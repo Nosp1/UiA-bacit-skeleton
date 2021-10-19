@@ -1,12 +1,9 @@
 package bacit.web.bacit_web;
 
-import bacit.web.bacit_models.RegisterUserModel;
-
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import java.sql.*;
 
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
@@ -49,6 +46,8 @@ public class LoginServlet extends HttpServlet {
         out.println("<label for='Passord'>Passord</label>");
         out.println("<input type='password' name='Passord'/>");
         out.println("<input type='submit' value='login'/>");
+        out.println("<br>");
+        out.println("<a href='/bacit-web-1.0-SNAPSHOT/register_user'>Registrer bruker</a>");
         out.println("</form>");
         writeHtmlEnd(out);
     }
