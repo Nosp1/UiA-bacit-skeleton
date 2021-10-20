@@ -1,4 +1,4 @@
-package main.modell.loggInn;
+package modell.loggInn;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

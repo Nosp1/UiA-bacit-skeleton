@@ -1,6 +1,8 @@
 package kontroller.servlets;
 
 import modell.loggInn.Bruker;
+;
+import modell.loggInn.BrukerDB;
 import modell.Connector;
 
 
