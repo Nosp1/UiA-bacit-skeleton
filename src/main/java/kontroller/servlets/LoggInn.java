@@ -4,6 +4,7 @@ import modell.loggInn.Bruker;
 ;
 import modell.loggInn.BrukerDB;
 import modell.Connector;
+import modell.loggInn.BrukerDB;
 
 
 import java.io.*;

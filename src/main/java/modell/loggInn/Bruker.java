@@ -98,9 +98,9 @@ public class Bruker {
                 //Pst er en måte å samle inn informasjon til query
                 PreparedStatement pst = this.con.prepareStatement(query);
                 //Vi setter string til query med data fra bruker modell metodene
-                pst.setString(1, bruker.getEpost());
+                pst.setString(1, bruker.getEmail());
                 pst.setString(2, bruker.getPassord());
-                pst.setString(3, bruker.getRettigheter());
+                pst.setBoolean(3, bruker.getSertifisert());
                 //Vi kjører så SQL query en
                 pst.executeUpdate();
                 //Ved suksess får man en bool = true slik vi kan vite det har fungert
@@ -132,9 +132,9 @@ public class Bruker {
                     //Vi lager en ny tom bruker modell, som vi så fyller ut med de underliggende kolonnene.
                     bruker = new Bruker();
                     bruker.setId(rs.getInt("BrukerID"));
-                    bruker.setEpost(rs.getString("Epost"));
+                    bruker.setEmail(rs.getString("AnsattEmail"));
                     bruker.setPassord(rs.getString("Passord"));
-                    bruker.setRettigheter(rs.getString("Rettigheter"));
+                    bruker.setSertifisert(rs.getBoolean("Rettigheter"));
 
                 }
 

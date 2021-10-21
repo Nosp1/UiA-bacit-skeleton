@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class Connector {
     private static Connection con;
 
-    public static Connection initializaDatabase()
+    public static Connection initializeDatabase()
         throws SQLException, ClassNotFoundException
     {
 
