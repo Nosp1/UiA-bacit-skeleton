@@ -1,33 +1,39 @@
 package modell;
 
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-//her har vi en klasse som brukes til å starte opp tilkoblingen til databasen
-
 public class Connector {
-    private static Connection con;
+    private static final Connector INSTANCE = new Connector();
+    static Connection connection;
 
-    public static Connection initializeDatabase()
-        throws SQLException, ClassNotFoundException
-    {
-
-        //Finner frem data om databasetilkoblingen.
-        String dbDriver = "org.mariadb.jdbc.Driver";
-        String dbURL = "jdbc:mariadb:/127.0.0.1:3308/amwDB";
-        //Navn på databasen for å få tilgang
-        String dbName = "@DockerDB";
-        String dbUsername = "root";
-        String dfPassword = "Gruppe4123";
-
-        try {
-            Class.forName(dbDriver);
-            con = DriverManager.getConnection("jdbc:mariadb://localhost3308/amwDB?user=root&password=Gruppe4123");
-
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        return con;
-        }
+    public static Connector getINSTANCE() {
+        return INSTANCE;
     }
+
+    /**
+     * Establishes a connection with a mariaDB or returns an existing one.
+     * username=root
+     * password=12345
+     * URL=jdbc:mariadb://172.17.0.1:3308/MytestDB
+     */
+
+    public Connection getConnection(PrintWriter out) throws SQLException, ClassNotFoundException {
+        Connection toReturn = null;
+        Class.forName("org.mariadb.jdbc.Driver");
+        try {
+            toReturn = (connection != null)
+                    ? connection
+                    : DriverManager.getConnection(
+                    "jdbc:mariadb://172.17.0.1:3308/MytestDB",
+                    "root",
+                    "12345");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            out.println("SQL Exception " + e);
+        }
+        return toReturn;
+    }
+}

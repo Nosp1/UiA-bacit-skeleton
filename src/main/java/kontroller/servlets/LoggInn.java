@@ -1,10 +1,10 @@
 package kontroller.servlets;
 
 import modell.loggInn.Bruker;
-;
+
 import modell.loggInn.BrukerDB;
 import modell.Connector;
-import modell.loggInn.BrukerDB;
+
 
 
 import java.io.*;
@@ -31,14 +31,14 @@ public class LoggInn extends HttpServlet {
         BrukerDB bdb = null;
         try {
             //Her initierer vi samme tomme tabell og setter den opp med en kobling til databasen
-            bdb = new BrukerDB(Connector.initializeDatabase());
+            bdb = new BrukerDB(Connector.getINSTANCE().getConnection(out));
             //Her kombinerer vi Bruker modellen med modell.loggInn.Bruker.BrukerDB modellen, slik at vi fyller en bruker med data fra DB
             Bruker bruker = bdb.logBruker(logepost, logpassord);
             //Her oppretter vi en session, slik at vi kan ta med oss dataene, og sender oss til hjem siden med disse
             if (bruker != null) {
                 HttpSession session = req.getSession();
                 session.setAttribute("logUser", bruker);
-                res.sendRedirect("view/hjem.jsp");
+                res.sendRedirect("webapp/view/hjem.jsp");
             } else {
                 //String som printes ut slik at man skjønner feilen
                 out.println("Fant ikke bruker");
