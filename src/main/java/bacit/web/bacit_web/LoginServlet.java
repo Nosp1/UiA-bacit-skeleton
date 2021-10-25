@@ -1,6 +1,11 @@
 package bacit.web.bacit_web;
 
+import bacit.web.bacit_models.HtmlGreier;
+
 import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -23,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         String Telefonnummer = request.getParameter("Telefonnummer");
         String Passord = request.getParameter("Passord");
 
-        if(Validate.checkUser(Telefonnummer, Passord, out)) {
+        if(checkUser(Telefonnummer, Passord, out)) {
             RequestDispatcher rs = request.getRequestDispatcher("Welcome");
             rs.forward(request, response);
         }
@@ -35,10 +40,9 @@ public class LoginServlet extends HttpServlet {
     }
 
     private void writeLoginForm(PrintWriter out, String errorMessage) {
-        writeHtmlStart(out, "Logg inn");
-        if(errorMessage!=null)
-        {
-            out.println("<h3>"+errorMessage+"</h3>");
+        HtmlGreier.writeHtmlStart(out, "Logg inn");
+        if (errorMessage != null) {
+            out.println("<h3>" + errorMessage + "</h3>");
         }
         out.println("<form action='login' method='post'/>");
         out.println("<label for='Telefonnummer'>Telefonnummer</label>");
@@ -49,19 +53,28 @@ public class LoginServlet extends HttpServlet {
         out.println("<br>");
         out.println("<a href='/bacit-web-1.0-SNAPSHOT/register_user'>Registrer bruker</a>");
         out.println("</form>");
-        writeHtmlEnd(out);
+        HtmlGreier.writeHtmlEnd(out);
     }
-    private void writeHtmlStart(PrintWriter out, String title) {
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>"+title+"</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h2>"+title+"</h2>");
-    }
-    private void writeHtmlEnd(PrintWriter out) {
-        out.println("</body>");
-        out.println("</html>");
+
+    public static boolean checkUser(String Telefonnummer, String Passord, PrintWriter out) {
+
+        {
+            boolean st = false;
+            try {
+
+
+                Connection con = DBUtils.getINSTANCE().getConnection(out);
+
+                PreparedStatement ps = con.prepareStatement("select * from Brukere where Telefonnummer=? || E_post and Passord=?");
+                ps.setString(1, Telefonnummer);
+                ps.setString(2, Passord);
+                ResultSet rs = ps.executeQuery();
+                st = rs.next();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return st;
+        }
     }
 }
 
