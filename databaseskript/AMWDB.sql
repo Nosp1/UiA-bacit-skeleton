@@ -1,5 +1,5 @@
-create database if not exists AMWWDB;
-use AMWWDB;
+create database if not exists AMWDB;
+use AMWDB;
 
 CREATE TABLE `Ansatt`
 (
@@ -26,6 +26,12 @@ CREATE TABLE `Booking`
     PRIMARY KEY (VerktoyID, AnsattID, BookingDatoStartID)
 
 );
+
+CREATE TABLE `VerktoyType`
+(VerktoyTypeID int PRIMARY KEY auto_increment,
+ VerktoyTypeNavn varchar(25)
+);
+
 
 CREATE TABLE `Verktoy`
 (
@@ -148,18 +154,17 @@ VALUES (9, 'Personal lift');
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
 VALUES (10, 'Motorized wheelbarrow');
 
-
 #Verktøy
 insert into Verktoy (VerktoyID, VerktoyTypeID, Tilgjenglighet, MaksDager, Gratis, Kostnad)
-VALUES (1, 1, true, 4, true, 0),
+VALUES (1, 1, FALSE, 4, true, 0),
        (2, 2, TRUE, 4, TRUE, 0),
-       (3, 3, TRUE, 4, TRUE, 0),
+       (3, 3, FALSE, 4, TRUE, 0),
        (4, 4, TRUE, 4, TRUE, 0);
 
 insert into Verktoy (VerktoyID, VerktoyTypeID, Tilgjenglighet, MaksDager, Gratis, Kostnad)
-VALUES (5, 5, TRUE, 4, TRUE, 0),
+VALUES (5, 5, FALSE, 4, FALSE, 0),
        (6, 6, TRUE, 4, TRUE, 0),
-       (7, 6, TRUE, 4, TRUE, 0),
+       (7, 7, TRUE, 4, TRUE, 0),
        (8, 8, TRUE, 4, TRUE, 0),
        (9, 9, TRUE, 4, TRUE, 0),
        (10, 10, TRUE, 4, TRUE, 0);
@@ -167,37 +172,32 @@ VALUES (5, 5, TRUE, 4, TRUE, 0),
 SELECT AnsattEmail
 FROM Ansatt
 WHERE AnsattID
-LIMIT 5;
+    LIMIT 5;
 
 SELECT Passord
 FROM Ansatt
 WHERE AnsattID
-LIMIT 5;
+    LIMIT 5;
 
 SELECT BookingDatoStartID
 FROM Booking
 WHERE AnsattID
-LIMIT 5;
+    LIMIT 5;
 
 SELECT BookingDatoSlutt
 FROM Booking
 WHERE AnsattID
-LIMIT 5;
+    LIMIT 5;
 
 SELECT VerktoyTypeNavn
 FROM VerktoyType
 WHERE VerktoyTypeID
-LIMIT 5;
+    LIMIT 5;
+
+SELECT * FROM VerktoyType;
 
 
-
-
-
-
-
-
-
-
-
+SELECT VT.VerktoyTypeID, VerktoyTypeNavn FROM Verktoy
+                                                  right join VerktoyType VT on Verktoy.VerktoyTypeID = VT.VerktoyTypeID;
 
 
