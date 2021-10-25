@@ -16,7 +16,7 @@ ul{
 }
 .button_1{
     height:33px;
-    background:#ee8844;
+    background:#ffb300;
     border:0;
     padding-left: 20px;
     padding-right: 20px;
@@ -33,17 +33,19 @@ ul{
 
 /* header*/
 header{
-    background: #1f1d50;
-    color:whitesmoke;
+    background: #ffb300;
+    color: #11165a;
     padding-top:30px;
     min-height:70px;
-    border-bottom: #ee8844 3px solid;
+    border-bottom: #11165a 3px solid;
 }
 header a{
-    color:#ffffff;
+    color:#11165a;
     text-decoration:none;
-    text-transform:uppercase;
     font-size:15px;
+}
+header .current a{
+    text-transform:uppercase;
 }
 
 header li{
@@ -54,8 +56,8 @@ header li{
 header #branding{
     float:left;
 }
-header #branding h1{
-    margin:0;
+header #branding img{
+    width:100px;
 }
 header nav{
     float:right;
@@ -71,8 +73,8 @@ nav input[type=text] {
 nav input[type=text] {
     border: 1px solid #ccc;
 }
-header .highlight, header .current a{
-    color:#ee8844;
+ header .current a{
+    color:#11165a;
     font-weight:bold;
 }
 header li:hover{
@@ -158,7 +160,7 @@ footer{
     padding:20px;
     margin-top: 20px;
     color:#ffffff;
-    background-color:#e8941d;
+    background-color:#ffb300;
     text-align: center;
 }
 
