@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
         String Telefonnummer = request.getParameter("Telefonnummer");
         String Passord = request.getParameter("Passord");
 
-        if(Validate.checkUser(Telefonnummer, Passord)) {
+        if(Validate.checkUser(Telefonnummer, Passord, out)) {
             RequestDispatcher rs = request.getRequestDispatcher("Welcome");
             rs.forward(request, response);
         }

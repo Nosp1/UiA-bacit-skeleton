@@ -61,3 +61,5 @@ ALTER TABLE Brukere MODIFY COLUMN Telefonnummer VARCHAR(11);
 
 ALTER TABLE Brukere DROP COLUMN Brukernavn;
 
+Alter TABLE Produkter ADD COLUMN Reservert BOOLEAN;
+
