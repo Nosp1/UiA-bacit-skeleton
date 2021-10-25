@@ -63,16 +63,7 @@ header nav{
     float:right;
     margin-top:10px;
 }
-nav input[type=text] {
-    float: right;
-    padding: 0;
-    border: none;
-    margin: 0;
-    font-size: 17px;
-}
-nav input[type=text] {
-    border: 1px solid #ccc;
-}
+
  header .current a{
     color:#11165a;
     font-weight:bold;
