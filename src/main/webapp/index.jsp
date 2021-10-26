@@ -22,7 +22,7 @@ GAMMEL LOGG INN KNAPP OM VI ØNSKER DETTE SYSTEMET TILBAKE
           <div class="left"></div>
           <div class="right">
                <div class="formBox">
-                    <form action="./LoggIn" mehod="post">
+                    <form action="./loggInn" method="post">
                          <p>Epost:</p>
                          <input type="text" name="email" placeholder="Skriv inn E-post">
                          <p>Passord:</p>
