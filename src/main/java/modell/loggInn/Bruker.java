@@ -4,26 +4,30 @@ package modell.loggInn;
 import java.sql.Connection;
 
 public class Bruker {
-        int id;
-        String navn;
-        String email;
-        String telefon;
-        String passord;
-        boolean sertifisert;
-        boolean union;
+        int AnsattId;
+        String AnsattFornavn;
+        String AnsattEtternavn;
+        String AnsattEmail;
+        String AnsattTlf;
+        String Passord;
+        boolean AnsattSertifsert;
+        boolean Admin;
+        boolean AnsattUnion;
 
     public Bruker(){
     }
 
-    public Bruker(int id, String navn, String email, String telefon, String passord,
-                   boolean sertifisert, boolean union) {
-        this.id = id;
-        this.navn = navn;
-        this.email = email;
-        this.telefon = telefon;
-        this.passord = passord;
-        this.sertifisert = sertifisert;
-        this.union = union;
+    public Bruker(int AnsattId, String AnsattFornavn, String AnsattEtternavn, String AnsattEmail, String AnsattTlf, String Passord,
+                   boolean AnsattSertifsert, boolean Admin, boolean AnsattUnion) {
+        this.AnsattId = AnsattId;
+        this.AnsattFornavn = AnsattFornavn;
+        this.AnsattEtternavn = AnsattEtternavn;
+        this.AnsattEmail = AnsattEmail;
+        this.AnsattTlf = AnsattTlf;
+        this.Passord = Passord;
+        this.AnsattSertifsert = AnsattSertifsert;
+        this.Admin = Admin;
+        this.AnsattUnion = AnsattUnion;
     }
 
     //gettere og settere
@@ -33,6 +37,13 @@ public class Bruker {
     }
     public void setId(int id){
         this.id = id;
+    }
+
+    public String getNavn(){
+        return navn;
+    }
+    public void setNavn(String navn){
+        this.navn = navn;
     }
 
     public String getNavn(){
@@ -71,10 +82,10 @@ public class Bruker {
     }
 
     public boolean getUnion(){
-        return union;
+        return AnsattUnion;
     }
     public void setUniont(){
-        this.union = union;
+        this.AnsattUnion = AnsattUnion;
     }
 
 

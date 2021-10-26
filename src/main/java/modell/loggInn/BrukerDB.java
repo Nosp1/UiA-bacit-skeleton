@@ -62,7 +62,7 @@ public class BrukerDB {
                 bruker.setId(rs.getInt("AnsattID"));
                 bruker.setEmail(rs.getString("AnsattEmail"));
                 bruker.setPassord(rs.getString("Passord"));
-                bruker.setSertifisert(rs.getBoolean("Rettigheter"));
+                bruker.setSertifisert(rs.getBoolean("AnsattSertifsert"));
 
             }
 
