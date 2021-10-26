@@ -13,6 +13,20 @@ CREATE TABLE Brukere (Bruker_ID integer UNIQUE auto_increment,
 
 Alter table Brukere add primary key (Bruker_ID);
 
+Alter table Brukere Add column Bruker_roller Varchar(25);
+
+CREATE INDEX Fult_navn
+    ON Brukere (Fult_navn);
+
+ALTER TABLE Brukere
+    add CONSTRAINT telefon
+        check (Telefonnummer >= 8);
+
+CREATE VIEW bruker_admin AS
+SELECT Fult_navn, Telefonnummer, E_post
+From Brukere
+where Bruker_roller = 'admin';
+
 CREATE TABLE Admin
 (
     Admin_ID  integer UNIQUE auto_increment,

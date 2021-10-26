@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(name = "registerUserServlet", value = "/User_list")
+@WebServlet(name = "userList", value = "/User_list")
 public class UserListServlet extends HttpServlet {
 
     @Override
