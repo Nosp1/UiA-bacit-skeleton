@@ -32,25 +32,25 @@ public class Bruker {
 
     //gettere og settere
 
-    public int getId(){
-        return id;
+    public int getAnsattId(){
+        return AnsattId;
     }
-    public void setId(int id){
-        this.id = id;
-    }
-
-    public String getNavn(){
-        return navn;
-    }
-    public void setNavn(String navn){
-        this.navn = navn;
+    public void setAnsattID(int AnsattId){
+        this.AnsattId = AnsattId;
     }
 
-    public String getNavn(){
-        return navn;
+    public String getAnsattFornavn(){
+        return AnsattFornavn;
     }
-    public void setNavn(String navn){
-        this.navn = navn;
+    public void setAnsattFornavn(String AnsattFornavn){
+        this.AnsattFornavn = AnsattFornavn;
+    }
+
+    public String getAnsattEtternavn(){
+        return AnsattEtternavn;
+    }
+    public void setAnsattEtternavn(String AnsattEtternavn){
+        this.AnsattEtternavn = AnsattEtternavn;
     }
 
     public String getEmail(){
@@ -77,8 +77,8 @@ public class Bruker {
     public boolean getSertifisert(){
         return sertifisert;
     }
-    public void setSertifisert(boolean sertifisert){
-        this.sertifisert = sertifisert;
+    public void setAnsattSertifsert(boolean AnsattSertifsert){
+        this.AnsattSertifsert = AnsattSertifsert;
     }
 
     public boolean getUnion(){

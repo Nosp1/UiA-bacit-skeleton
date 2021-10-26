@@ -59,10 +59,10 @@ public class BrukerDB {
                 //Denne if setningen gjelder så lenge som det er mer å hente fra rs
                 //Vi lager en ny tom bruker modell, som vi så fyller ut med de underliggende kolonnene.
                 bruker = new Bruker();
-                bruker.setId(rs.getInt("AnsattID"));
-                bruker.setEmail(rs.getString("AnsattEmail"));
+                bruker.setAnsattID(rs.getInt("AnsattID"));
+                bruker.setAnsattEmail(rs.getString("AnsattEmail"));
                 bruker.setPassord(rs.getString("Passord"));
-                bruker.setSertifisert(rs.getBoolean("AnsattSertifsert"));
+                bruker.setAnsattSertifsert(rs.getBoolean("AnsattSertifsert"));
 
             }
 
