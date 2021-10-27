@@ -1,9 +1,9 @@
-create database if not exists AMWDB;
-use AMWDB;
+create database amv;
+use amv;
 
-CREATE TABLE `Ansatt`
+CREATE TABLE Ansatt
 (
-    `AnsattID`         int,
+    `AnsattID`         int PRIMARY KEY auto_increment,
     `AnsattFornavn`    varchar(25),
     `AnsattEtternavn`  varchar(25),
     `AnsattEmail`      varchar(25),
@@ -11,39 +11,40 @@ CREATE TABLE `Ansatt`
     `Passord`          varchar(25),
     `AnsattSertifsert` boolean,
     `Admin`            boolean,
-    `AnsattUnion`      boolean,
-    PRIMARY KEY (`AnsattID`)
+    `AnsattUnion`      boolean
 );
 
-CREATE TABLE `Booking`
+
+CREATE TABLE VerktoyType
 (
-    `VerktoyID`          int,
-    `AnsattID`           int,
-    `BookingDatoStartID` varchar(25),
-    `BookingDatoSlutt`   varchar(25),
-    `Status`             int,
-    FOREIGN KEY (`AnsattID`) REFERENCES `Ansatt` (`AnsattID`),
-    PRIMARY KEY (VerktoyID, AnsattID, BookingDatoStartID)
-
-);
-
-CREATE TABLE `VerktoyType`
-(VerktoyTypeID int PRIMARY KEY auto_increment,
- VerktoyTypeNavn varchar(25)
+    VerktoyTypeID int PRIMARY KEY auto_increment,
+    VerktoyTypeNavn varchar(25)
 );
 
 
-CREATE TABLE `Verktoy`
+CREATE TABLE Verktoy
 (
-    `VerktoyID`      int,
+    `VerktoyID`      int primary key auto_increment,
     `VerktoyTypeID`  int,
     `Tilgjenglighet` boolean,
     `MaksDager`      int,
     `Gratis`         boolean,
     `Kostnad`        int,
-    PRIMARY KEY (`VerktoyID`),
-    FOREIGN KEY (`VerktoyTypeID`) REFERENCES `VerktoyType` (`VerktoyTypeID`),
-    FOREIGN KEY (`VerktoyID`) REFERENCES `Booking` (`AnsattID`)
+    FOREIGN KEY (`VerktoyTypeID`) REFERENCES VerktoyType (`VerktoyTypeID`)
+);
+
+CREATE TABLE Booking
+(
+    `BookingID`          int PRIMARY KEY auto_increment,
+    `VerktoyID`          int,
+    `AnsattID`           int,
+    `BookingDatoStartID` varchar(25),
+    `BookingDatoSlutt`   varchar(25),
+    `Status`             int,
+    FOREIGN KEY (`AnsattID`) REFERENCES Ansatt (`AnsattID`),
+    FOREIGN KEY (`VerktoyID`) REFERENCES Verktoy (`VerktoyID`)
+
+
 );
 
 #Ansatt
@@ -88,40 +89,6 @@ insert into Ansatt (AnsattID, AnsattFornavn, AnsattEtternavn, AnsattEmail, Ansat
                     AnsattUnion)
 VALUES (10, 'Jakob', 'Varhaug', 'jakobvar@gmail.com', '67800456', '20017', TRUE, FALSE, TRUE);
 
-
-#Booking
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (1, 1, '01.01.2021', '04.01.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (2, 2, '01.08.2021', '04.08.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (3, 3, '01.09.2021', '04.09.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (4, 4, '01.10.2021', '04.10.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (5, 5, '01.02.2021', '04.02.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (6, 6, '01.03.2021', '04.03.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (7, 7, '01.04.2021', '04.04.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (8, 8, '01.05.2021', '04.05.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (9, 9, '01.05.2021', '04.05.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (10, 10, '01.05.2021', '04.05.2021', 1);
-
-
 #VerktøyType
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
@@ -154,6 +121,7 @@ VALUES (9, 'Personal lift');
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
 VALUES (10, 'Motorized wheelbarrow');
 
+
 #Verktøy
 insert into Verktoy (VerktoyID, VerktoyTypeID, Tilgjenglighet, MaksDager, Gratis, Kostnad)
 VALUES (1, 1, FALSE, 4, true, 0),
@@ -169,35 +137,71 @@ VALUES (5, 5, FALSE, 4, FALSE, 0),
        (9, 9, TRUE, 4, TRUE, 0),
        (10, 10, TRUE, 4, TRUE, 0);
 
+
+#Booking
+
+insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status) values
+    (1, 1, '01.01.2021', '04.01.2021', 1);
+
+insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
+VALUES (2, 1, '01.08.2021', '04.08.2021', 1);
+
+insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
+VALUES (3, 1, '01.09.2021', '04.09.2021', 1);
+
+insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
+VALUES (4, 2, '01.10.2021', '04.10.2021', 1);
+
+insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
+VALUES (5, 2, '01.02.2021', '04.02.2021', 1);
+
+insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
+VALUES (6, 2, '01.03.2021', '04.03.2021', 1);
+
+insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
+VALUES (7, 2, '01.04.2021', '04.04.2021', 1);
+
+insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
+VALUES (8, 3, '01.05.2021', '04.05.2021', 1);
+
+insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
+VALUES (9, 9, '01.05.2021', '04.05.2021', 1);
+
+insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
+VALUES (10, 10, '01.05.2021', '04.05.2021', 1);
+
+
+
 SELECT AnsattEmail
 FROM Ansatt
 WHERE AnsattID
-    LIMIT 5;
+LIMIT 5;
 
 SELECT Passord
 FROM Ansatt
 WHERE AnsattID
-    LIMIT 5;
+LIMIT 5;
 
 SELECT BookingDatoStartID
 FROM Booking
 WHERE AnsattID
-    LIMIT 5;
+LIMIT 5;
 
 SELECT BookingDatoSlutt
 FROM Booking
 WHERE AnsattID
-    LIMIT 5;
+LIMIT 5;
 
 SELECT VerktoyTypeNavn
 FROM VerktoyType
 WHERE VerktoyTypeID
-    LIMIT 5;
+LIMIT 5;
 
-SELECT * FROM VerktoyType;
+SELECT VerktoyID, VerktoyTypeNavn, Tilgjenglighet
+FROM Verktoy
+         INNER JOIN VerktoyType ON Verktoy.VerktoyTypeID = VerktoyType.VerktoyTypeID
+WHERE Tilgjenglighet = TRUE;
 
 
-SELECT VT.VerktoyTypeID, VerktoyTypeNavn FROM Verktoy
-                                                  right join VerktoyType VT on Verktoy.VerktoyTypeID = VT.VerktoyTypeID;
-
-
+SELECT AnsattFornavn, AnsattEtternavn, count(Booking.AnsattID = A.AnsattID)
+from Booking inner join Ansatt A on Booking.AnsattID = A.AnsattID group by A.AnsattID order by count(A.AnsattID) DESC LIMIT 3

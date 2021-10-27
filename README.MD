@@ -37,7 +37,7 @@ Compile and pacakge source code with maven in docker.
 
 ##### 4. Enter the database and create the database and table for this skeleton:    
 `docker exec -it mariadb mysql -p`    
-When prompted enter the password (`12345`), then type or copy in the SQL from [this file](databaseskript/AMVDB.sql) (line by line).
+When prompted enter the password (`12345`), then type or copy in the SQL from [this file](databaseskript/amv.sql) (line by line).
 
 ##### 5. Test out the skeleton at http://localhost:8081/bacit-web-1.0-SNAPSHOT/
 

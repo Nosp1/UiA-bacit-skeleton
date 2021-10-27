@@ -30,7 +30,7 @@ public class Bruker {
         this.AnsattUnion = AnsattUnion;
     }
 
-    //gettere og settere
+    /*gettere og settere
 
     public int getAnsattId(){
         return AnsattId;
@@ -87,7 +87,7 @@ public class Bruker {
     public void setUniont(){
         this.AnsattUnion = AnsattUnion;
     }
-
+*/
 
     public static class BrukerDB {
         //Con er for tilknyttning til DB
