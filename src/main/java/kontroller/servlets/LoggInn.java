@@ -38,7 +38,7 @@ public class LoggInn extends HttpServlet {
             if (bruker != null) {
                 HttpSession session = req.getSession();
                 session.setAttribute("logUser", bruker);
-                res.sendRedirect("webapp/view/hjem.jsp");
+                res.sendRedirect("view/hjem.jsp");
             } else {
                 //String som printes ut slik at man skjønner feilen
                 out.println("Fant ikke bruker");

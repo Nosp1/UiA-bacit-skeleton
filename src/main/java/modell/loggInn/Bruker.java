@@ -14,8 +14,6 @@ public class Bruker {
         boolean Admin;
         boolean AnsattUnion;
 
-    public Bruker(){
-    }
 
     public Bruker(int AnsattId, String AnsattFornavn, String AnsattEtternavn, String AnsattEmail, String AnsattTlf, String Passord,
                    boolean AnsattSertifsert, boolean Admin, boolean AnsattUnion) {
@@ -30,73 +28,80 @@ public class Bruker {
         this.AnsattUnion = AnsattUnion;
     }
 
-    /*gettere og settere
+    public Bruker() {
 
-    public int getAnsattId(){
+    }
+
+
+    public int getAnsattId() {
         return AnsattId;
     }
-    public void setAnsattID(int AnsattId){
-        this.AnsattId = AnsattId;
+
+    public void setAnsattId(int ansattId) {
+        AnsattId = ansattId;
     }
 
-    public String getAnsattFornavn(){
+    public String getAnsattFornavn() {
         return AnsattFornavn;
     }
-    public void setAnsattFornavn(String AnsattFornavn){
-        this.AnsattFornavn = AnsattFornavn;
+
+    public void setAnsattFornavn(String ansattFornavn) {
+        AnsattFornavn = ansattFornavn;
     }
 
-    public String getAnsattEtternavn(){
+    public String getAnsattEtternavn() {
         return AnsattEtternavn;
     }
-    public void setAnsattEtternavn(String AnsattEtternavn){
-        this.AnsattEtternavn = AnsattEtternavn;
+
+    public void setAnsattEtternavn(String ansattEtternavn) {
+        AnsattEtternavn = ansattEtternavn;
     }
 
-    public String getEmail(){
-        return email;
-    }
-    public void setEmail(String email){
-        this.email = email;
+    public String getAnsattEmail() {
+        return AnsattEmail;
     }
 
-    public String getTelefon(){
-        return telefon;
-    }
-    public void setTelefon(String telefon){
-        this.telefon = telefon;
+    public void setAnsattEmail(String ansattEmail) {
+        AnsattEmail = ansattEmail;
     }
 
-    public String getPassord(){
-        return passord;
-    }
-    public void setPassord(String passord){
-        this.passord = passord;
+    public String getAnsattTlf() {
+        return AnsattTlf;
     }
 
-    public boolean getSertifisert(){
-        return sertifisert;
-    }
-    public void setAnsattSertifsert(boolean AnsattSertifsert){
-        this.AnsattSertifsert = AnsattSertifsert;
+    public void setAnsattTlf(String ansattTlf) {
+        AnsattTlf = ansattTlf;
     }
 
-    public boolean getUnion(){
+    public String getPassord() {
+        return Passord;
+    }
+
+    public void setPassord(String passord) {
+        Passord = passord;
+    }
+
+    public boolean isAnsattSertifsert() {
+        return AnsattSertifsert;
+    }
+
+    public void setAnsattSertifsert(boolean ansattSertifsert) {
+        AnsattSertifsert = ansattSertifsert;
+    }
+
+    public boolean isAdmin() {
+        return Admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        Admin = admin;
+    }
+
+    public boolean isAnsattUnion() {
         return AnsattUnion;
     }
-    public void setUniont(){
-        this.AnsattUnion = AnsattUnion;
-    }
-*/
 
-    public static class BrukerDB {
-        //Con er for tilknyttning til DB
-        Connection con;
-
-        //Lager en Bruker DB med en tilkobling til DB
-        public BrukerDB(Connection con) {
-            this.con = con;
-        }
-
+    public void setAnsattUnion(boolean ansattUnion) {
+        AnsattUnion = ansattUnion;
     }
 }

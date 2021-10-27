@@ -26,9 +26,9 @@ public class BrukerDB {
             //Pst er en måte å samle inn informasjon til query
             PreparedStatement pst = this.con.prepareStatement(query);
             //Vi setter string til query med data fra bruker modell metodene
-            pst.setString(1, bruker.getEmail());
+            pst.setString(1, bruker.getAnsattEmail());
             pst.setString(2, bruker.getPassord());
-            pst.setBoolean(3, bruker.getSertifisert());
+            pst.setBoolean(3, bruker.isAnsattSertifsert());
             //Vi kjører så SQL query en
             pst.executeUpdate();
             //Ved suksess får man en bool = true slik vi kan vite det har fungert
@@ -46,7 +46,7 @@ public class BrukerDB {
         Bruker bruker=null;
         try{
             //Setter opp en spørring for å få ut resultater fra DB i hendhold til gitte parametre
-            String query ="SELECT * FROM Brukere WHERE Epost=? AND Passord=?";
+            String query ="SELECT * FROM Ansatt WHERE AnsattEmail=? AND Passord=?";
             //Vi har så en PreperedStatement som håndterer spørringens knyttning til DB
             PreparedStatement pt = this.con.prepareStatement(query);
             //Under setter finner man våre to parametere og setter dem ved hjelp fra pt
@@ -59,7 +59,7 @@ public class BrukerDB {
                 //Denne if setningen gjelder så lenge som det er mer å hente fra rs
                 //Vi lager en ny tom bruker modell, som vi så fyller ut med de underliggende kolonnene.
                 bruker = new Bruker();
-                bruker.setAnsattID(rs.getInt("AnsattID"));
+                bruker.setAnsattId(rs.getInt("AnsattID"));
                 bruker.setAnsattEmail(rs.getString("AnsattEmail"));
                 bruker.setPassord(rs.getString("Passord"));
                 bruker.setAnsattSertifsert(rs.getBoolean("AnsattSertifsert"));

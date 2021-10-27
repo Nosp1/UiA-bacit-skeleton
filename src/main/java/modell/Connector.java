@@ -13,12 +13,6 @@ public class Connector {
         return INSTANCE;
     }
 
-    /**
-     * Establishes a connection with a mariaDB or returns an existing one.
-     * username=root
-     * password=12345
-     * URL=jdbc:mariadb://172.17.0.1:3308/MytestDB
-     */
 
     public Connection getConnection(PrintWriter out) throws SQLException, ClassNotFoundException {
         Connection toReturn = null;
@@ -27,7 +21,7 @@ public class Connector {
             toReturn = (connection != null)
                     ? connection
                     : DriverManager.getConnection(
-                    "jdbc:mariadb://172.17.0.1:3308/MytestDB",
+                    "jdbc:mariadb://172.17.0.1:3308/amv",
                     "root",
                     "12345");
         } catch (SQLException e) {
