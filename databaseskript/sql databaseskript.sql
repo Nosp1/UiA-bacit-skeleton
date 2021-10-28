@@ -84,7 +84,15 @@ where reservasjoner.reserasjon_dato_til < reservasjoner.dato_now And brukes = 1;
 
 select Produkt_navn, Kategori from Produkter;
 
+select Fult_navn,
+       count(Reservasjon_ID) from Brukere inner join Reservasjoner on Brukere.Bruker_ID=Reservasjoner.Bruker_ID
+       group by Fult_navn order by count(Reservasjon_ID) desc limit 3;
 
+select * from Reservasjoner
+WHERE
+        Bruker_ID = (select Brukere.Bruker_ID from Brukere inner join Reservasjoner on Brukere.Bruker_ID=Reservasjoner.Bruker_ID
+        group by Fult_navn order by count(Produkt_ID) desc limit 1)
+        order by Reservasjon_dato_fra DESC;
 
 
 
