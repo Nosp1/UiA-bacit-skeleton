@@ -70,6 +70,8 @@ SELECT (Produkt_navn, Beskrivelse, Bilde) FROM Produkter AS P_info;
 SELECT * FROM Brukere, Produkter, Kurs, Pris, Reservasjoner
 LIMIT 5;
 
+select Produkt_navn from Produkter where brukes = 0;
+
 
 
 
