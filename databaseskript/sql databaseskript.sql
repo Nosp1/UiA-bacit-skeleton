@@ -87,6 +87,13 @@ SELECT (Produkt_navn, Beskrivelse, Bilde) FROM Produkter AS P_info;
 SELECT * FROM Brukere, Produkter, Kurs, Pris, Reservasjoner
 LIMIT 5;
 
+Select Produkt_navn from Produkter where brukes = 1;
+
+Select fult_navn from brukere inner join reservasjoner on brukere.bruker_id = reservasjoner.bruker_id
+inner join produkter on Reservasjoner.Produkt_ID = Produkter.Produkt_ID
+where reservasjoner.reserasjon_dato_til < reservasjoner.dato_now And brukes = 1;
+
+ALTER Table reservasjoner Add column dato_now datetime default now();
 
 
 

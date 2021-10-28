@@ -14,6 +14,11 @@ ul{
     margin:0;
     padding:0;
 }
+
+ul1{
+    margin:0;
+    padding:0;
+}
 .button_1{
     height:33px;
     background:#ffb300;
@@ -186,4 +191,5 @@ footer{
         width:100%;
         margin-bottom:5px;
     }
+
 }
