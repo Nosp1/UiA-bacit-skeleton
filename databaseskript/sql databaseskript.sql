@@ -134,33 +134,20 @@ INSERT INTO Gruppe9.Kursbevis (Kurs_ID, Bruker_ID, Kurs_dato)
 VALUES
 (1, 2, '2014-06-12'),
 (1, 3, '2017-05-14'),
-(1, 4, '2019-10-31');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato) VALUES (5, '2014-01-13');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (6, '2010-11-24');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (7, '2019-12-15');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (8, '1990-07-17');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (9, '1998-02-28');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (10, '2017-09-13');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (9, '2019-10-06');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (3, '2018-01-17');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (6, '2018-05-26');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (10, '2017-10-03');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (10, '2014-06-02');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (6, '2018-11-16');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (6, '2013-02-22');
+(1, 4, '2019-10-31'),
+(1, 5, '2014-01-13'),
+(1, 6, '2010-11-24'),
+(1, 7, '2019-12-15'),
+(1, 8, '1990-07-17'),
+(1, 9, '1998-02-28'),
+(1, 10, '2017-09-13'),
+(2, 9, '2019-10-06'),
+(2, 3, '2018-01-17'),
+(2, 6, '2018-05-26'),
+(3, 10, '2017-10-03'),
+(4, 10, '2014-06-02'),
+(3, 6, '2018-11-16'),
+(4, 6, '2013-02-22');
 
 INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10002, 'Liten Drill', 'Små Verktøy', null, 10, 0);
 
