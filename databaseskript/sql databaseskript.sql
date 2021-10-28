@@ -81,6 +81,7 @@ on brukere.bruker_id = reservasjoner.bruker_id
 inner join produkter on Reservasjoner.Produkt_ID = Produkter.Produkt_ID
 where reservasjoner.reserasjon_dato_til < reservasjoner.dato_now And brukes = 1;
 
+select Produkt_navn, Kategori from Produkter;
 
 
 
