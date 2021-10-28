@@ -137,16 +137,16 @@ VALUES
 (4, 6, '2013-02-22');
 
 INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES
-(10002, 'Liten Drill', 'Små Verktøy', null, 10, 0),
-(10002, 'Liten Drill', 'Små Verktøy', null, 10, 1),
-(10003, 'Tilhenger(Liten)', 'Transport', null, 10, 0),
-(10004, 'Tillhenger (Stor)', 'Transport', null, 10, 1),
-(10005, 'Lyft', 'Maskiner', null, 10, 1),
-(10006, 'Dekkskiftemaskin', 'Maskiner', null, 10, 0),
-(10007, 'Slagdrill', 'Små Verktøy', null, 10, 1),
-(10008, 'Jekktralle', 'Transport', null, 10, 0),
-(10009, 'Verktøykasse', 'Små Verktøy', null, 10, 1),
-(10010, 'Sementmikser', 'Maskiner', null, 10, 0);
+(10002, 'Liten Drill', 'Små Verktøy', null, 2, 0),
+(10002, 'Liten Drill', 'Små Verktøy', null, 2, 1),
+(10003, 'Tilhenger(Liten)', 'Transport', null, 3, 0),
+(10004, 'Tillhenger (Stor)', 'Transport', null, 4, 1),
+(10005, 'Lyft', 'Maskiner', null, 4, 1),
+(10006, 'Dekkskiftemaskin', 'Maskiner', null, 4, 0),
+(10007, 'Slagdrill', 'Små Verktøy', null, 2, 1),
+(10008, 'Jekktralle', 'Transport', null, 2, 0),
+(10009, 'Verktøykasse', 'Små Verktøy', null, 2, 1),
+(10010, 'Sementmikser', 'Maskiner', null, 2, 0);
 
 INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES
 (1, 1, '2021-10-26', '2021-10-29'),
