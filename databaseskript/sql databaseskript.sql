@@ -161,13 +161,15 @@ INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (6, '2018-
 
 INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (6, '2013-02-22');
 
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10002, 'Liten Drill', 'Små Verktøy', null, 10, 0);
+
 INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10002, 'Liten Drill', 'Små Verktøy', null, 10, 1);
 
 INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10003, 'Tilhenger(Liten)', 'Transport', null, 10, 0);
 
 INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10004, 'Tillhenger (Stor)', 'Transport', null, 10, 1);
 
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10005, 'Lyft', 'Maskiner', null, 10, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10005, 'Lyft', 'Maskiner', null, 10, 1);
 
 INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10006, 'Dekkskiftemaskin', 'Maskiner', null, 10, 0);
 
