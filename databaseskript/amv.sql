@@ -197,6 +197,10 @@ FROM VerktoyType
 WHERE VerktoyTypeID
 LIMIT 5;
 
+select VerktoyTypeNavn, VerktoyID
+from VerktoyType
+inner join Verktoy V on VerktoyType.VerktoyTypeID = V.VerktoyTypeID;
+
 SELECT VerktoyID, VerktoyTypeNavn, Tilgjenglighet
 FROM Verktoy
          INNER JOIN VerktoyType ON Verktoy.VerktoyTypeID = VerktoyType.VerktoyTypeID
@@ -204,4 +208,35 @@ WHERE Tilgjenglighet = TRUE;
 
 
 SELECT AnsattFornavn, AnsattEtternavn, count(Booking.AnsattID = A.AnsattID)
-from Booking inner join Ansatt A on Booking.AnsattID = A.AnsattID group by A.AnsattID order by count(A.AnsattID) DESC LIMIT 3
+from Booking inner join Ansatt A on Booking.AnsattID = A.AnsattID group by A.AnsattID order by count(A.AnsattID) DESC LIMIT 3;
+
+SELECT a.AnsattFornavn, VT.VerktoyTypeNavn, b.BookingDatoStartID
+FROM Booking b
+INNER JOIN Ansatt a on b.AnsattID = a.AnsattID
+INNER JOIN Verktoy t on b.VerktoyID = t.VerktoyID
+INNER JOIN VerktoyType VT on t.VerktoyTypeID = VT.VerktoyTypeID
+WHERE b.AnsattID  = (
+    SELECT AnsattID
+    FROM Booking
+    GROUP BY AnsattID
+    ORDER BY COUNT(AnsattID) DESC LIMIT 1
+    )
+ORDER BY b.BookingDatoStartID;
+
+SELECT VerktoyID, VerktoyTypeNavn, Tilgjenglighet
+from Verktoy
+inner join VerktoyType ON Verktoy.VerktoyTypeID = VerktoyType.VerktoyTypeID
+where Tilgjenglighet = false;
+
+select booking.VerktoyID,verktoytypenavn, booking.AnsattID, AnsattFornavn, AnsattEtternavn, 'status'
+from Booking
+inner join Ansatt A on Booking.AnsattID = A.AnsattID
+inner join Verktoy v on booking.VerktoyID = v.VerktoyID
+inner join VerktoyType VT on VT.VerktoyTypeID = v.VerktoyTypeID
+
+where status = 0 and current_date > BookingDatoSlutt;
+
+
+
+
+
