@@ -161,25 +161,25 @@ INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (6, '2018-
 
 INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (6, '2013-02-22');
 
-INSERT INTO Gruppe9.Produkter (Produkt_navn, Kategori, Beskrivelse, Bilde, Kurs_ID, PRIS_ID, Brukes) VALUES ('Liten Drill', 'Liten Drill til hjemmeoppussing', 'Små verktøy', null, 5, 1, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10001, 'Liten Drill', 'Små verktøy', null, 10, null);
 
-INSERT INTO Gruppe9.Produkter (Produkt_navn, Kategori, Beskrivelse, Bilde, Kurs_ID, PRIS_ID, Brukes) VALUES ('Liten Drill', 'Liten Drill til hjemmeoppussing', 'Små Verktøy', null, 5, 1, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10002, 'Liten Drill', 'Små Verktøy', null, 10, 1);
 
-INSERT INTO Gruppe9.Produkter (Produkt_navn, Kategori, Beskrivelse, Bilde, Kurs_ID, PRIS_ID, Brukes) VALUES ('Tilhenger(Liten)', 'Liten tilhenger for transport', 'Transport', null, 2, 2, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10003, 'Tilhenger(Liten)', 'Transport', null, 10, 0);
 
-INSERT INTO Gruppe9.Produkter (Produkt_navn, Kategori, Beskrivelse, Bilde, Kurs_ID, PRIS_ID, Brukes) VALUES ('Tillhenger (Stor)', 'Stor tilhenger for transport', 'Transport', null, 2, 3, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10004, 'Tillhenger (Stor)', 'Transport', null, 10, 1);
 
-INSERT INTO Gruppe9.Produkter (Produkt_navn, Kategori, Beskrivelse, Bilde, Kurs_ID, PRIS_ID, Brukes) VALUES ('Lyft', 'Maskiner', 'Lyft 12M høy til utebruk', null, 3, 4, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10005, 'Lyft', 'Maskiner', null, 10, null);
 
-INSERT INTO Gruppe9.Produkter (Produkt_navn, Kategori, Beskrivelse, Bilde, Kurs_ID, PRIS_ID, Brukes) VALUES ('Dekkskiftemaskin', 'Maskin for dekkskift', 'Maskiner', null, 5, 4, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10006, 'Dekkskiftemaskin', 'Maskiner', null, 10, 0);
 
-INSERT INTO Gruppe9.Produkter (Produkt_navn, Kategori, Beskrivelse, Bilde, Kurs_ID, PRIS_ID, Brukes) VALUES ('Slagdrill', 'Små Verktøy', 'Drill for borring i mur', null, 5, 1, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10007, 'Slagdrill', 'Små Verktøy', null, 10, 1);
 
-INSERT INTO Gruppe9.Produkter (Produkt_navn, Kategori, Beskrivelse, Bilde, Kurs_ID, PRIS_ID, Brukes) VALUES ('Jekktralle', 'Transport', 'jekk for flytting av paller', null, 5, 2, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10008, 'Jekktralle', 'Transport', null, 10, 0);
 
-INSERT INTO Gruppe9.Produkter (Produkt_navn, Kategori, Beskrivelse, Bilde, Kurs_ID, PRIS_ID, Brukes) VALUES ('Verktøykasse', 'Små Verktøy', 'Verktøykasse med hammer, skrutrekker og bits', null, 5, 1, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10009, 'Verktøykasse', 'Små Verktøy', null, 10, 1);
 
-INSERT INTO Gruppe9.Produkter (Produkt_navn, Kategori, Beskrivelse, Bilde, Kurs_ID, PRIS_ID, Brukes) VALUES ('Sementmikser', 'Maskiner', 'Maskin for miksing av sement', null, 5,  3, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10010, 'Sementmikser', 'Maskiner', null, 10, 0);
 
 INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (1, 1, '2021-10-26', '2021-10-29');
 
