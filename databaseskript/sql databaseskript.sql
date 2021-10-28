@@ -94,6 +94,8 @@ WHERE
         group by Fult_navn order by count(Produkt_ID) desc limit 1)
         order by Reservasjon_dato_fra DESC;
 
+Delete from Produkter where Produkt_ID=10001;
+
 
 
 
