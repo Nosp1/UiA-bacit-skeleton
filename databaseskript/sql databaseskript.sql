@@ -92,43 +92,30 @@ select Produkt_navn, Kategori from Produkter;
 
 
 
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES ('Nora Fure', '+4777366390', 'Nora@Epost.com', 1, '123', 'Bruker');
+INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES
+('Nora Fure', '+4777366390', 'Nora@Epost.com', 1, '123', 'Bruker'),
+('Hernik Roed', '+4789771324', 'Henrik@Epost.com', 0, '1234', 'Admin'),
+('Mads Teland', '+4790001982', 'Mads@Epost.com', 0, '12345', 'Bruker'),
+('Emanuel Minak', '+4724524372', 'Emanuel@Epost.com', 1, '123456', 'Bruker'),
+('Knut Norwegian', '+4775312387', 'Knut@Epost.com', 1, '654321', 'Admin'),
+('Roald Peroson', '+4783928173', 'Roald@Epost.com', 0, '54321', 'Bruker'),
+('Frida Karlsen', '+4712763521', 'Frida@Epost.com', 0, '4321', 'Bruker'),
+('Ingrid Benthus', '+4721379862', 'Ingrid@Epost.com', 1, '321', 'Bruker'),
+('Roar Klippestad', '+4721875362', 'Roar@Epost.com', 0, 'Passord', 'Admin'),
+('Henning Sletner', '+4746897309', 'Henning@Epost.com', 1, '1234567', 'Bruker');
 
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES ('Hernik Roed', '+4789771324', 'Henrik@Epost.com', 0, '1234', 'Admin');
+INSERT INTO Gruppe9.Pris (Pris) VALUES
+(0),
+(50),
+(100),
+(150);
 
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES ('Mads Teland', '+4790001982', 'Mads@Epost.com', 0, '12345', 'Bruker');
-
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES ('Emanuel Minak', '+4724524372', 'Emanuel@Epost.com', 1, '123456', 'Bruker');
-
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES ('Knut Norwegian', '+4775312387', 'Knut@Epost.com', 1, '654321', 'Admin');
-
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES ('Roald Peroson', '+4783928173', 'Roald@Epost.com', 0, '54321', 'Bruker');
-
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES ('Frida Karlsen', '+4712763521', 'Frida@Epost.com', 0, '4321', 'Bruker');
-
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES ('Ingrid Benthus', '+4721379862', 'Ingrid@Epost.com', 1, '321', 'Bruker');
-
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES ('Roar Klippestad', '+4721875362', 'Roar@Epost.com', 0, 'Passord', 'Admin');
-
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES ('Henning Sletner', '+4746897309', 'Henning@Epost.com', 1, '1234567', 'Bruker');
-
-INSERT INTO Gruppe9.Pris (Pris) VALUES (0);
-
-INSERT INTO Gruppe9.Pris (Pris) VALUES (50);
-
-INSERT INTO Gruppe9.Pris (Pris) VALUES (100);
-
-INSERT INTO Gruppe9.Pris (Pris) VALUES (150);
-
-INSERT INTO Gruppe9.Kurs (Kurs_navn) VALUES ('Førerkort klasse B');
-
-INSERT INTO Gruppe9.Kurs (Kurs_navn) VALUES ('Tillhengerbevis B96');
-
-INSERT INTO Gruppe9.Kurs (Kurs_navn) VALUES ('Kranbevis G4');
-
-INSERT INTO Gruppe9.Kurs (Kurs_navn) VALUES ('Kranbevis G20');
-
-INSERT INTO Gruppe9.Kurs (Kurs_navn) VALUES ('Krever ikke kurs');
+INSERT INTO Gruppe9.Kurs (Kurs_navn) VALUES
+('Førerkort klasse B'),
+('Tillhengerbevis B96'),
+('Kranbevis G4'),
+('Kranbevis G20'),
+('Krever ikke kurs');
 
 INSERT INTO Gruppe9.Kursbevis (Kurs_ID, Bruker_ID, Kurs_dato)
 VALUES
@@ -149,44 +136,28 @@ VALUES
 (3, 6, '2018-11-16'),
 (4, 6, '2013-02-22');
 
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10002, 'Liten Drill', 'Små Verktøy', null, 10, 0);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES
+(10002, 'Liten Drill', 'Små Verktøy', null, 10, 0),
+(10002, 'Liten Drill', 'Små Verktøy', null, 10, 1),
+(10003, 'Tilhenger(Liten)', 'Transport', null, 10, 0),
+(10004, 'Tillhenger (Stor)', 'Transport', null, 10, 1),
+(10005, 'Lyft', 'Maskiner', null, 10, 1),
+(10006, 'Dekkskiftemaskin', 'Maskiner', null, 10, 0),
+(10007, 'Slagdrill', 'Små Verktøy', null, 10, 1),
+(10008, 'Jekktralle', 'Transport', null, 10, 0),
+(10009, 'Verktøykasse', 'Små Verktøy', null, 10, 1),
+(10010, 'Sementmikser', 'Maskiner', null, 10, 0);
 
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10002, 'Liten Drill', 'Små Verktøy', null, 10, 1);
-
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10003, 'Tilhenger(Liten)', 'Transport', null, 10, 0);
-
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10004, 'Tillhenger (Stor)', 'Transport', null, 10, 1);
-
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10005, 'Lyft', 'Maskiner', null, 10, 1);
-
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10006, 'Dekkskiftemaskin', 'Maskiner', null, 10, 0);
-
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10007, 'Slagdrill', 'Små Verktøy', null, 10, 1);
-
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10008, 'Jekktralle', 'Transport', null, 10, 0);
-
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10009, 'Verktøykasse', 'Små Verktøy', null, 10, 1);
-
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES (10010, 'Sementmikser', 'Maskiner', null, 10, 0);
-
-INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (1, 1, '2021-10-26', '2021-10-29');
-
-INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (2, 2, '2021-10-05', '2021-10-07');
-
-INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (5, 7, '2021-11-09', '2021-11-11');
-
-INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (9, 1, '2021-10-26', '2021-10-29');
-
-INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (10, 9, '2021-12-27', '2021-12-29');
-
-INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (4, 2, '2021-10-01', '2021-10-03');
-
-INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (6, 1, '2021-10-29', '2021-10-31');
-
-INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (8, 5, '2021-10-27', '2021-10-30');
-
-INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (8, 7, '2022-01-14', '2022-01-15');
-
-INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES (4, 3, '2021-06-10', '2021-06-13');
+INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES
+(1, 1, '2021-10-26', '2021-10-29'),
+(2, 2, '2021-10-05', '2021-10-07'),
+(5, 7, '2021-11-09', '2021-11-11'),
+(9, 1, '2021-10-26', '2021-10-29'),
+(10, 9, '2021-12-27', '2021-12-29'),
+(4, 2, '2021-10-01', '2021-10-03'),
+(6, 1, '2021-10-29', '2021-10-31'),
+(8, 5, '2021-10-27', '2021-10-30'),
+(8, 7, '2022-01-14', '2022-01-15'),
+(4, 3, '2021-06-10', '2021-06-13');
 
 
