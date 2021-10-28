@@ -33,9 +33,10 @@ Create table Kurs (
                       PRIMARY KEY (Kurs_ID));
 
 CREATE TABLE Kursbevis (
-                      Kurs_ID integer UNIQUE auto_increment,
+                      Kurs_ID integer,
                       Bruker_ID INTEGER,
-                      Kurs_dato_fullført DATE,
+                      Kurs_dato DATE,
+                      PRIMARY KEY (Kurs_ID, Bruker_ID),
                       FOREIGN KEY (Kurs_ID) REFERENCES Kurs(Kurs_ID),
                       FOREIGN KEY (Bruker_ID) REFERENCES Brukere(Bruker_ID));
 
@@ -118,13 +119,13 @@ INSERT INTO Gruppe9.Kurs (Kurs_navn) VALUES ('Kranbevis G20');
 
 INSERT INTO Gruppe9.Kurs (Kurs_navn) VALUES ('Krever ikke kurs');
 
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (2, '2014-06-12');
+INSERT INTO Gruppe9.Kursbevis (Kurs_ID, Bruker_ID, Kurs_dato)
+VALUES
+(1, 2, '2014-06-12'),
+(1, 3, '2017-05-14'),
+(1, 4, '2019-10-31');
 
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (3, '2017-05-14');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (4, '2019-10-31');
-
-INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (5, '2014-01-13');
+INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato) VALUES (5, '2014-01-13');
 
 INSERT INTO Gruppe9.Kursbevis (Bruker_ID, Kurs_dato_fullført) VALUES (6, '2010-11-24');
 
