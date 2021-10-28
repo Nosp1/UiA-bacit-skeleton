@@ -72,6 +72,14 @@ LIMIT 5;
 
 select Produkt_navn from Produkter where brukes = 0;
 
+Select Produkt_navn from Produkter where brukes = 1;
+
+ALTER Table reservasjoner Add column dato_now datetime default now();
+
+Select fult_navn from brukere inner join reservasjoner
+on brukere.bruker_id = reservasjoner.bruker_id
+inner join produkter on Reservasjoner.Produkt_ID = Produkter.Produkt_ID
+where reservasjoner.reserasjon_dato_til < reservasjoner.dato_now And brukes = 1;
 
 
 
