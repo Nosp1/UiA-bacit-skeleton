@@ -1,4 +1,5 @@
 package bacit.web.bacit_web;
+import bacit.web.bacit_models.HtmlGreier;
 import bacit.web.bacit_models.RegisterUserModel;
 
 import javax.servlet.ServletException;
@@ -42,10 +43,10 @@ public class RegisterUserServlet extends HttpServlet {
             catch (SQLException | ClassNotFoundException ex){
                 out.println(ex.getMessage());
             }
-            writeHtmlStart(out, "Register user response");
+            HtmlGreier.writeHtmlStart(out, "Register user response");
             out.println("User: "+user.getFullName()+" and phone number: "
                     +user.getPhoneNumber()+" is registered");
-            writeHtmlEnd(out);
+            HtmlGreier.writeHtmlEnd(out);
         }
         else
         {
@@ -67,27 +68,28 @@ public class RegisterUserServlet extends HttpServlet {
     }
 
     private void writeCreateUserForm(PrintWriter out, String errorMessage) {
-        writeHtmlStart(out, "Registrer bruker");
+        HtmlGreier.writeHtmlStart(out, "Registrer bruker");
         if(errorMessage!=null)
         {
             out.println("<h3>"+errorMessage+"</h3>");
         }
         out.println("<form action='register_user' method='POST'>");
         out.println("<label for='fullName'>Fullt navn</label>");
-        out.println("<input type='text' name='fullName'/>");
+        out.println("<input type='text' placeholder='fullName'/>");
         out.println("<br>");
         out.println("<label for='phoneNumber'>Telefonnummer</label>");
-        out.println("<input type='tel' name='phoneNumber'/>");
+        out.println("<input type='tel' placeholder='phoneNumber'/>");
         out.println("<br>");
         out.println("<label for='email'>E-post</label>");
-        out.println("<input type='text' name='email'/>");
+        out.println("<input type='text' placeholder='email'/>");
         out.println("<br>");
         out.println("<label for='password'>Passord</label> ");
         out.println("<input type='password' name='password'/>");
         out.println("<input type='submit' value='Registrer bruker'/>");
         out.println("</form>");
-        writeHtmlEnd(out);
+        HtmlGreier.writeHtmlEnd(out);
     }
+
 
     private void writeHtmlStart(PrintWriter out, String title) {
         out.println("<html><head>\n" +
@@ -118,6 +120,7 @@ public class RegisterUserServlet extends HttpServlet {
                 "</body>\n" +
                 "</html>");
     }
+
     private Boolean validateUser(RegisterUserModel model){
         if(model.getFullName()==null)
             return false;

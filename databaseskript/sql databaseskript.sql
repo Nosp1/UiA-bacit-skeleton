@@ -101,6 +101,7 @@ where reservasjoner.reserasjon_dato_til < reservasjoner.dato_now And brukes = 1;
 
 
 
+
 INSERT INTO Gruppe9.Brukere (Bruker_ID, Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES (2, 'Nora Fure', '+4777366390', 'Nora@Epost.com', 1, '123', 'Bruker');
 
 INSERT INTO Gruppe9.Brukere (Bruker_ID, Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES (3, 'Hernik Roed', '+4789771324', 'Henrik@Epost.com', 0, '1234', 'Admin');
