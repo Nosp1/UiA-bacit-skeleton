@@ -92,7 +92,7 @@ public class RegisterUserServlet extends HttpServlet {
 
 
     private void writeHtmlStart(PrintWriter out, String title) {
-        out.println("<html><head>\n" +
+        out.println("z<html><head>\n" +
                 "    <meta charset=\"UTF-8\">\n" +
                 "    <meta name=\"viewport\" content=\"width=device-width\">\n" +
                 "    <title>AMV</title>\n" +

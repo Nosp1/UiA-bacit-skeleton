@@ -1,4 +1,4 @@
-package bacit.web.bacit_web;
+/*package bacit.web.bacit_web;
 import bacit.web.bacit_models.ProductListModel;
 import bacit.web.bacit_models.RegisterUserModel;
 
@@ -103,6 +103,7 @@ public class ProductListServlet extends HttpServlet {
         }
     }
     */
+    /*
     private void writeCreateUserForm(PrintWriter out, String errorMessage) {
         if (errorMessage != null) {
             out.println("<h3>" + errorMessage + "</h3>");
@@ -172,3 +173,4 @@ public class ProductListServlet extends HttpServlet {
         return true;
     }
     }
+        */
