@@ -1,4 +1,4 @@
-create database amv;
+create or replace database amv;
 use amv;
 
 CREATE TABLE Ansatt
@@ -43,6 +43,7 @@ CREATE TABLE Booking
     `Status`             int,
     FOREIGN KEY (`AnsattID`) REFERENCES Ansatt (`AnsattID`),
     FOREIGN KEY (`VerktoyID`) REFERENCES Verktoy (`VerktoyID`)
+    ON DELETE CASCADE
 
 
 );
@@ -197,9 +198,10 @@ FROM VerktoyType
 WHERE VerktoyTypeID
 LIMIT 5;
 
+
 select VerktoyTypeNavn, VerktoyID
 from VerktoyType
-inner join Verktoy V on VerktoyType.VerktoyTypeID = V.VerktoyTypeID;
+         inner join Verktoy V on VerktoyType.VerktoyTypeID = V.VerktoyTypeID;
 
 SELECT VerktoyID, VerktoyTypeNavn, Tilgjenglighet
 FROM Verktoy
@@ -212,30 +214,35 @@ from Booking inner join Ansatt A on Booking.AnsattID = A.AnsattID group by A.Ans
 
 SELECT a.AnsattFornavn, VT.VerktoyTypeNavn, b.BookingDatoStartID
 FROM Booking b
-INNER JOIN Ansatt a on b.AnsattID = a.AnsattID
-INNER JOIN Verktoy t on b.VerktoyID = t.VerktoyID
-INNER JOIN VerktoyType VT on t.VerktoyTypeID = VT.VerktoyTypeID
+         INNER JOIN Ansatt a on b.AnsattID = a.AnsattID
+         INNER JOIN Verktoy t on b.VerktoyID = t.VerktoyID
+         INNER JOIN VerktoyType VT on t.VerktoyTypeID = VT.VerktoyTypeID
 WHERE b.AnsattID  = (
     SELECT AnsattID
     FROM Booking
     GROUP BY AnsattID
     ORDER BY COUNT(AnsattID) DESC LIMIT 1
-    )
+)
 ORDER BY b.BookingDatoStartID;
 
 SELECT VerktoyID, VerktoyTypeNavn, Tilgjenglighet
 from Verktoy
-inner join VerktoyType ON Verktoy.VerktoyTypeID = VerktoyType.VerktoyTypeID
+         inner join VerktoyType ON Verktoy.VerktoyTypeID = VerktoyType.VerktoyTypeID
 where Tilgjenglighet = false;
 
 select booking.VerktoyID,verktoytypenavn, booking.AnsattID, AnsattFornavn, AnsattEtternavn, 'status'
 from Booking
-inner join Ansatt A on Booking.AnsattID = A.AnsattID
-inner join Verktoy v on booking.VerktoyID = v.VerktoyID
-inner join VerktoyType VT on VT.VerktoyTypeID = v.VerktoyTypeID
+         inner join Ansatt A on Booking.AnsattID = A.AnsattID
+         inner join Verktoy v on booking.VerktoyID = v.VerktoyID
+         inner join VerktoyType VT on VT.VerktoyTypeID = v.VerktoyTypeID
 
 where status = 0 and current_date > BookingDatoSlutt;
 
+delete from Verktoy
+where VerktoyID = 2;
+
+delete from Ansatt
+where AnsattID = 1;
 
 
 
