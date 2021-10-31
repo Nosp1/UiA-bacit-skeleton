@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Usikker på hva denne gjør">
+    <meta name="keywords" content="Enkelt, raskt, etter guide">
+    <meta name="author" content="Nora Fure">
+    <title>Kalender</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <img src="img/AMV_logo.png">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startside</a></li>
+                <li><a href="Cheerios.html">Cheerios</a></li>
+                <li class="current"><a href="Iskaffe.html">Iskaffe</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<head>
+    <style>
+        * {box-sizing: border-box;}
+        ul {list-style-type: none;}
+        body {font-family: Verdana, sans-serif;}
+
+        .month {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 70px 25px;
+            width: 70%;
+            background:  #ffb300;
+            text-align: center;
+        }
+
+        .month ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .month ul li {
+            color: #11165a;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .month .prev {
+            float: left;
+            padding-top: 10px;
+        }
+
+        .month .next {
+            float: right;
+            padding-top: 10px;
+        }
+
+        .weekdays {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px 25px;
+            width: 70%;
+            background-color: #ddd;
+        }
+
+        .weekdays li {
+            display: inline-block;
+            width: 13.6%;
+            color: #666;
+            text-align: center;
+        }
+
+        .days {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px 25px;
+            width: 70%;
+            background: #eee;
+        }
+
+        .days li {
+            list-style-type: none;
+            display: inline-block;
+            width: 13.6%;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size:25px;
+            color: #777;
+        }
+
+        .days li .active {
+            padding: 5px;
+            background: #FF0000;
+            color: white !important
+        }
+
+        .flex-parent {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .jc-center {
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        button.margin-right {
+            margin-right: 20px;
+        }
+
+        /* Add media queries for smaller screens */
+        @media screen and (max-width:720px) {
+            .weekdays li, .days li {width: 13.1%;}
+        }
+
+        @media screen and (max-width: 420px) {
+            .weekdays li, .days li {width: 12.5%;}
+            .days li .active {padding: 2px;}
+        }
+
+        @media screen and (max-width: 290px) {
+            .weekdays li, .days li {width: 12.2%;}
+        }
+    </style>
+</head>
+<body>
+
+<center><h1>Skruemaskin</h1></center>
+
+<div class="month">
+    <ul>
+        <li class="prev">&#10094;</li>
+        <li class="next">&#10095;</li>
+        <li>
+            November<br>
+            <span style="font-size:28px">2021</span>
+        </li>
+    </ul>
+</div>
+
+<ul class="weekdays">
+    <li>Man</li>
+    <li>Tir</li>
+    <li>Ons</li>
+    <li>Tor</li>
+    <li>Fre</li>
+    <li>Lør</li>
+    <li>Søn</li>
+</ul>
+
+<ul class="days">
+    <li><font color="FF9700">1</font></li>
+    <li><font color="FF9700">2</font></li>
+    <li><font color="FF9700">3</font></li>
+    <li><font color="FF9700">4</font></li>
+    <li><font color="FF9700">5</font></li>
+    <li><font color="FF9700">6</font></li>
+    <li><font color="FF9700">7</font></li>
+    <li><font color="FF9700">8</font></li>
+    <li><font color="FF9700">9</font></li>
+    <li><font color="74DA23">10</font></li>
+    <li><font color="74DA23">11</font></li>
+    <li><font color="74DA23">12</font></li>
+    <li><font color="74DA23">13</font></li>
+    <li><font color="74DA23">14</font></li>
+    <li><font color="FF0000">15</font></li>
+    <li><font color="FF0000">16</font></li>
+    <li><font color="74DA23">17</font></li>
+    <li><font color="74DA23">18</font></li>
+    <li><font color="74DA23">19</font></li>
+    <li><font color="74DA23">20</font></li>
+    <li><font color="FF0000">21</font></li>
+    <li><font color="74DA23">22</font></li>
+    <li><font color="74DA23">23</font></li>
+    <li><font color="74DA23">24</font></li>
+    <li><font color="74DA23">25</font></li>
+    <li><font color="74DA23">26</font></li>
+    <li><font color="FF0000">27</font></li>
+    <li><font color="FF0000">28</font></li>
+    <li><font color="74DA23">29</font></li>
+    <li><font color="74DA23">30</font></li>
+</ul>
+
+<div class="flex-parent jc-center">
+    <button type="submit" class="green margin-right"><a href="/bacit-web-1.0-SNAPSHOT/BestiltVare.html">Godta</a></button>
+    <button type="submit" class="magenta"><a href="/bacit-web-1.0-SNAPSHOT/index.html">Avbryt</a></button>
+</div>
+
+
+</body>
+</html>
