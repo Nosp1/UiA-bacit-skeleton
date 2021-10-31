@@ -75,50 +75,19 @@ public class RegisterUserServlet extends HttpServlet {
         }
         out.println("<form action='register_user' method='POST'>");
         out.println("<label for='fullName'>Fullt navn</label>");
-        out.println("<input type='text' placeholder='fullName'/>");
+        out.println("<input type='text' name='fullName'/>");
         out.println("<br>");
         out.println("<label for='phoneNumber'>Telefonnummer</label>");
-        out.println("<input type='tel' placeholder='phoneNumber'/>");
+        out.println("<input type='tel' name='phoneNumber'/>");
         out.println("<br>");
         out.println("<label for='email'>E-post</label>");
-        out.println("<input type='text' placeholder='email'/>");
+        out.println("<input type='text' name='email'/>");
         out.println("<br>");
         out.println("<label for='password'>Passord</label> ");
         out.println("<input type='password' name='password'/>");
         out.println("<input type='submit' value='Registrer bruker'/>");
         out.println("</form>");
         HtmlGreier.writeHtmlEnd(out);
-    }
-
-
-    private void writeHtmlStart(PrintWriter out, String title) {
-        out.println("z<html><head>\n" +
-                "    <meta charset=\"UTF-8\">\n" +
-                "    <meta name=\"viewport\" content=\"width=device-width\">\n" +
-                "    <title>AMV</title>\n" +
-                "    <link rel=\"stylesheet\" href=\"style.css\">\n" +
-                "</head><body> <header>\n" +
-                "    <div class=\"container\">\n" +
-                "        <div id=\"branding\">\n" +
-                "            <h1><span class=\"highlight\">A</span>M<span class=\"highlight\">V</span></h1>\n" +
-                "        </div>\n" +
-                "        <nav>\n" +
-                "            <ul>\n" +
-                "                <li><a href=\"http://localhost:8081/bacit-web-1.0-SNAPSHOT/product_list\">Startside</a></li>\n" +
-                "                <li class=\"current\"><a href=\"http://localhost:8081/bacit-web-1.0-SNAPSHOT/register_user\">Cheerios</a></li>\n" +
-                "                <li><a href=\"Iskaffe.html\">Iskaffe</a></li>\n" +
-                "                <li><input type=\"text\" placeholder=\"Search..\"></li>\n" +
-                "            </ul>\n" +
-                "        </nav>\n" +
-                "    </div>\n" +
-                "</header>");
-    }
-    private void writeHtmlEnd(PrintWriter out) {
-        out.println("</body> <footer>\n" +
-                "    <p>Nora's forslag, copyright &copy; 2021</p>\n" +
-                "</footer>\n" +
-                "</body>\n" +
-                "</html>");
     }
 
     private Boolean validateUser(RegisterUserModel model){
