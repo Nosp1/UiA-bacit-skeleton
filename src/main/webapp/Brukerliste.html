@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Usikker på hva denne gjør">
+    <meta name="keywords" content="Enkelt, raskt, etter guide">
+    <meta name="author" content="Nora Fure">
+    <title>AMV - Brukerliste</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <img src="img/AMV_logo.png">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startside</a></li>
+                <li><a href="kalender.html">Reservasjonskalender</a></li>
+                <li class="current"><a href="Brukerliste.html">Brukerliste</a></li>
+                <li><a href="Produktregistrering.html">Produktregistrering</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h2>Denne siden skal bare være tilgjengelig for administratorer</h2>
+<section id="boxes">
+    <div class="container">
+        <article id="main-col2">
+            <ul1>
+                <div>
+                    <li><a href="Bruker.html">Nora Fure</a></li>
+                </div><br>
+                <div>
+                    <li><a href="Bruker.html">Hernik Roed</a></li>
+                </div><br>
+                <div>
+                    <li><a href="Bruker.html">Mads Teland</a></li>
+                </div><br>
+                <div>
+                    <li><a href="Bruker.html">Emanuel Minak</a></li>
+                </div><br>
+                <div>
+                    <li><a href="Bruker.html">Knut Norwegian</a></li>
+                </div><br>
+                <div>
+                    <li><a href="Bruker.html">Roald Peroson</a></li>
+                </div><br>
+                <div>
+                    <li><a href="Bruker.html">Frida Karlsen</a></li>
+                </div><br>
+                <div>
+                    <li><a href="Bruker.html">Ingrid Benthus</a></li>
+                </div><br>
+                <div>
+                    <li><a href="Bruker.html">Roar Klippestad</a></li>
+                </div><br>
+                <div>
+                    <li><a href="Bruker.html">Henning Sletner</a></li>
+                </div><br>
+            </ul1>
+        </article>
+    <aside id="sidebar">
+        <div class="dark">
+            <h3>Registrer ny bruker</h3>
+            <form action='register_user' method='POST'>
+                <div>
+                    <label for='fullName'>Fullt navn</label><br>
+                    <input type="text" placeholder="Kolbein Løkken">
+                </div>
+                <div>
+                    <label for='phoneNumber'>Telefonnummer</label><br>
+                    <input type='tel' placeholder='+47 87654321'/>
+                </div>
+                <div>
+                    <label for='email'>E-post</label><br>
+                    <input type='text' placeholder='kolbein@epost.com'/>
+                </div>
+                <div>
+                    <label for='password'>Passord</label><br>
+                    <input type='password' placeholder='12345'/>
+                </div><br>
+                <button class="button_1" <input type='submit' value='Registrer bruker'/>Registrer</button>
+            </form>
+        </div>
+    </aside>
+    </div>
+</section>
+
+<footer>
+    <p>AMV, copyright &copy; 2021</p>
+</footer>
+</body>
+</html>

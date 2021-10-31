@@ -15,6 +15,19 @@ ul{
     padding:0;
 }
 
+ul1{
+    margin:0;
+    padding:0;
+}
+.button_1{
+    height:33px;
+    background:#ffb300;
+    border:0;
+    padding-left: 20px;
+    padding-right: 20px;
+    color:#ffffff;
+}
+
 .dark{
     padding:15px;
     background:#35424a;
@@ -57,7 +70,7 @@ header nav{
     margin-top:10px;
 }
 
- header .current a{
+header .current a{
     color:#11165a;
     font-weight:bold;
 }
@@ -111,6 +124,10 @@ article#main-col{
     width:80%;
     margin-left: 15px;
 }
+article#main-col2{
+    float:left;
+    width:65%;
+}
 #product img {
     width: 170px;
     height: 150px;
@@ -121,27 +138,31 @@ article#main-col{
 
 
 /*Sidebar for product*/
- .sidenav{
+.sidenav{
     height: 100%;
     width: 10%;
     position: absolute;
     overflow-y:auto;
+<<<<<<< HEAD
+    background-color:#ffb300;
+=======
      background-color:#ffb300;
+>>>>>>> 4de1da487aedb826ea04f47244b6c15f62447e02
     padding: 20px;
-     border-right: #11165a 3px solid;
+    border-right: #11165a 3px solid;
 }
- .sidenav a{
+.sidenav a{
     padding: 6px 6px 6px 32px;
     text-decoration: none;
     color: #11165a;
     display: block;
-     text-align: center;
-     font:15px/1.5 Arial, Helvetica, sans-serif;
- }
+    text-align: center;
+    font:15px/1.5 Arial, Helvetica, sans-serif;
+}
 
- .sidenav a:hover{
+.sidenav a:hover{
     color:#11165a;
-     font-weight: bold;
+    font-weight: bold;
 }
 
 /*Product*/
@@ -264,6 +285,7 @@ header a img{
     transition: all 0.3 ease;
     cursor: pointer;
 }
+
 .form .message {
     margin: 15px 0 0;
     color: #b3b3b3;
@@ -273,4 +295,3 @@ header a img{
     color: #4CAF50;
     text-decoration: none;
 }
->>>>>>> bf40687812e30760207ac7d946740df373740925
