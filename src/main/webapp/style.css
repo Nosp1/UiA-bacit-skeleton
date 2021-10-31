@@ -43,6 +43,7 @@ header{
     padding-top:30px;
     min-height:70px;
     border-bottom: #11165a 3px solid;
+    z-index:1;
 }
 header a{
     color:#11165a;
@@ -140,12 +141,9 @@ article#main-col2{
 .sidenav{
     height: 100%;
     width: 10%;
-    position: fixed;
-    z-index: 0;
-    top: 0;
-    left: 0;
+    position: absolute;
+    overflow-y:auto;
     background-color:#ffb300;
-    overflow: hidden;
     padding: 20px;
     border-right: #11165a 3px solid;
 }
@@ -184,6 +182,7 @@ footer{
     color:#ffffff;
     background-color:#ffb300;
     text-align: center;
+    z-index:1;
 }
 
 /*Media*/
@@ -292,4 +291,3 @@ header a img{
     color: #4CAF50;
     text-decoration: none;
 }
->>>>>>> bf40687812e30760207ac7d946740df373740925
