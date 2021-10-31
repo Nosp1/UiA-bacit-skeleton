@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Usikker på hva denne gjør">
+    <meta name="keywords" content="Enkelt, raskt, etter guide">
+    <meta name="author" content="Nora Fure">
+    <title>Nora's forslag</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="branding">
+            <img src="img/AMV_logo.png">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startside</a></li>
+                <li><a href="Kalender.html">Reservasjonskalender</a></li>
+                <li><a href="Brukerliste.html">Brukerliste</a></li>
+                <li class="current"><a href="Produktregistrering.html">Produktregistrering</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<h2>Denne siden skal bare være tilgjengelig for administratorer</h2>
+<section id="boxes">
+    <div class="container">
+        <article id="main-col">
+            </ul1>
+        </article>
+        <div class="dark">
+            <h3>Registrer nytt produkt</h3>
+            <form action='register_product' method='POST'>
+                <div>
+                    <label for='Produkt_navn'>Produkt navn</label><br>
+                    <input type="text" placeholder="Hammer">
+
+                </div>
+                <form action="/action_page.php">
+                    <label for="cars">Kategori:</label>
+                    <br>
+                    <select name="cars" id="cars">
+                        <option value="håndholdt">Håndholdt</option>
+                        <option value="småelektrisk">Småelektrisk</option>
+                        <option value="Stort elektrisk">Stort elektrisk</option>
+                        <option value="kjøretøy/henger">kjøretøy/henger</option>
+                    </select>
+                    <br>
+
+                    <div>
+                        <label for='beskrivelse'>Beskrivelse</label><br>
+                        <textarea type='text' placeholder='en liten håndholdt hammer'/></textarea>
+                    </div>
+                    <form action="/action_page.php">
+                        <label for='bilde'>Bilde</label><br>
+                        <input type="file" id="myFile" name="filename">
+                    </form>
+                    <br>
+                    <button class="button_1" <input type='submit' value='Registrer_produkt'/>Registrer</button>
+                </form>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>AMV, copyright &copy; 2021</p>
+</footer>
+</body>
+</html>
