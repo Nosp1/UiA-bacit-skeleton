@@ -143,7 +143,11 @@ article#main-col2{
     width: 10%;
     position: absolute;
     overflow-y:auto;
+<<<<<<< HEAD
     background-color:#ffb300;
+=======
+     background-color:#ffb300;
+>>>>>>> 4de1da487aedb826ea04f47244b6c15f62447e02
     padding: 20px;
     border-right: #11165a 3px solid;
 }
@@ -190,9 +194,9 @@ footer{
     header #branding,
     header nav,
     header nav li,
-    #newsletter h1
+    #newsletter h1,
     #newsletter form,
-    #boxes .box
+    #boxes .box,
     article#main-col,
     aside#sidebar{
         float:none;
