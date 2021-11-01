@@ -11,11 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/hjemstyle.css">
 </head>
-<header><h1>DesignX</h1></header>
+<header><h1></h1></header>
 
 
 
-<body>
 <div class="container">
     <div class="topmeny">
         <img src="css/Hamburger_icon.svg.png" id="sidemeny" alt="meny" width="87" height="87" onclick="show()" >
@@ -41,20 +40,21 @@
                 <a href="#nyheter">nyheter</a>
             </ul>
         </div>
+    </nav>
+
+    <div class="containerhjem">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
 </div>
-</nav>
 
-
-
-<img src="css/missile.jpeg" alt="pang">
-<img src="css/missile.jpeg" alt="pang">
-<img src="css/missile.jpeg" alt="pang">
-<img src="css/missile.jpeg" alt="pang">
-<img src="css/missile.jpeg" alt="pang">
-<img src="css/missile.jpeg" alt="pang">
-</body>
-
-<script>
+    <script>
     function show() {
         let x = document.getElementById("links");
         if (x.style.display === "block") {
@@ -64,5 +64,6 @@
         }
     }
 
-</script>
+    </script>
+
 </html>

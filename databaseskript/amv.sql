@@ -18,7 +18,7 @@ CREATE TABLE Ansatt
 CREATE TABLE VerktoyType
 (
     VerktoyTypeID int PRIMARY KEY auto_increment,
-    VerktoyTypeNavn varchar(25)
+    VerktoyTypeNavn varchar(70)
 );
 
 

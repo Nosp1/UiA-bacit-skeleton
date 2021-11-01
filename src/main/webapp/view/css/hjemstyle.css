@@ -55,10 +55,6 @@ h2 {
     flex-basis: 80%;
 }
 
-/*
-side nav
-*/
-
 .nav {
     justify-content: center;
     text-align: left;
@@ -85,6 +81,27 @@ nav a:hover {
 
 
 .active {
-    background-color: pink;
+    background-color: #0d0d57;
     color: white;
+}
+
+.containerhjem {
+    width: 95%;
+    overflow: hidden;
+    background: #f0b324;
+    margin: 20px auto;
+    padding: 20px 0px;
+}
+
+.containerhjem ul{
+    padding: 0px;
+    margin: 0px;
+}
+.containehjem ul li {
+    list-style: none;
+    float: left;
+    width: 20%;
+    height: 300px;
+    background: #0d0d57;
+    margin: 40px 40px 0px 55px;
 }
