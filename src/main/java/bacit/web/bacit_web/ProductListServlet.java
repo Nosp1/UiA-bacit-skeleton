@@ -32,7 +32,7 @@ public class ProductListServlet extends HttpServlet {
             try {
 
                 Connection con = DBUtils.getINSTANCE().getConnection(out);
-                PreparedStatement ps = con.prepareStatement("select * from Produkter");
+                PreparedStatement ps = con.prepareStatement("select * from Produkter where brukes = 0");
                 ResultSet res = ps.executeQuery();
 
                 while (res.next()){
