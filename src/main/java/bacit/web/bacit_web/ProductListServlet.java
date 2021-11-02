@@ -11,18 +11,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-@WebServlet(name = "userList", value = "/User_list")
-public class UserListServlet extends HttpServlet {
+@WebServlet(name = "productList", value = "/Product_list")
+public class ProductListServlet extends HttpServlet {
 
-    @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
 
-        String brukerId = request.getParameter("user");
+        String ProduktID = request.getParameter("produkt");
 
-        if( brukerId != null ) {
+        if( ProduktID != null ) {
 
         }
         else {
@@ -33,11 +32,13 @@ public class UserListServlet extends HttpServlet {
             try {
 
                 Connection con = DBUtils.getINSTANCE().getConnection(out);
-                PreparedStatement ps = con.prepareStatement("select * from Brukere");
+                PreparedStatement ps = con.prepareStatement("select * from Produkter");
                 ResultSet res = ps.executeQuery();
 
                 while (res.next()){
-                    out.println("<li><a href='#'>"+res.getString("Fult_navn")+"</a></li>");
+                    out.println("<li><a href='#'>"+res.getString("Produkt_navn")+"</a></li>");
+                    out.println("<li>"+res.getString("Kategori")+"</li>");
+                    out.println("<li>"+res.getString("Beskrivelse")+"</li>");
                 }
 
                 out.println("</ul>");
@@ -48,3 +49,5 @@ public class UserListServlet extends HttpServlet {
         }
     }
 }
+
+
