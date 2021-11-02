@@ -4,7 +4,7 @@ header {
 body {
 
 
-    background-color: orange;
+    background-color: #f0b324;
     background-size: cover;
     font-family: sans-serif;
 }
@@ -13,7 +13,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: orange;
+    background-color: #f0b324;
 }
 
 .topmeny {
@@ -52,6 +52,9 @@ h2 {
     justify-content: center;
     font-size: 48px;
     flex-basis: 80%;
+    color: #151E4A;
+    text-transform: uppercase;
+    font-family: Arial;
 }
 
 .nav {
@@ -80,34 +83,37 @@ nav a:hover {
 
 
 .active {
-    background-color: #0d0d57;
+    background-color: #151E4A;
     color: white;
 }
 
-.containerhjem {
-    width: 95%;
-    overflow: hidden;
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    text-align: center;
+    padding: 100px;
+    font-family: Arial;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: larger;
+
+}
+
+.wrapper > div{
+    background: #151E4A;
+    padding: 2em;
+    color: #f0b324;
+}
+
+.wrapper > div:nth-child(odd){
     background: #f0b324;
-    margin: 20px auto;
-    padding: 20px 0px;
+    color: #151E4A;
 }
 
-.containerhjem ul{
-    padding: 0px;
-    margin: 0px;
-}
-.containerhjem ul li {
-    list-style: none;
-    float: left;
-    width: 20%;
-    height: 300px;
-    background: #0d0d57;
-    margin: 40px 40px 0px 55px;
-}
-
-.containerhjem ul li .title{
+.responsive{
     width: 100%;
-    height: 50px;
-    line-height: 50px;
-    background: white;
+    max-width: 400px;
+    height: auto;
 }
+
