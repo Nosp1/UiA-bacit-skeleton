@@ -143,11 +143,7 @@ article#main-col2{
     width: 10%;
     position: absolute;
     overflow-y:auto;
-<<<<<<< HEAD
     background-color:#ffb300;
-=======
-     background-color:#ffb300;
->>>>>>> 4de1da487aedb826ea04f47244b6c15f62447e02
     padding: 20px;
     border-right: #11165a 3px solid;
 }
