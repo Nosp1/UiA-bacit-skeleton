@@ -146,17 +146,17 @@ VALUES
     (3, 6, '2018-11-16'),
     (4, 6, '2013-02-22');
 
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Kurs_ID, PRIS_ID, Brukes) VALUES
-                                                                                                 (10001, 'Liten Drill', 'Små Verktøy', null, 2, 0),
-                                                                                                 (10002, 'Liten Drill', 'Små Verktøy', null, 2, 1),
-                                                                                                 (10003, 'Tilhenger(Liten)', 'Transport', null, 3, 0),
-                                                                                                 (10004, 'Tillhenger (Stor)', 'Transport', null, 4, 1),
-                                                                                                 (10005, 'Lyft', 'Maskiner', null, 4, 1),
-                                                                                                 (10006, 'Dekkskiftemaskin', 'Maskiner', null, 4, 0),
-                                                                                                 (10007, 'Slagdrill', 'Små Verktøy', null, 2, 1),
-                                                                                                 (10008, 'Jekktralle', 'Transport', null, 2, 0),
-                                                                                                 (10009, 'Verktøykasse', 'Små Verktøy', null, 2, 1),
-                                                                                                 (10010, 'Sementmikser', 'Maskiner', null, 2, 0);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Beskrivelse, Kurs_ID, PRIS_ID, Brukes) VALUES
+                                                                                                 (10001, 'Liten Drill', 'Små Verktøy', 'Lang text' null, 2, 0),
+                                                                                                 (10002, 'Liten Drill', 'Små Verktøy', 'Lang text' null, 2, 1),
+                                                                                                 (10003, 'Tilhenger(Liten)', 'Transport', 'Lang text' null, 3, 0),
+                                                                                                 (10004, 'Tillhenger (Stor)', 'Transport', 'Lang text' null, 4, 1),
+                                                                                                 (10005, 'Lyft', 'Maskiner', 'Lang text' null, 4, 1),
+                                                                                                 (10006, 'Dekkskiftemaskin', 'Maskiner', 'Lang text' null, 4, 0),
+                                                                                                 (10007, 'Slagdrill', 'Små Verktøy', 'Lang text' null, 2, 1),
+                                                                                                 (10008, 'Jekktralle', 'Transport', 'Lang text' null, 2, 0),
+                                                                                                 (10009, 'Verktøykasse', 'Små Verktøy', 'Lang text' null, 2, 1),
+                                                                                                 (10010, 'Sementmikser', 'Maskiner', 'Lang text' null, 2, 0);
 
 INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES
                                                                                                          (10001, 1, '2021-10-26', '2021-10-29'),
