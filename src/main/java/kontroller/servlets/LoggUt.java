@@ -10,10 +10,9 @@ import java.io.PrintWriter;
 
 //Denne servletten har ansvar for å logg ut dataen
 
-@WebServlet("/loggUT")
+@WebServlet("/LoggUt")
 public class LoggUt extends HttpServlet {
     // serialVersioUID brukes for å identifisere klassen, om ikke funnet, kastes hele "funksjonen?"
-    private static final long serialVersionUID = 1L;
     //Bruker get istedenfor post, fordi vi ikke adder/poster noe men heller ønsker en tilbakemelding/jobb fra applikasjonen
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         res.setContentType("text/html");

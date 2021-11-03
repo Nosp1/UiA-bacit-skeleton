@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Title</title>
-  <link rel="stylesheet" href="css/bookingstyle.css">
+  <link rel="stylesheet" href="view/css/bookingstyle.css">
 </head>
 <body>
 
