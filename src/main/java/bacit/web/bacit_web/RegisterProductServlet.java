@@ -67,7 +67,7 @@ import java.sql.SQLException;
             {
                 out.println("<h3>"+errorMessage+"</h3>");
             }
-            out.println("<form action='register_Product' method='POST'>");
+            out.println("<form action='register_product' method='POST'>");
             out.println("<label for='productName'>Produkt navn</label>");
             out.println("<input type='text' name='productName'/>");
             out.println("<br>");
