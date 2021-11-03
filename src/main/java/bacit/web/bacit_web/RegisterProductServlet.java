@@ -52,7 +52,7 @@ import java.sql.SQLException;
 
         private void writeProductToDb(RegisterProductModel Product,PrintWriter out) throws SQLException, ClassNotFoundException {
             Connection db = DBUtils.getINSTANCE().getConnection(out);
-            String insertProductCommand = "insert into Produkter (Produkt_navn, Kategori, Beskrivelse) values(?,?,?);";
+            String insertProductCommand = "insert into Produkter (Produkt_navn, Kategori, Beskrivelse, Brukes) values(?,?,?,0);";
             PreparedStatement statement = db.prepareStatement(insertProductCommand);
             statement.setString(1, Product.getproductName());
             statement.setString(2, Product.getCategory());
