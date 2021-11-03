@@ -1,4 +1,5 @@
-create or replace database amv;
+drop database if exists amv;
+create database amv;
 use amv;
 
 CREATE TABLE Ansatt
@@ -18,7 +19,7 @@ CREATE TABLE Ansatt
 CREATE TABLE VerktoyType
 (
     VerktoyTypeID int PRIMARY KEY auto_increment,
-    VerktoyTypeNavn varchar(70)
+    VerktoyTypeNavn varchar(100)
 );
 
 
@@ -30,7 +31,7 @@ CREATE TABLE Verktoy
     `MaksDager`      int,
     `Gratis`         boolean,
     `Kostnad`        int,
-    FOREIGN KEY (`VerktoyTypeID`) REFERENCES VerktoyType (`VerktoyTypeID`)
+    FOREIGN KEY (`VerktoyTypeID`) REFERENCES VerktoyType (`VerktoyTypeID`) ON DELETE CASCADE
 );
 
 CREATE TABLE Booking
@@ -41,12 +42,8 @@ CREATE TABLE Booking
     `BookingDatoStartID` varchar(25),
     `BookingDatoSlutt`   varchar(25),
     `Status`             int,
-    FOREIGN KEY (`AnsattID`) REFERENCES Ansatt (`AnsattID`),
-    FOREIGN KEY (`VerktoyID`) REFERENCES Verktoy (`VerktoyID`)
-    ON DELETE CASCADE
-
-
-);
+    FOREIGN KEY (`AnsattID`) REFERENCES Ansatt (`AnsattID`) ON DELETE CASCADE,
+    FOREIGN KEY (`VerktoyID`) REFERENCES Verktoy (`VerktoyID`) ON DELETE CASCADE);
 
 #Ansatt
 
@@ -93,35 +90,94 @@ VALUES (10, 'Jakob', 'Varhaug', 'jakobvar@gmail.com', '67800456', '20017', TRUE,
 #VerktøyType
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (1, 'Screw driver');
+VALUES (1, 'Skruautomat');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (2, 'Tire machine');
+VALUES (2, 'Fein Multimaskin');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (3, 'Surface plate vibrator');
+VALUES (3, 'Eksentersliper 230 VAC');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (4, 'Nail gun, small,');
+VALUES (4, '9" Vinkelsiper, stein');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (5, 'Nail gun, large');
+VALUES (5, 'Flisekutter, kermaiske fliser');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (6, 'Nail gun, large');
+VALUES (6, 'Båndsliper 230 VAC');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (7, 'Car trailer, small');
+VALUES (7, 'Høvel 230 VAC');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (8, 'Car trailer, big');
+VALUES (8, 'Gjære-/kombisag 230 VAC');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (9, 'Personal lift');
+VALUES (9, 'Vedkløyver (bensin)');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (10, 'Motorized wheelbarrow');
+VALUES (10, 'Tilhenger boggi, RC9878 (kassemål: L*B: 297*153');
 
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (11, 'Tilhenger liten, RC9878 (kassemål: L*B: 197*153');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (12, 'Spikerpistol liten (luft)');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (13, 'Meislemaskin 230 VAC');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (14, 'Kantsliper (bensin)');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (15, 'Kompressor 230 VAC');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (16, '"Hoppetusse (bensin)');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (17, 'Personløfter 230 VAC (12m), krever sikkerhetsopplæring');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (18, 'FLisekutter for trevirke');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (19, 'Motorisert trillebår');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (20, 'Strømaggregat 3,7 kW');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (21, 'Dekkmaskin');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (22, 'Bildiagnose');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (23, 'Spikerpistol Milwaukee stor');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (24, 'Spikerpistol Milwaukee mellom');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (25, 'Spikerpistol Milwaukee liten');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (26, 'Leirduekaster');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (27, 'Leica snekker laser');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (28, 'Slagdrill Milwaukee');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (29, 'Skap henger');
+
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (30, 'Bluetooth høyttaler SOUNDBOKS');
 
 #Verktøy
 insert into Verktoy (VerktoyID, VerktoyTypeID, Tilgjenglighet, MaksDager, Gratis, Kostnad)
@@ -142,31 +198,31 @@ VALUES (5, 5, FALSE, 4, FALSE, 0),
 #Booking
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status) values
-    (1, 1, '01.01.2021', '04.01.2021', 1);
+    (1, 1, '01.01.2021', '04.01.2021', 0);
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
 VALUES (2, 1, '01.08.2021', '04.08.2021', 1);
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (3, 1, '01.09.2021', '04.09.2021', 1);
+VALUES (3, 1, '01.09.2021', '04.09.2021', 0);
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
 VALUES (4, 2, '01.10.2021', '04.10.2021', 1);
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (5, 2, '01.02.2021', '04.02.2021', 1);
+VALUES (5, 2, '01.02.2021', '04.02.2021', 0);
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
 VALUES (6, 2, '01.03.2021', '04.03.2021', 1);
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (7, 2, '01.04.2021', '04.04.2021', 1);
+VALUES (7, 2, '01.04.2021', '04.04.2021', 0);
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
 VALUES (8, 3, '01.05.2021', '04.05.2021', 1);
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (9, 9, '01.05.2021', '04.05.2021', 1);
+VALUES (9, 9, '01.05.2021', '04.05.2021', 0);
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
 VALUES (10, 10, '01.05.2021', '04.05.2021', 1);
@@ -237,13 +293,3 @@ from Booking
          inner join VerktoyType VT on VT.VerktoyTypeID = v.VerktoyTypeID
 
 where status = 0 and current_date > BookingDatoSlutt;
-
-delete from Verktoy
-where VerktoyID = 2;
-
-delete from Ansatt
-where AnsattID = 1;
-
-
-
-
