@@ -15,6 +15,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Locale;
 
 
 @WebServlet("/RegistrerBruker")
@@ -30,7 +31,7 @@ public class RegistrerBruker extends HttpServlet {
         //Her henter vi dataene fra rutene til logg inn siden
         String fornavn = req.getParameter("AnsattFornavn");
         String etternavn = req.getParameter("AnsattEtternavn");
-        String email = req.getParameter("AnsattEmail");
+        String email = (req.getParameter("AnsattEmail")).toLowerCase();
         String telefon = req.getParameter("AnsattTlf");
         String passord = req.getParameter("passord");
         //Her lager vi en tom modell.loggInn.Bruker.BrukerDB modell, som håndterer data til/fra databasen
