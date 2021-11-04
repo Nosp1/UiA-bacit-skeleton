@@ -37,8 +37,7 @@
         <div id="links">
             <ul>
                 <a href="#Verktøy" class="active">Verktøy</a>
-                <a href="RegistrerBruker">Nyheter</a>
-                <a href="#Dine ordre">Dine ordre</a>
+                <a href="RegistrerBruker">Registrer bruker</a>
                 <a href="LoggUt">Logg ut</a>
             </ul>
         </div>

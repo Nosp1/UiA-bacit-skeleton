@@ -9,18 +9,24 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="view/css/reigistrerBrukerstyle.css">
 </head>
 <body>
 
-<form action="RegistrerBruker" method="post">
-    <input type="text" name="AnsattFornavn" placeholder="Fornavn">
-    <input type="text" name="AnsattEtternavn" placeholder="Etternavn">
-    <input type="text" name="AnsattEmail" placeholder="Email">
-    <input type="text" name="AnsattTlf" placeholder="Telefon nummer">
-    <input type="text" name="passord" placeholder="Passord">
-    <input type="submit">
+<div class="title"><h1><img
+        src="https://images.squarespace-cdn.com/content/v1/5bcf4baf90f904e66e8eb8bf/1571139220977-8Y75FILX6E39M4ZH8REW/Logo-eng-web-blue.png?format=1500w"
+        alt="logo" width="203" height="110"></h1>
+</div>
+<div class="container">
+    <form action="RegistrerBruker" method="post">
+        <input type="text" name="AnsattFornavn" placeholder="Fornavn"><br>
+        <input type="text" name="AnsattEtternavn" placeholder="Etternavn"><br>
+        <input type="text" name="AnsattEmail" placeholder="Email"><br>
+        <input type="text" name="AnsattTlf" placeholder="Telefon nummer"><br>
+        <input type="password" name="passord" placeholder="Passord"><br>
+        <input type="submit">
 
-</form>
-
+    </form>
+</div>
 </body>
 </html>
