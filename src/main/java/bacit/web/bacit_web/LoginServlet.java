@@ -25,17 +25,15 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
 
-        String Telefonnummer = request.getParameter("Telefonnummer");
+        String Telefonnummer = request.getParameter("E_post");
         String Passord = request.getParameter("Passord");
 
         if(checkUser(Telefonnummer, Passord, out)) {
-            RequestDispatcher rs = request.getRequestDispatcher("Welcome");
-            rs.forward(request, response);
+            response.sendRedirect("Product_list");
         }
         else {
-            out.println("Brukernavn eller passord er feil");
-            RequestDispatcher rs = request.getRequestDispatcher("LoginServlet");
-            rs.include(request, response);
+            out.println("Epost eller passord er feil");
+            out.println("<a href='/bacit-web-1.0-SNAPSHOT/login'>Prøv igjen</a>");
         }
     }
 
@@ -44,9 +42,9 @@ public class LoginServlet extends HttpServlet {
         if (errorMessage != null) {
             out.println("<h3>" + errorMessage + "</h3>");
         }
-        out.println("<form action='login' method='post'/>");
-        out.println("<label for='Telefonnummer'>Telefonnummer</label>");
-        out.println("<input type='text' name='Telefonnummer'/>");
+        out.println("<form action='login' method='post'/>");git add . git commit -m "Beskrivelse" git push orign mian
+        out.println("<label for='E_post'>E-post</label>");
+        out.println("<input type='text' name='E_post'/>");
         out.println("<label for='Passord'>Passord</label>");
         out.println("<input type='password' name='Passord'/>");
         out.println("<input type='submit' value='Login'/>");
@@ -56,17 +54,16 @@ public class LoginServlet extends HttpServlet {
         HtmlGreier.writeHtmlEnd(out);
     }
 
-    public static boolean checkUser(String Telefonnummer, String Passord, PrintWriter out) {
+    public static boolean checkUser(String E_post, String Passord, PrintWriter out) {
 
         {
             boolean st = false;
             try {
 
-
                 Connection con = DBUtils.getINSTANCE().getConnection(out);
 
-                PreparedStatement ps = con.prepareStatement("select * from Brukere where Telefonnummer=? || E_post and Passord=?");
-                ps.setString(1, Telefonnummer);
+                PreparedStatement ps = con.prepareStatement("select * from Brukere where E_post=? and Passord=?");
+                ps.setString(1, E_post);
                 ps.setString(2, Passord);
                 ResultSet rs = ps.executeQuery();
                 st = rs.next();
