@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class ProductListServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
+        response.setContentType("text/html;charset=UTF-8");
 
         PrintWriter out = response.getWriter();
 

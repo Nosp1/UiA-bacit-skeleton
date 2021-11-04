@@ -77,7 +77,7 @@ public class RegisterUserServlet extends HttpServlet {
         out.println("<input type='text' name='fullName'/>");
         out.println("<br>");
         out.println("<label for='phoneNumber'>Telefonnummer</label>");
-        out.println("<input type='tel' name='phoneNumber'/>");
+        out.println("<input type='tel' name='phoneNumber' maxlength='11'/>");
         out.println("<br>");
         out.println("<label for='email'>E-post</label>");
         out.println("<input type='text' name='email'/>");
