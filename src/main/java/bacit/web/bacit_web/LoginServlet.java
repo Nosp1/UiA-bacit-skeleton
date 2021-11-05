@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
         if (errorMessage != null) {
             out.println("<h3>" + errorMessage + "</h3>");
         }
-        out.println("<form action='login' method='post'/>");git add . git commit -m "Beskrivelse" git push orign mian
+        out.println("<form action='login' method='post'/>");
         out.println("<label for='E_post'>E-post</label>");
         out.println("<input type='text' name='E_post'/>");
         out.println("<label for='Passord'>Passord</label>");
