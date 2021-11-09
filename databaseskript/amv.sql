@@ -19,7 +19,8 @@ CREATE TABLE Ansatt
 CREATE TABLE VerktoyType
 (
     VerktoyTypeID int PRIMARY KEY auto_increment,
-    VerktoyTypeNavn varchar(100)
+    VerktoyTypeNavn varchar(100),
+    VerktoyBilde varchar(100)
 );
 
 
@@ -89,95 +90,95 @@ VALUES (10, 'Jakob', 'Varhaug', 'jakobvar@gmail.com', '67800456', '20017', TRUE,
 
 #VerktøyType
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (1, 'Skruautomat');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (1, 'Skruautomat', 'Skruemaskin.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (2, 'Fein Multimaskin');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (2, 'Fein Multimaskin', 'FeinMultimaskin.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (3, 'Eksentersliper 230 VAC');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (3, 'Eksentersliper 230 VAC', 'Eksentersliper230V.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (4, '9" Vinkelsiper, stein');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (4, '9" Vinkelsiper, stein', '9VinkelsliperStein.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (5, 'Flisekutter, kermaiske fliser');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (5, 'Flisekutter, kermaiske fliser', 'FlisekutterKeramikk.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (6, 'Båndsliper 230 VAC');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (6, 'Båndsliper 230 VAC', 'Bandsliper230v.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (7, 'Høvel 230 VAC');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (7, 'Høvel 230 VAC', 'Hovel230v.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (8, 'Gjære-/kombisag 230 VAC');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (8, 'Gjære-/kombisag 230 VAC', 'GjereKombisag.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (9, 'Vedkløyver (bensin)');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (9, 'Vedkløyver (bensin)', 'VedkloyverBensin.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (10, 'Tilhenger boggi, RC9878 (kassemål: L*B: 297*153');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (10, 'Tilhenger boggi, RC9878 (kassemål: L*B: 297*153', 'TilhengerBoggi.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (11, 'Tilhenger liten, RC9878 (kassemål: L*B: 197*153');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (11, 'Tilhenger liten, RC9878 (kassemål: L*B: 197*153', 'TilhengerLiten.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (12, 'Spikerpistol liten (luft)');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (12, 'Spikerpistol liten (luft)', 'SpikerpistolLitenLuft.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (13, 'Meislemaskin 230 VAC');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (13, 'Meislemaskin 230 VAC', 'Meiselmaskin230v.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (14, 'Kantsliper (bensin)');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (14, 'Kantsliper (bensin)', 'KantklipperBensin.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (15, 'Kompressor 230 VAC');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (15, 'Kompressor 230 VAC', '');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (16, '"Hoppetusse (bensin)');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (16, '"Hoppetusse (bensin)', 'HoppetusseBensin.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (17, 'Personløfter 230 VAC (12m), krever sikkerhetsopplæring');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (17, 'Personløfter 230 VAC (12m), krever sikkerhetsopplæring', 'PersonloftNiftylift.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (18, 'FLisekutter for trevirke');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (18, 'Flisekutter for trevirke', 'FlisekutterTrevirke.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (19, 'Motorisert trillebår');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (19, 'Motorisert trillebår', 'MotorisertTrillebår.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (20, 'Strømaggregat 3,7 kW');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (20, 'Strømaggregat 3,7 kW', 'Stromaggregat37kw.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (21, 'Dekkmaskin');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (21, 'Dekkmaskin', '');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (22, 'Bildiagnose');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (22, 'Bildiagnose', 'Bildiagnose.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (23, 'Spikerpistol Milwaukee stor');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (23, 'Spikerpistol Milwaukee stor', 'SpikerpistolMilwaukeeSpikerStor.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (24, 'Spikerpistol Milwaukee mellom');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (24, 'Spikerpistol Milwaukee mellom', 'SpikerpistolMilwaukeeKrampeMellom.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (25, 'Spikerpistol Milwaukee liten');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (25, 'Spikerpistol Milwaukee liten', 'SpikerpistolMilwaukeeDykkLiten.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (26, 'Leirduekaster');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (26, 'Leirduekaster', 'Leirduekaster.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (27, 'Leica snekker laser');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (27, 'Leica snekker laser', 'LeicaSnekkerlaser.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (28, 'Slagdrill Milwaukee');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (28, 'Slagdrill Milwaukee', 'MilwaukeeSlagdrill.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (29, 'Skap henger');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (29, 'Skap henger', 'SkapHenger.PNG');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
-VALUES (30, 'Bluetooth høyttaler SOUNDBOKS');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
+VALUES (30, 'Bluetooth høyttaler SOUNDBOKS', 'BluetoothHoytalerSOUNDBOKS.PNG');
 
 #Verktøy
 insert into Verktoy (VerktoyID, VerktoyTypeID, Tilgjenglighet, MaksDager, Gratis, Kostnad)
@@ -227,87 +228,3 @@ VALUES (3, 1, '01.09.2021', '04.09.2021', 0);
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
 VALUES (4, 2, '01.10.2021', '04.10.2021', 1);
 
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (5, 2, '01.02.2021', '04.02.2021', 0);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (6, 2, '01.03.2021', '04.03.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (7, 2, '01.04.2021', '04.04.2021', 0);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (8, 3, '01.05.2021', '04.05.2021', 1);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (9, 9, '01.05.2021', '04.05.2021', 0);
-
-insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
-VALUES (10, 10, '01.05.2021', '04.05.2021', 1);
-
-
-
-SELECT AnsattEmail
-FROM Ansatt
-WHERE AnsattID
-LIMIT 5;
-
-SELECT Passord
-FROM Ansatt
-WHERE AnsattID
-LIMIT 5;
-
-SELECT BookingDatoStartID
-FROM Booking
-WHERE AnsattID
-LIMIT 5;
-
-SELECT BookingDatoSlutt
-FROM Booking
-WHERE AnsattID
-LIMIT 5;
-
-SELECT VerktoyTypeNavn
-FROM VerktoyType
-WHERE VerktoyTypeID
-LIMIT 5;
-
-
-select VerktoyTypeNavn, VerktoyID
-from VerktoyType
-         inner join Verktoy V on VerktoyType.VerktoyTypeID = V.VerktoyTypeID;
-
-SELECT VerktoyID, VerktoyTypeNavn, Tilgjenglighet
-FROM Verktoy
-         INNER JOIN VerktoyType ON Verktoy.VerktoyTypeID = VerktoyType.VerktoyTypeID
-WHERE Tilgjenglighet = TRUE;
-
-
-SELECT AnsattFornavn, AnsattEtternavn, count(Booking.AnsattID = A.AnsattID)
-from Booking inner join Ansatt A on Booking.AnsattID = A.AnsattID group by A.AnsattID order by count(A.AnsattID) DESC LIMIT 3;
-
-SELECT a.AnsattFornavn, VT.VerktoyTypeNavn, b.BookingDatoStartID
-FROM Booking b
-         INNER JOIN Ansatt a on b.AnsattID = a.AnsattID
-         INNER JOIN Verktoy t on b.VerktoyID = t.VerktoyID
-         INNER JOIN VerktoyType VT on t.VerktoyTypeID = VT.VerktoyTypeID
-WHERE b.AnsattID  = (
-    SELECT AnsattID
-    FROM Booking
-    GROUP BY AnsattID
-    ORDER BY COUNT(AnsattID) DESC LIMIT 1
-)
-ORDER BY b.BookingDatoStartID;
-
-SELECT VerktoyID, VerktoyTypeNavn, Tilgjenglighet
-from Verktoy
-         inner join VerktoyType ON Verktoy.VerktoyTypeID = VerktoyType.VerktoyTypeID
-where Tilgjenglighet = false;
-
-select booking.VerktoyID,verktoytypenavn, booking.AnsattID, AnsattFornavn, AnsattEtternavn, 'status'
-from Booking
-         inner join Ansatt A on Booking.AnsattID = A.AnsattID
-         inner join Verktoy v on booking.VerktoyID = v.VerktoyID
-         inner join VerktoyType VT on VT.VerktoyTypeID = v.VerktoyTypeID
-
-where status = 0 and current_date > BookingDatoSlutt;

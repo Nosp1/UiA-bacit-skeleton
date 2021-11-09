@@ -1,5 +1,5 @@
 <%@page import="modell.loggInn.Bruker"%>
-<%@ page import="java.util.ArrayList" %>
+<%@page import="java.util.ArrayList" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% Bruker bruker = (Bruker) session.getAttribute("logUser");
     if(bruker==null){
@@ -36,7 +36,7 @@
 
         <div id="links">
             <ul>
-                <a href="#Verktøy" class="active">Verktøy</a>
+                <a href="RegistrerVerktoy">Registrer verktøy</a>
                 <a href="RegistrerBruker">Registrer bruker</a>
                 <a href="LoggUt">Logg ut</a>
             </ul>
@@ -45,6 +45,9 @@
 
     <div class="wrapper">
 
+        <%
+
+        %>
         <div><p>Vinkelsliper</p><img src="view/css/verktoybilder/9%20Vinkelsliper%20Stein.PNG" alt="Vinkelsliper" id="4" class="responsive"></div>
         <div><p>Bandsliper</p><img src="view/css/verktoybilder/Bandsliper%20230v.PNG" alt="Bandsliper" id="6" class="responsive"></div>
         <div><p>Bildiagnose</p><img src="view/css/verktoybilder/Bildiagnose.PNG" alt="Bildiagnose" id="22" class="responsive"></div>
