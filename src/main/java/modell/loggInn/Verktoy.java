@@ -1,6 +1,7 @@
 package modell.loggInn;
 
 public class Verktoy {
+    private static String VerktoyTypeNavn;
     private int VerktoyTypeID;
     private String VerktoyTypeNavn;
     private String VerktoyBilde;
@@ -21,7 +22,7 @@ public class Verktoy {
         return VerktoyTypeNavn;
     }
 
-    public static void setVerktoyTypeNavn(String verktoyTypeNavn) {
+    public void setVerktoyTypeNavn(String verktoyTypeNavn) {
 
         this.VerktoyTypeNavn = VerktoyTypeNavn;
     }
