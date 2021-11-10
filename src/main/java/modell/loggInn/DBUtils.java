@@ -44,4 +44,20 @@ public class DBUtils {
         }
         return toReturn;
     }
+
+    public Connection getConnection() throws SQLException, ClassNotFoundException {
+        Connection toReturn = null;
+        Class.forName("org.mariadb.jdbc.Driver");
+        try {
+            toReturn = (connection != null)
+                    ? connection
+                    : DriverManager.getConnection(
+                    "jdbc:mariadb://172.17.0.1:3308/amv",
+                    "root",
+                    "12345");
+        } catch (SQLException e) {
+            e.printStackTrace();
+                    }
+        return toReturn;
+    }
 }
