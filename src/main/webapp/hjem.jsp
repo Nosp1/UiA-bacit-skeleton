@@ -53,10 +53,12 @@
         %>
 
                 <div>
-                    <form action="/VelgVerktoy">
+                    <form action="VelgVerktoy" method="get">
 
                         <p><%=vt.getNavn()%></p>
-                        <input type="image" name="submit" value="<%=vt.getID()%>" src="view/css/verktoybilder/<%=vt.getBildePath()%>" class="responsive">
+                            <input type="hidden" name="id" value="<%=vt.getID()%>">
+                        <img src="view/css/verktoybilder/<%=vt.getBildePath()%>">
+                        <input type="submit" class="responsive">
                     </form>
                 </div>
         <%
