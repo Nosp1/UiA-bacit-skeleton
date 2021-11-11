@@ -53,7 +53,7 @@
         %>
 
                 <div>
-                    <form action="">
+                    <form action="/VelgVerktoy">
 
                         <p><%=vt.getNavn()%></p>
                         <input type="image" name="submit" value="<%=vt.getID()%>" src="view/css/verktoybilder/<%=vt.getBildePath()%>" class="responsive">

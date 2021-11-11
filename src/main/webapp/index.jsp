@@ -24,7 +24,7 @@ GAMMEL LOGG INN KNAPP OM VI ØNSKER DETTE SYSTEMET TILBAKE
                <div class="formBox">
                     <form action="./loggInn" method="post">
                          <p>Epost:</p>
-                         <input type="text" name="epost" placeholder="Skriv inn E-post">
+                         <input type="email" name="epost" placeholder="Skriv inn E-post">
                          <p>Passord:</p>
                          <input type="Password" name="passord" placeholder="Skriv inn passord">
                          <input type="submit" name="" value="Logg Inn">

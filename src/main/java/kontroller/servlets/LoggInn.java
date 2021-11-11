@@ -4,10 +4,13 @@ import modell.loggInn.Bruker;
 
 import modell.loggInn.BrukerDB;
 import modell.Connector;
-
+import modell.loggInn.DBUtils;
 
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,3 +52,49 @@ public class LoggInn extends HttpServlet {
         }
     }
 }
+
+
+/*if(checkIfUserExists(email,password) == true) {
+    out.println("Congrats");
+    HttpSession session = request.getSession();
+    session.setAttribute("sessionEmail", email)
+        } else {
+    out.println("Feil passord eller bruker");
+        }
+
+public boolean checkIfUserAdmin(HttpSession session) {
+
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
+
+    String sessionEmail = (String) session.getAttribute("sessionEmail", email)
+
+
+    con = DBUtils.getINSTANCE().getConnection();
+    String query = "SELECT Admin from amv where Email = ?");
+    ps = con.prepareStatement(query);
+    rs = ps.executeQuery();
+
+    String adminFromDB = rs.getString("Admin");
+
+
+    if (adminFromDB.equals("1")){
+        return true;
+    }
+    else {
+        return false;
+    }
+
+}
+
+Login l = new login();
+if(checkIfUserAdmin(HttpSession session) == true){
+    requestgetRequestDispatcher("deleteUser.jsp").forward(request, response);
+        } else {
+    printWriter out = repsonse.getWriter();
+    out.println("Ikke tilgang");
+        }
+
+*/
+
