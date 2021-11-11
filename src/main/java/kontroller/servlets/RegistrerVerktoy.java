@@ -18,8 +18,8 @@ import java.sql.SQLException;
 import java.util.Locale;
 
 
-@WebServlet("/RegistrerBruker")
-public class RegistrerBruker extends HttpServlet {
+@WebServlet("/RegistrerVerktoy")
+public class RegistrerVerktoy extends HttpServlet {
 
     // Dette blir en Post ettersom vi vil sjekke noe vi skriver inn imot noe som ligger inne i DB
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -29,25 +29,19 @@ public class RegistrerBruker extends HttpServlet {
         Connection con;
 
         //Her henter vi dataene fra rutene til logg inn siden
-        String fornavn = req.getParameter("AnsattFornavn");
-        String etternavn = req.getParameter("AnsattEtternavn");
-        String email = (req.getParameter("AnsattEmail")).toLowerCase();
-        String telefon = req.getParameter("AnsattTlf");
-        String passord = req.getParameter("passord");
+        String VerktoyNavn = req.getParameter("VerktoyTypeNavn");
+
         //Her lager vi en tom modell.loggInn.Bruker.BrukerDB modell, som håndterer data til/fra databasen
         BrukerDB bdb = null;
         try {
             //Her initierer vi samme tomme tabell og setter den opp med en kobling til databasen
             con = DBUtils.getINSTANCE().getConnection(out);
-            String query = "INSERT INTO Ansatt (AnsattFornavn, AnsattEtternavn, AnsattEmail, AnsattTlf, Passord) values (?,?,?,?,?)";
+            String query = "INSERT INTO VerktoyType (VerktoyTypeNavn) values (?)";
             ps = con.prepareStatement(query);
-            ps.setString(1, fornavn);
-            ps.setString(2, etternavn);
-            ps.setString(3, email);
-            ps.setString(4, telefon);
-            ps.setString(5, passord);
+            ps.setString(1, VerktoyNavn);
+
             ps.execute();
-            out.println("Ny bruker registrert!");
+            out.println("Ny verktoy registrert!");
 
             //Her kombinerer vi Bruker modellen med modell.loggInn.Bruker.BrukerDB modellen, slik at vi fyller en bruker med data fra DB
 
@@ -57,7 +51,8 @@ public class RegistrerBruker extends HttpServlet {
         }
     }
 
+
     public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        res.sendRedirect("registrerBruker.jsp");
+        res.sendRedirect("registrerVerktoy.jsp");
     }
 }
