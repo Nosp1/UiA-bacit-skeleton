@@ -4,6 +4,7 @@ import modell.Connector;
 import modell.loggInn.Bruker;
 import modell.loggInn.BrukerDB;
 import modell.loggInn.DBUtils;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,7 +46,7 @@ public class RegistrerBruker extends HttpServlet {
             ps.setString(2, etternavn);
             ps.setString(3, email);
             ps.setString(4, telefon);
-            ps.setString(5, passord);
+            ps.setString(5, DigestUtils.md5Hex(passord));
             ps.execute();
             out.println("Ny bruker registrert!");
 

@@ -9,7 +9,7 @@ CREATE TABLE Ansatt
     `AnsattEtternavn`  varchar(25),
     `AnsattEmail`      varchar(25),
     `AnsattTlf`        varchar(25),
-    `Passord`          varchar(25),
+    `Passord`          varchar(200),
     `AnsattSertifsert` boolean,
     `Admin`            boolean,
     `AnsattUnion`      boolean
@@ -50,7 +50,7 @@ CREATE TABLE Booking
 
 INSERT INTO Ansatt (AnsattID, AnsattFornavn, AnsattEtternavn, AnsattEmail, AnsattTlf, Passord, AnsattSertifsert, Admin,
                     AnsattUnion)
-VALUES (1, 'Kevin', 'Maksevicius', 'kevinas@lyse.net', '77884503', '12345', TRUE, TRUE, TRUE);
+VALUES (1, 'Kevin', 'Maksevicius', 'kevinas@lyse.net', '77884503', '827ccb0eea8a706c4c34a16891f84e7b', TRUE, TRUE, TRUE);
 
 insert into Ansatt (AnsattID, AnsattFornavn, AnsattEtternavn, AnsattEmail, AnsattTlf, Passord, AnsattSertifsert, Admin,
                     AnsattUnion)
