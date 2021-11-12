@@ -1,5 +1,6 @@
 package modell.loggInn;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,6 +13,7 @@ import java.sql.ResultSet;
 public class BrukerDB {
     //Con er for tilknyttning til DB
     Connection con ;
+
     //Lager en Bruker DB med en tilkobling til DB
     public BrukerDB(Connection con) {
         this.con = con;
@@ -51,7 +53,7 @@ public class BrukerDB {
             PreparedStatement pt = this.con.prepareStatement(query);
             //Under setter finner man våre to parametere og setter dem ved hjelp fra pt
             pt.setString(1, epost);
-            pt.setString(2, passord);
+            pt.setString(2, DigestUtils.md5Hex(passord));
             //Her utnytter vi ResultSet som lar oss holde og utføre handlinger med resultatene
             ResultSet rs = pt.executeQuery();
 
