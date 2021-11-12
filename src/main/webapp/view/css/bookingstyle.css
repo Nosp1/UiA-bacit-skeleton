@@ -1,18 +1,29 @@
 header {
     text-align: center;
 }
-.body {
+body {
     background-color: #f0b324;
     background-size: cover;
-    font-family: sans-serif;
 }
 
-.title h1 {
+b {
+    color: #f0b324;
+    text-transform: uppercase;
+}
+
+h2 {
+    text-align: center;
+    font-size: 48px;
+    color: #151E4A;
+    font-family: Arial;
+}
+td {
+    background-color: #f0b324;
     text-align: center;
     color: #021e46;
-    border: 3px solid green;
+    font-weight: bold;
 }
 
-.b {
-    color: white;
+tr {
+    min-width: 50%;
 }
