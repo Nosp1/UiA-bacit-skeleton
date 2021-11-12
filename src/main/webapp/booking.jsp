@@ -17,8 +17,8 @@
 </head>
 <body>
 <h1>Verktøy</h1>
-<table border ="1" width="500" align="center">
-    <tr bgcolor="00FF7F">
+<table border ="1" width="1000" align="center">
+    <tr bgcolor="#021e46">
         <th><b>VerktøyID</b></th>
         <th><b>BILDEPATH INN HER</b></th>
         <th><b>Navn på verktøyet</b></th>

@@ -1,0 +1,18 @@
+header {
+    text-align: center;
+}
+.body {
+    background-color: #f0b324;
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+.title h1 {
+    text-align: center;
+    color: #021e46;
+    border: 3px solid green;
+}
+
+.b {
+    color: white;
+}
