@@ -5,20 +5,20 @@
   Time: 11:01
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="modell.loggInn.Verktoy"%>
 <%@page import="DAO.VerktoyDAO"%>
 <%@page import="kontroller.servlets.VelgVerktoyServlet"%>
 <%@page import="java.util.ArrayList"%>
 <html>
 <head>
-    <title>Title</title>
-  <link rel="stylesheet" href="view/css/bookingstyle.css">
+    <title>BOOK ET VERKTØY</title>
+    <link rel="stylesheet" href="view/css/bookingstyle.css">
 </head>
 <body>
-<h1>Verktøy</h1>
-<table border ="1" width="500" align="center">
-    <tr bgcolor="00FF7F">
+<h2>Verktøy</h2>
+<table border ="1" width="1000" align="center">
+    <tr bgcolor="#021e46">
         <th><b>VerktøyID</b></th>
         <th><b>BILDEPATH INN HER</b></th>
         <th><b>Navn på verktøyet</b></th>
@@ -39,16 +39,16 @@
     --%>
     <tr>
         <td><%=s.getID()%></td>
-        <td><%=s.getBildePath()%></td>
+        <td><img src="view/css/verktoybilder/<%=s.getBildePath()%>"</img></td>
         <td><%=s.getNavn()%></td>
         <td><%=s.getKostnad()%></td>
         <td><%=s.getMaksDager()%></td>
-        <td><%=s.isGratis()%></td>
+        <td><%=s.isGratis()%></td> <%--if false remove? --%>
         <td><%=s.isTilgjengelig()%></td>
     </tr>
     <%}%>
 </table>
-<hr/>
+
 
 </body>
 </html>
