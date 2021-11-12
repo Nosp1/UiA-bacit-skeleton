@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
-        PrintWriter out = response.getWriter();
+       PrintWriter out = response.getWriter();
 
         String Telefonnummer = request.getParameter("Telefonnummer");
         String Passord = request.getParameter("Passord");
@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
             try {
 
 
-                Connection con = DBUtils.getINSTANCE().getConnection(out);
+                Connection con = DBUtils.getINSTANCE().getConnection();
 
                 PreparedStatement ps = con.prepareStatement("select * from Brukere where Telefonnummer=? || E_post and Passord=?");
                 ps.setString(1, Telefonnummer);

@@ -6,10 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 @WebServlet(name = "userList", value = "/User_list")
 public class UserListServlet extends HttpServlet {
@@ -22,28 +19,27 @@ public class UserListServlet extends HttpServlet {
 
         String brukerId = request.getParameter("user");
 
-        if( brukerId != null ) {
+        if (brukerId != null) {
 
-        }
-        else {
+        } else {
 
 
             out.println("<ul>");
 
             try {
 
-                Connection con = DBUtils.getINSTANCE().getConnection(out);
+                Connection con = DBUtils.getINSTANCE().getConnection();
                 PreparedStatement ps = con.prepareStatement("select * from Brukere");
                 ResultSet res = ps.executeQuery();
 
-                while (res.next()){
-                    out.println("<li><a href='#'>"+res.getString("Fult_navn")+"</a></li>");
+                while (res.next()) {
+                    out.println("<li><a href='#'>" + res.getString("Fult_navn") + "</a></li>");
                 }
 
                 out.println("</ul>");
-            }
-            catch (SQLException | ClassNotFoundException e){
-                out.println("Noe funket ikke: "+e);
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

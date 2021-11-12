@@ -54,7 +54,7 @@ public class RegisterUserServlet extends HttpServlet {
     }
 
     private void writeUserToDb(RegisterUserModel user,PrintWriter out) throws SQLException, ClassNotFoundException {
-        Connection db = DBUtils.getINSTANCE().getConnection(out);
+        Connection db = DBUtils.getINSTANCE().getConnection();
         String insertUserCommand = "insert into Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord) values(?,?,?,?,?);";
         PreparedStatement statement = db.prepareStatement(insertUserCommand);
         statement.setString(1, user.getFullName());

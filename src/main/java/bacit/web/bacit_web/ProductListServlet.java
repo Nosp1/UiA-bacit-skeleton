@@ -21,33 +21,31 @@ public class ProductListServlet extends HttpServlet {
 
         String ProduktID = request.getParameter("produkt");
 
-        if( ProduktID != null ) {
+        if (ProduktID != null) {
 
-        }
-        else {
+        } else {
 
 
             out.println("<ul>");
 
             try {
 
-                Connection con = DBUtils.getINSTANCE().getConnection(out);
+                Connection con = DBUtils.getINSTANCE().getConnection();
                 PreparedStatement ps = con.prepareStatement("select * from Produkter where brukes = 0");
                 ResultSet res = ps.executeQuery();
 
-                while (res.next()){
-                    out.println("<li><a href='#'>"+res.getString("Produkt_navn")+"</a></li>");
-                    out.println("<li>"+res.getString("Kategori")+"</li>");
-                    out.println("<li>"+res.getString("Beskrivelse")+"</li>");
+                while (res.next()) {
+                    out.println("<li><a href='#'>" + res.getString("Produkt_navn") + "</a></li>");
+                    out.println("<li>" + res.getString("Kategori") + "</li>");
+                    out.println("<li>" + res.getString("Beskrivelse") + "</li>");
+                    out.println("<li>" + res.getString("Bilde") + "</li>");
                 }
 
                 out.println("</ul>");
-            }
-            catch (SQLException | ClassNotFoundException e){
-                out.println("Noe funket ikke: "+e);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 }
-
 
