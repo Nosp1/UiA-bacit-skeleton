@@ -41,6 +41,7 @@
                 <a href="RegistrerVerktoy">Registrer verktøy</a>
                 <a href="RegistrerBruker">Registrer bruker</a>
                 <a href="LoggUt">Logg ut</a>
+                <a href="ListTilgjengligeVerktoy">Tilgjenglige verktøy </a>
             </ul>
         </div>
     </nav>

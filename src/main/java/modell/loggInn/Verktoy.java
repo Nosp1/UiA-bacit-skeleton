@@ -20,6 +20,13 @@ public class Verktoy {
         this.tilgjengelig = tilgjengelig;
     }
 
+    public Verktoy(int ID, String bildePath, String navn, boolean tilgjengelig) {
+        this.ID = ID;
+        this.bildePath = bildePath;
+        this.navn = navn;
+        this.tilgjengelig = tilgjengelig;
+    }
+
     public int getID() {
         return ID;
     }
