@@ -38,7 +38,7 @@
 
         <div id="links">
             <ul>
-                <a href="RegistrerVerktoy">Registrer verktøy</a>
+                <a href="RegistrerVerktoy2">Registrer verktøy</a>
                 <a href="RegistrerBruker">Registrer bruker</a>
                 <a href="LoggUt">Logg ut</a>
                 <a href="ListTilgjengligeVerktoy">Tilgjenglige verktøy </a>
@@ -58,7 +58,9 @@
 
                         <p><%=vt.getNavn()%></p>
                             <input type="hidden" name="id" value="<%=vt.getID()%>">
-                        <img src="view/css/verktoybilder/<%=vt.getBildePath()%>">
+
+                        <%out.println("<img src=\"data:image/jpg;base64,"+ vt.getBildePath() + " \" onerror=\"this.onerror=null; this.src='User.PNG'\"/>"); %>
+
                         <input type="submit" class="responsive">
                     </form>
                 </div>

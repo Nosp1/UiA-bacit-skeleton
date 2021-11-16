@@ -1,104 +1,74 @@
 package kontroller.servlets;
 
+;
+
 import modell.Connector;
 
-import java.io.*;
-import java.sql.DriverManager;
-import java.util.Scanner;
 
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
-import java.sql.*;
+import java.io.IOException;
 
-/**
- * Servlet implementation class uploadServlet
- */
+import java.io.InputStream;
+import java.io.PrintWriter;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.logging.Logger;
+
+
 @WebServlet("/RegistrerVerktoy2")
-@MultipartConfig
+@MultipartConfig(maxFileSize = 1024 * 1024 * 2)
 public class RegistrerVerktoy2 extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
 
-        Part p2 = request.getPart("filesel");
-        InputStream is = p2.getInputStream();
 
-        Scanner
-                sc = new Scanner(p2.getContentType());
-        String type = sc.next();
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        request.getRequestDispatcher("registrerVerktoy2.jsp").forward(request, response);
+    }
+   @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        try {
-            String path = request.getServletContext().getRealPath("/Users/kevin/Desktop/IS-20X/UiA-bacit-skeleton/src/main/webapp/view/css/verktoybilder");
-            FileOutputStream fos = new FileOutputStream(path);
-            byte buf[] = new byte[is.available()];
-            is.read(buf);
-            fos.write(buf);
-            fos.flush();
-            fos.close();
-            // use this part only if you wish to store files in database
+       InputStream image = null;
 
-            Connection con = Connector.getINSTANCE().getConnection(out);
-            PreparedStatement ps = con.prepareStatement("insert into VerktoyType (VerktoyBilde) values(?) ");
+       PreparedStatement ps;
+       Connection con;
+       Part filePart = request.getPart("image");
 
-            ps.setString(1, path);
+       if (filePart != null) {
+           image = filePart.getInputStream();
+       }
+
+        try{
+            String VerktoyNavn = request.getParameter("VerktoyTypeNavn");
+            con = Connector.getINSTANCE().getConnection(out);
+            String query = "INSERT INTO VerktoyType (VerktoyTypeNavn, VerktoyBilde) values (?,?)";
+
+            ps = con.prepareStatement(query);
+            ps.setString(1, VerktoyNavn);
+            if (image != null) {
+                ps.setBlob(2, image);
+            }
+
+
             ps.execute();
-            ps.close();
-            con.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+            out.println("Ny verktoy registrert!");
         }
+        catch(Exception ex)
+        {
+         ex.printStackTrace();
+
+        }
+
     }
 
-    public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        res.sendRedirect("registrerVerktoy2.jsp");
-    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -20,7 +20,7 @@ CREATE TABLE VerktoyType
 (
     VerktoyTypeID int PRIMARY KEY auto_increment,
     VerktoyTypeNavn varchar(100),
-    VerktoyBilde varchar(100)
+    VerktoyBilde mediumblob null
 );
 
 
@@ -90,14 +90,14 @@ VALUES (10, 'Jakob', 'Varhaug', 'jakobvar@gmail.com', '67800456', '20017', TRUE,
 
 #VerktøyType
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
-VALUES (1, 'Skruautomat', 'Skruemaskin.PNG');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn )
+VALUES (1, 'Skruautomat');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
-VALUES (2, 'Fein Multimaskin', 'FeinMultimaskin.PNG');
+insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (2, 'Fein Multimaskin');
 
-insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
-VALUES (3, 'Eksentersliper 230 VAC', 'Eksentersliper230V.PNG');
+/*insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn)
+VALUES (3, 'Eksentersliper 230 VAC');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
 VALUES (4, '9" Vinkelsiper, stein', '9VinkelsliperStein.PNG');
@@ -106,7 +106,7 @@ insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
 VALUES (5, 'Flisekutter, kermaiske fliser', 'FlisekutterKeramikk.PNG');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
-VALUES (6, 'Båndsliper 230 VAC', 'Bandsliper230v.PNG');
+VALUES (6, 'Båndsliper 230 VAC', 'User.PNG');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
 VALUES (7, 'Høvel 230 VAC', 'Hovel230v.PNG');
@@ -178,13 +178,13 @@ insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
 VALUES (29, 'Skap henger', 'SkapHenger.PNG');
 
 insert into VerktoyType (VerktoyTypeID, VerktoyTypeNavn, VerktoyBilde)
-VALUES (30, 'Bluetooth høyttaler SOUNDBOKS', 'BluetoothHoytalerSOUNDBOKS.PNG');
+VALUES (30, 'Bluetooth høyttaler SOUNDBOKS', 'BluetoothHoytalerSOUNDBOKS.PNG');*/
 
 #Verktøy
 insert into Verktoy (VerktoyID, VerktoyTypeID, Tilgjenglighet, MaksDager, Gratis, Kostnad)
 VALUES (1, 1, TRUE, 4, TRUE, 20),
-       (2, 2, TRUE, 4, TRUE, 20),
-       (3, 3, TRUE, 4, TRUE, 20),
+       (2, 2, TRUE, 4, TRUE, 20);
+      /* (3, 3, TRUE, 4, TRUE, 20),
        (4, 4, TRUE, 4, TRUE, 20),
        (5, 5, TRUE, 4, TRUE, 20),
        (6, 6, TRUE, 4, TRUE, 20),
@@ -211,7 +211,7 @@ VALUES (1, 1, TRUE, 4, TRUE, 20),
        (27, 27, TRUE, 4, TRUE, 20),
        (28, 28, TRUE, 4, TRUE, 20),
        (29, 29, TRUE, 4, TRUE, 50),
-       (30, 30, TRUE, 4, TRUE, 20);
+       (30, 30, TRUE, 4, TRUE, 20);*/
 
 
 #Booking
@@ -227,4 +227,12 @@ VALUES (3, 1, '01.09.2021', '04.09.2021', 0);
 
 insert into Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt, Status)
 VALUES (4, 2, '01.10.2021', '04.10.2021', 1);
+
+SELECT VerktoyType.VerktoyTypeID, VerktoyTypeNavn,VerktoyID, Verktoy.Tilgjenglighet
+from VerktoyType
+         inner join Verktoy ON Verktoy.VerktoyTypeID = VerktoyType.VerktoyTypeID = Verktoy.VerktoyTypeID
+where Verktoy.Tilgjenglighet = true;
+
+insert into VerktoyType (VerktoyTypeNavn, VerktoyBilde) values ('IdkMan', load_file('User.PNG'));
+
 

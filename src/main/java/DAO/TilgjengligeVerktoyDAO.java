@@ -1,6 +1,6 @@
 package DAO;
 
-import jdk.internal.icu.impl.CharacterIteratorWrapper;
+
 import modell.loggInn.DBUtils;
 import modell.loggInn.Verktoy;
 
