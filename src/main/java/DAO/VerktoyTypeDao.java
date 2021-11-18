@@ -26,7 +26,7 @@ public class VerktoyTypeDao {
 
             while (rs.next()) {
 
-                Blob blob = rs.getBlob("VerktoyBilde");
+                Blob blob = rs.getBlob("VerktoyBildet");
                 InputStream inputStream = blob.getBinaryStream();
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 byte[] buffer = new byte[4096];
@@ -44,7 +44,7 @@ public class VerktoyTypeDao {
                         rs.getInt("VerktoyTypeID"),
                         rs.getString("VerktoyTypeNavn"), image
 
-                        );
+                );
                 toReturn.add(verktoyType);
             }
         }

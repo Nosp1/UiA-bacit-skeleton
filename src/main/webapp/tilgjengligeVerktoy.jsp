@@ -36,7 +36,8 @@
     --%>
     <tr>
         <td><%=s.getID()%></td>
-        <td><img src="view/css/verktoybilder/<%=s.getBildePath()%>"></td>
+        <td><%out.println("<img src=\"data:image/jpg;base64,"+ s.getBildePath() + " \" />"); %></td>
+
         <td><%=s.getNavn()%></td>
         <td><%=s.isTilgjengelig()%></td>
     </tr>

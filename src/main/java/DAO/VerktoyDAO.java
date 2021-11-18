@@ -16,7 +16,7 @@ import java.util.Base64;
 public class VerktoyDAO {
 
     public static ArrayList<Verktoy> getAllVerktoyTypeID(int ID)  {
-        String sql = "SELECT VerktoyID, Tilgjenglighet, MaksDager, Gratis, Kostnad, VerktoyType.VerktoyTypeNavn, VerktoyType.VerktoyBilde from Verktoy INNER JOIN VerktoyType ON VerktoyType.VerktoyTypeID = Verktoy.VerktoyTypeID where Verktoy.VerktoyID = ?";
+        String sql = "SELECT VerktoyID, Tilgjenglighet, MaksDager, Gratis, Kostnad, VerktoyType.VerktoyTypeNavn, VerktoyType.VerktoyBildet from Verktoy INNER JOIN VerktoyType ON VerktoyType.VerktoyTypeID = Verktoy.VerktoyTypeID where Verktoy.VerktoyID = ?";
         ArrayList<Verktoy> toReturn = new ArrayList<>();
 
         try {
@@ -28,7 +28,7 @@ public class VerktoyDAO {
 
             while (rs.next()) {
 
-                Blob blob = rs.getBlob("VerktoyBilde");
+                Blob blob = rs.getBlob("VerktoyBildet");
                 InputStream inputStream = blob.getBinaryStream();
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 byte[] buffer = new byte[4096];
