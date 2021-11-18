@@ -1,7 +1,5 @@
 package kontroller.servlets;
 
-;
-
 import modell.Connector;
 
 
@@ -50,7 +48,7 @@ public class RegistrerVerktoy2 extends HttpServlet {
         try{
             String VerktoyNavn = request.getParameter("VerktoyTypeNavn");
             con = Connector.getINSTANCE().getConnection(out);
-            String query = "INSERT INTO amv.VerktoyType (VerktoyTypeNavn, VerktoyBildet) values (?,?)";
+            String query = "INSERT INTO amv.VerktoyType (VerktoyTypeNavn, VerktoyBilde) values (?,?)";
 
             ps = con.prepareStatement(query);
             ps.setString(1, VerktoyNavn);

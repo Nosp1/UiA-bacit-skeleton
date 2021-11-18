@@ -15,7 +15,7 @@ import java.util.Base64;
 public class TilgjengligeVerktoyDAO {
 
     public static ArrayList<Verktoy> getAllVerktoyTilgjenglige() throws SQLException {
-        String sql = "SELECT VerktoyID, VerktoyBildet, VerktoyTypeNavn, Tilgjenglighet FROM Verktoy INNER JOIN VerktoyType ON Verktoy.VerktoyTypeID = VerktoyType.VerktoyTypeID WHERE Tilgjenglighet = TRUE;";
+        String sql = "SELECT VerktoyID, VerktoyBilde, VerktoyTypeNavn, Tilgjenglighet FROM Verktoy INNER JOIN VerktoyType ON Verktoy.VerktoyTypeID = VerktoyType.VerktoyTypeID WHERE Tilgjenglighet = TRUE;";
         ArrayList<Verktoy> toReturn = new ArrayList<>();
 
 
@@ -27,7 +27,7 @@ public class TilgjengligeVerktoyDAO {
 
 
             while (rs.next()) {
-                Blob blob = rs.getBlob("VerktoyBildet");
+                Blob blob = rs.getBlob("VerktoyBilde");
                 InputStream inputStream = blob.getBinaryStream();
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 byte[] buffer = new byte[4096];

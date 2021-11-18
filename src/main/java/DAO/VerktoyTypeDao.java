@@ -26,7 +26,7 @@ public class VerktoyTypeDao {
 
             while (rs.next()) {
 
-                Blob blob = rs.getBlob("VerktoyBildet");
+                Blob blob = rs.getBlob("VerktoyBilde");
                 InputStream inputStream = blob.getBinaryStream();
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 byte[] buffer = new byte[4096];
