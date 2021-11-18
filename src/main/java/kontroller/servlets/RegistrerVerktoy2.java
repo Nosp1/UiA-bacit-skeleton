@@ -33,24 +33,24 @@ public class RegistrerVerktoy2 extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.getRequestDispatcher("registrerVerktoy2.jsp").forward(request, response);
     }
-   @Override
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-       InputStream image = null;
+        InputStream image = null;
 
-       PreparedStatement ps;
-       Connection con;
-       Part filePart = request.getPart("image");
+        PreparedStatement ps;
+        Connection con;
+        Part filePart = request.getPart("image");
 
-       if (filePart != null) {
-           image = filePart.getInputStream();
-       }
+        if (filePart != null) {
+            image = filePart.getInputStream();
+        }
 
         try{
             String VerktoyNavn = request.getParameter("VerktoyTypeNavn");
             con = Connector.getINSTANCE().getConnection(out);
-            String query = "INSERT INTO VerktoyType (VerktoyTypeNavn, VerktoyBilde) values (?,?)";
+            String query = "INSERT INTO amv.VerktoyType (VerktoyTypeNavn, VerktoyBildet) values (?,?)";
 
             ps = con.prepareStatement(query);
             ps.setString(1, VerktoyNavn);
@@ -64,7 +64,7 @@ public class RegistrerVerktoy2 extends HttpServlet {
         }
         catch(Exception ex)
         {
-         ex.printStackTrace();
+            ex.printStackTrace();
 
         }
 

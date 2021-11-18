@@ -59,7 +59,7 @@
                         <p><%=vt.getNavn()%></p>
                             <input type="hidden" name="id" value="<%=vt.getID()%>">
 
-                        <%out.println("<img src=\"data:image/jpg;base64,"+ vt.getBildePath() + " \" onerror=\"this.onerror=null; this.src='User.PNG'\"/>"); %>
+                        <%out.println("<img src=\"data:image/jpg;base64,"+ vt.getBildePath() + " \" />"); %>
 
                         <input type="submit" class="responsive">
                     </form>
