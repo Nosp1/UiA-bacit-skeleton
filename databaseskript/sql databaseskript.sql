@@ -7,8 +7,8 @@ CREATE TABLE Brukere (Bruker_ID integer UNIQUE auto_increment,
                       Telefonnummer Varchar(11),
                       E_post Varchar(30),
                       Fagforbund BOOLEAN,
-                      Passord Varchar(550),
-                      Admin BOOLEAN,
+                      Passord Varchar(50),
+                      Bruker_roller Varchar(25),
                       PRIMARY KEY (Bruker_ID));
 
 CREATE INDEX Fult_navn
@@ -21,8 +21,12 @@ ALTER TABLE Brukere
 CREATE VIEW bruker_admin AS
 SELECT Fult_navn, Telefonnummer, E_post
 From Brukere
-where Admin = 1;
+where Bruker_roller = 'admin';
 
+CREATE TABLE Pris (
+                      Pris_ID integer UNIQUE auto_increment,
+                      Pris INTEGER,
+                      PRIMARY KEY (Pris_ID));
 Create table Kurs (
                       Kurs_ID INTEGER UNIQUE AUTO_INCREMENT,
                       Kurs_navn Varchar(25),
@@ -42,11 +46,12 @@ CREATE TABLE Produkter (
                            Kategori VARCHAR(50),
                            Beskrivelse VARCHAR(500),
                            Bilde blob,
-                           Brukes BOOLEAN,
+                           Brukes boolean,
                            Kurs_ID INTEGER,
-                           Pris INTEGER,
+                           PRIS_ID INTEGER,
                            PRIMARY KEY (Produkt_ID),
-                           FOREIGN KEY (Kurs_ID) REFERENCES Kurs(Kurs_ID));
+                           FOREIGN KEY (Kurs_ID) REFERENCES Kurs(Kurs_ID),
+                           FOREIGN KEY (PRIS_ID) REFERENCES Pris(Pris_ID));
 
 CREATE INDEX Produkt_index
     ON Produkter (Produkt_navn, Kategori);
@@ -64,7 +69,7 @@ CREATE TABLE Reservasjoner (
 SELECT (Produkt_navn, Beskrivelse, Bilde) FROM Produkter AS P_info;
 
 SELECT * FROM Brukere, Produkter, Kurs, Pris, Reservasjoner
-LIMIT 5;
+    LIMIT 5;
 
 select Produkt_navn from Produkter where brukes = 0;
 
@@ -97,17 +102,23 @@ Delete from Produkter where Produkt_ID=10001;
 
 
 
-INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Admin) VALUES
-('Nora Fure', '+4777366390', 'Nora@Epost.com', 1, '123', 1),
-('Hernik Roed', '+4789771324', 'Henrik@Epost.com', 0, '1234', 1),
-('Mads Teland', '+4790001982', 'Mads@Epost.com', 0, '12345', 1),
-('Emanuel Minak', '+4724524372', 'Emanuel@Epost.com', 1, '123456', 1),
-('Knut Norwegian', '+4775312387', 'Knut@Epost.com', 1, '654321', 1),
-('Roald Peroson', '+4783928173', 'Roald@Epost.com', 0, '54321', 0),
-('Frida Karlsen', '+4712763521', 'Frida@Epost.com', 0, '4321', 0),
-('Ingrid Benthus', '+4721379862', 'Ingrid@Epost.com', 1, '321', 0),
-('Roar Klippestad', '+4721875362', 'Roar@Epost.com', 0, 'Passord', 0),
-('Henning Sletner', '+4746897309', 'Henning@Epost.com', 1, '1234567', 0);
+INSERT INTO Gruppe9.Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord, Bruker_roller) VALUES
+('Nora Fure', '+4777366390', 'Nora@Epost.com', 1, '123', 'Bruker'),
+('Hernik Roed', '+4789771324', 'Henrik@Epost.com', 0, '1234', 'Admin'),
+('Mads Teland', '+4790001982', 'Mads@Epost.com', 0, '12345', 'Bruker'),
+('Emanuel Minak', '+4724524372', 'Emanuel@Epost.com', 1, '123456', 'Bruker'),
+('Knut Norwegian', '+4775312387', 'Knut@Epost.com', 1, '654321', 'Admin'),
+('Roald Peroson', '+4783928173', 'Roald@Epost.com', 0, '54321', 'Bruker'),
+('Frida Karlsen', '+4712763521', 'Frida@Epost.com', 0, '4321', 'Bruker'),
+('Ingrid Benthus', '+4721379862', 'Ingrid@Epost.com', 1, '321', 'Bruker'),
+('Roar Klippestad', '+4721875362', 'Roar@Epost.com', 0, 'Passord', 'Admin'),
+('Henning Sletner', '+4746897309', 'Henning@Epost.com', 1, '1234567', 'Bruker');
+
+INSERT INTO Gruppe9.Pris (Pris) VALUES
+(0),
+(50),
+(100),
+(150);
 
 INSERT INTO Gruppe9.Kurs (Kurs_navn) VALUES
 ('Førerkort klasse B'),
@@ -135,17 +146,17 @@ VALUES
 (3, 6, '2018-11-16'),
 (4, 6, '2013-02-22');
 
-INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Beskrivelse, Bilde, Brukes, Kurs_ID, Pris) VALUES
-(10001, 'Liten Drill', 'Små Verktøy', 'Lang text', null, 2, 0,null),
-(10002, 'Liten Drill', 'Små Verktøy', 'Lang text', null, 2, 1, null),
-(10003, 'Tilhenger(Liten)', 'Transport', 'Lang text', null, 3, 0, null),
-(10004, 'Tillhenger (Stor)', 'Transport', 'Lang text', null, 4, 1, null),
-(10005, 'Lyft', 'Maskiner', 'Lang text', null, 4, 1, null),
-(10006, 'Dekkskiftemaskin', 'Maskiner', 'Lang text', null, 4, 0, null),
-(10007, 'Slagdrill', 'Små Verktøy', 'Lang text', null, 2, 1, null),
-(10008, 'Jekktralle', 'Transport', 'Lang text', null, 2, 0, null),
-(10009, 'Verktøykasse', 'Små Verktøy', 'Lang text', null, 2, 1, null),
-(10010, 'Sementmikser', 'Maskiner', 'Lang text', null, 2, 0, null);
+INSERT INTO Gruppe9.Produkter (Produkt_ID, Produkt_navn, Kategori, Beskrivelse, Bilde, PRIS_ID, Brukes) VALUES
+(10001, 'Liten Drill', 'Små Verktøy', 'Lang text', 2, 0),
+(10002, 'Liten Drill', 'Små Verktøy', 'Lang text', 2, 1),
+(10003, 'Tilhenger(Liten)', 'Transport', 'Lang text', 3, 0),
+(10004, 'Tillhenger (Stor)', 'Transport', 'Lang text' 4, 1),
+(10005, 'Lyft', 'Maskiner', 'Lang text', 4, 1),
+(10006, 'Dekkskiftemaskin', 'Maskiner', 'Lang text', 4, 0),
+(10007, 'Slagdrill', 'Små Verktøy', 'Lang text', 2, 1),
+(10008, 'Jekktralle', 'Transport', 'Lang text', 2, 0),
+(10009, 'Verktøykasse', 'Små Verktøy', 'Lang text', 2, 1),
+(10010, 'Sementmikser', 'Maskiner', 'Lang text', 2, 0);
 
 INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, Reserasjon_dato_til) VALUES
 (10001, 1, '2021-10-26', '2021-10-29'),
@@ -158,5 +169,3 @@ INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, 
 (10008, 5, '2021-10-27', '2021-10-30'),
 (10008, 7, '2022-01-14', '2022-01-15'),
 (10004, 3, '2021-06-10', '2021-06-13');
-
-
