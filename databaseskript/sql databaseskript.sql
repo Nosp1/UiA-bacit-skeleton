@@ -7,7 +7,7 @@ CREATE TABLE Brukere (Bruker_ID integer UNIQUE auto_increment,
                       Telefonnummer Varchar(11),
                       E_post Varchar(30),
                       Fagforbund BOOLEAN,
-                      Passord Varchar(50),
+                      Passord Varchar(550),
                       Admin BOOLEAN,
                       PRIMARY KEY (Bruker_ID));
 

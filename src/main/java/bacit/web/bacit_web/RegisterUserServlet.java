@@ -1,7 +1,10 @@
 package bacit.web.bacit_web;
 import bacit.web.bacit_models.HtmlGreier;
 import bacit.web.bacit_models.RegisterUserModel;
+import bacit_utils.DBUtils;
+import bacit_utils.PasswordHash;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +40,7 @@ public class RegisterUserServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         if(validateUser(user)){
             try{
-                writeUserToDb(user, out);
+                writeUserToDb(user, out, request);
             }
             catch (SQLException | ClassNotFoundException ex){
                 out.println(ex.getMessage());
@@ -53,7 +56,7 @@ public class RegisterUserServlet extends HttpServlet {
         }
     }
 
-    private void writeUserToDb(RegisterUserModel user,PrintWriter out) throws SQLException, ClassNotFoundException {
+    private void writeUserToDb(RegisterUserModel user, PrintWriter out, HttpServletRequest request) throws SQLException, ClassNotFoundException {
         Connection db = DBUtils.getINSTANCE().getConnection(out);
         String insertUserCommand = "insert into Brukere (Fult_navn, Telefonnummer, E_post, Fagforbund, Passord) values(?,?,?,?,?);";
         PreparedStatement statement = db.prepareStatement(insertUserCommand);
@@ -61,7 +64,7 @@ public class RegisterUserServlet extends HttpServlet {
         statement.setString(2, user.getPhoneNumber());
         statement.setString(3, user.geteMail());
         statement.setBoolean(4, user.getFagforbund());
-        statement.setString(5, user.getPassword());
+        statement.setString(5, PasswordHash.encryptThisString(request.getParameter("password")));
 
         statement.executeUpdate();
     }

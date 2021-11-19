@@ -2,6 +2,7 @@ package bacit.web.bacit_web;
 
 import bacit.web.bacit_models.HtmlGreier;
 import bacit.web.bacit_models.RegisterProductModel;
+import bacit_utils.DBUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
