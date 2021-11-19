@@ -1,6 +1,8 @@
 package bacit.web.bacit_web;
 
 import bacit.web.bacit_models.HtmlGreier;
+import bacit_utils.DBUtils;
+import bacit_utils.PasswordHash;
 
 import java.io.*;
 import java.sql.Connection;
@@ -26,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         String Telefonnummer = request.getParameter("E_post");
-        String Passord = request.getParameter("Passord");
+        String Passord = PasswordHash.encryptThisString(request.getParameter("password"));
 
         if(checkUser(Telefonnummer, Passord, out)) {
             response.sendRedirect("Product_list");

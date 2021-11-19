@@ -69,7 +69,7 @@ CREATE TABLE Reservasjoner (
 SELECT (Produkt_navn, Beskrivelse, Bilde) FROM Produkter AS P_info;
 
 SELECT * FROM Brukere, Produkter, Kurs, Pris, Reservasjoner
-LIMIT 5;
+    LIMIT 5;
 
 select Produkt_navn from Produkter where brukes = 0;
 
@@ -169,5 +169,3 @@ INSERT INTO Gruppe9.Reservasjoner (Produkt_ID, Bruker_ID, Reservasjon_dato_fra, 
 (10008, 5, '2021-10-27', '2021-10-30'),
 (10008, 7, '2022-01-14', '2022-01-15'),
 (10004, 3, '2021-06-10', '2021-06-13');
-
-

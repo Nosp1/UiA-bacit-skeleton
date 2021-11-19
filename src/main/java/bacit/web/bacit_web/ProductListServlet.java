@@ -1,5 +1,7 @@
 package bacit.web.bacit_web;
 
+import bacit_utils.DBUtils;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
