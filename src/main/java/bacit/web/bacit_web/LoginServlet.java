@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
         out.println("<label for='E_post'>E-post</label>");
         out.println("<input type='text' name='E_post'/>");
         out.println("<label for='Passord'>Passord</label>");
-        out.println("<input type='password' name='Passord'/>");
+        out.println("<input type='password' name='password'/>");
         out.println("<input type='submit' value='Login'/>");
         out.println("<br>");
         out.println("<a href='/bacit-web-1.0-SNAPSHOT/register_user'>Registrer bruker</a>");
