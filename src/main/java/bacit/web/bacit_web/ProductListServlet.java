@@ -38,7 +38,7 @@ public class ProductListServlet extends HttpServlet {
                 ResultSet res = ps.executeQuery();
 
                 while (res.next()){
-                    out.println("<li><a href='#'>"+res.getString("Produkt_navn")+"</a></li>");
+                    out.println("<li><a href='/bacit-web-1.0-SNAPSHOT/renting'>"+res.getString("Produkt_navn")+"</a></li>");
                     out.println("<li>"+res.getString("Kategori")+"</li>");
                     out.println("<li>"+res.getString("Beskrivelse")+"</li>");
                 }

@@ -1,4 +1,4 @@
-package bacit.web.bacit_web;
+package bacit.web.bacit_models;
 
 public class UserModel {
     private String firstName;
