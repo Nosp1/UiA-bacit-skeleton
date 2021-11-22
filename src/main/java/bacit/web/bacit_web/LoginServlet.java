@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
         String Passord = PasswordHash.encryptThisString(request.getParameter("password"));
 
         if(checkUser(Telefonnummer, Passord, out)) {
-            response.sendRedirect("Product_list");
+            response.sendRedirect("home_page");
         }
         else {
             out.println("Epost eller passord er feil");

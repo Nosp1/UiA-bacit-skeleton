@@ -28,7 +28,7 @@ public class RentingProductServlet extends HttpServlet {
         writeCreateRentForm(out, null);
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   /* public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         RentProductModel product = new RentProductModel();
         product.setProductName(request.getParameter("productName"));
@@ -50,7 +50,7 @@ public class RentingProductServlet extends HttpServlet {
         }
     }
 
-    private void reserveProduct(RentProductModel product, PrintWriter out, HttpServletRequest request) throws SQLException, ClassNotFoundException {
+    /*private void reserveProduct(RentProductModel product, PrintWriter out, HttpServletRequest request) throws SQLException, ClassNotFoundException {
         Connection db = DBUtils.getINSTANCE().getConnection(out);
         String insertUserCommand = "insert into Reservasjoner (Produk_ID, Bruker_ID, Reservasjon_dato_fra, Reservasjon_dato_til) values(?,?,?,?);";
         PreparedStatement statement = db.prepareStatement(insertUserCommand);
@@ -61,8 +61,10 @@ public class RentingProductServlet extends HttpServlet {
 
         statement.executeUpdate();
     }
+    */
 
-    private void writeCreateRentForm(PrintWriter out, String errorMessage) {
+
+    private void writeCreateRentForm(PrintWriter out, String errorMessage) throws IOException {
         HtmlGreier.writeHtmlStart(out, "Lån");
         if (errorMessage != null) {
             out.println("<h3>" + errorMessage + "</h3>");
@@ -78,18 +80,8 @@ public class RentingProductServlet extends HttpServlet {
     }
 
     public boolean prodcutIsAvalible(RentProductModel product) {
-        if (product.getProductName() == null) return false;
-        if (product.getProductName().trim().equalsIgnoreCase(""))
-            return false;
-        if (product.getCategory() == null)
-            return false;
-        if (product.getCategory().trim().equalsIgnoreCase(""))
-            return false;
-        if (product.getDescription() == null)
-            return false;
-        if (product.getDescription().trim().equalsIgnoreCase(""))
-            return false;
-        if (product.getBeeingUsed() == null)
+
+        if (product.getBeeingUsed() == true)
             return false;
 
         return true;
