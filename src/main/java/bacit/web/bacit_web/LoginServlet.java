@@ -62,12 +62,7 @@ public class LoginServlet extends HttpServlet {
             boolean st = false;
             try {
 
-<<<<<<< HEAD
-                Connection con = DBUtils.getINSTANCE().getConnection(out);
-=======
-
                 Connection con = DBUtils.getINSTANCE().getConnection();
->>>>>>> e7083bf20146ff466a77a24ac769c61e5f5108e6
 
                 PreparedStatement ps = con.prepareStatement("select * from Brukere where E_post=? and Passord=?");
                 ps.setString(1, E_post);

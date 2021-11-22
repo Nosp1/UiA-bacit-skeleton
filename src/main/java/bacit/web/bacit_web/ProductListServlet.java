@@ -36,18 +36,11 @@ public class ProductListServlet extends HttpServlet {
                 PreparedStatement ps = con.prepareStatement("select * from Produkter where brukes = 0");
                 ResultSet res = ps.executeQuery();
 
-<<<<<<< HEAD
-                while (res.next()){
-                    out.println("<li><a href='/bacit-web-1.0-SNAPSHOT/renting'>"+res.getString("Produkt_navn")+"</a></li>");
-                    out.println("<li>"+res.getString("Kategori")+"</li>");
-                    out.println("<li>"+res.getString("Beskrivelse")+"</li>");
-=======
                 while (res.next()) {
                     out.println("<li><a href='#'>" + res.getString("Produkt_navn") + "</a></li>");
                     out.println("<li>" + res.getString("Kategori") + "</li>");
                     out.println("<li>" + res.getString("Beskrivelse") + "</li>");
                     out.println("<li>" + res.getString("Bilde") + "</li>");
->>>>>>> e7083bf20146ff466a77a24ac769c61e5f5108e6
                 }
 
                 out.println("</ul>");
