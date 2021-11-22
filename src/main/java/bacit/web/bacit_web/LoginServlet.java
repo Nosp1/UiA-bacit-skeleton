@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
-        PrintWriter out = response.getWriter();
+       PrintWriter out = response.getWriter();
 
         String Telefonnummer = request.getParameter("E_post");
         String Passord = PasswordHash.encryptThisString(request.getParameter("password"));
@@ -62,7 +62,12 @@ public class LoginServlet extends HttpServlet {
             boolean st = false;
             try {
 
+<<<<<<< HEAD
                 Connection con = DBUtils.getINSTANCE().getConnection(out);
+=======
+
+                Connection con = DBUtils.getINSTANCE().getConnection();
+>>>>>>> e7083bf20146ff466a77a24ac769c61e5f5108e6
 
                 PreparedStatement ps = con.prepareStatement("select * from Brukere where E_post=? and Passord=?");
                 ps.setString(1, E_post);

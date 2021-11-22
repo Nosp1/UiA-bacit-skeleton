@@ -24,17 +24,18 @@ public class DBUtils {
      * password=TestTest123
      * URL=jdbc:mariadb://172.17.0.1:3308/Gruppe9
      *
-     * @param out for html printing in front-end e.g. (for errors or content)
      * @return connection to db
      * @throws SQLException if the connection fails
      */
+
+    /*
     public Connection getConnection(PrintWriter out) throws SQLException, ClassNotFoundException {
         Connection toReturn = null;
         Class.forName("org.mariadb.jdbc.Driver");
         try {
             toReturn = (connection != null)
-                ? connection
-                : DriverManager.getConnection(
+                    ? connection
+                    : DriverManager.getConnection(
                     "jdbc:mariadb://172.17.0.1:3308/Gruppe9",
                     "root",
                     "TestTest123");
@@ -44,5 +45,23 @@ public class DBUtils {
         }
         return toReturn;
     }
+*/
+ public Connection getConnection() throws SQLException, ClassNotFoundException {
+        Connection toReturn = null;
+        Class.forName("org.mariadb.jdbc.Driver");
+        try {
+            toReturn = (connection != null)
+                    ? connection
+                    : DriverManager.getConnection(
+                    "jdbc:mariadb://172.17.0.1:3308/Gruppe9",
+                    "root",
+                    "TestTest123");
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return toReturn;
+    }
 }
+
 
