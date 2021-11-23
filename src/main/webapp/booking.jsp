@@ -46,9 +46,21 @@
         <td><%=s.isGratis()%></td> <%--if false remove? --%>
         <td><%=s.isTilgjengelig()%></td>
     </tr>
-    <%}%>
+
 </table>
 
+<form action="RegistrerBooking" method="post" align="center">
 
+    <input type="hidden" name="id" value="<%=s.getID()%>">
+
+    <input type="submit" value="Book verktøy">
+
+    <input type="date" name="startDate">
+
+    <input type="date" name="sluttDate">
+
+        <%}%>
+
+</form>
 </body>
 </html>
