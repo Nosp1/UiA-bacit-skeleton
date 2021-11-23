@@ -9,11 +9,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import static DAO.SessionDAO.getSessionID;
 
 @WebServlet("/RegistrerBooking")
 public class RegistrerBooking extends HttpServlet {
@@ -24,17 +27,27 @@ public class RegistrerBooking extends HttpServlet {
         PreparedStatement ps;
         Connection con;
 
-        String BookingStart = req.getParameter("BookingStart");
-        String BookingSlutt = req.getParameter("BookingSlutt");
+        String BookingStart = req.getParameter("startDate");
+        String BookingSlutt = req.getParameter("sluttDate");
 
         BrukerDB bdb = null;
+
+        HttpSession session = req.getSession();
+        int sessionID = getSessionID(session);
+
+        String VerktoyID = req.getParameter("id");
+
         try {
             //Her initierer vi samme tomme tabell og setter den opp med en kobling til databasen
             con = DBUtils.getINSTANCE().getConnection(out);
-            String query = "INSERT INTO Booking (BookingDatoStartID, BookingDatoSlutt) values (?,?)";
+            String query = "INSERT INTO Booking (VerktoyID, AnsattID, BookingDatoStartID, BookingDatoSlutt) values (?,?,?,?)";
             ps = con.prepareStatement(query);
-            ps.setString(1, fornavn);
-            ps.setString(2, etternavn);
+            ps.setString(1, VerktoyID);
+            ps.setInt(2, sessionID);
+            ps.setString(3, BookingStart);
+            ps.setString(4, BookingSlutt);
+
+
             ps.execute();
             out.println("Ny booking registrert!");
 
