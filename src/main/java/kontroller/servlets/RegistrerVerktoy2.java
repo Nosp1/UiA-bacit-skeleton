@@ -3,6 +3,7 @@ package kontroller.servlets;
 import modell.Connector;
 
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,8 @@ import java.io.PrintWriter;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.logging.Logger;
 
 
@@ -50,15 +53,28 @@ public class RegistrerVerktoy2 extends HttpServlet {
             con = Connector.getINSTANCE().getConnection(out);
             String query = "INSERT INTO amv.VerktoyType (VerktoyTypeNavn, VerktoyBilde) values (?,?)";
 
-            ps = con.prepareStatement(query);
+            ps = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, VerktoyNavn);
             if (image != null) {
                 ps.setBlob(2, image);
             }
-
-
             ps.execute();
-            out.println("Ny verktoy registrert!");
+            int VtID = 0;
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()){
+                    VtID = (int) rs.getLong(1);
+
+            }
+
+               request.setAttribute("VtID", VtID);
+               request.getRequestDispatcher("registrerVerktoy3.jsp").forward(request, response);
+
+
+
+           // request.getRequestDispatcher("/RegistrerVerktoy3").forward(request, response);*/
+
+
+
         }
         catch(Exception ex)
         {
