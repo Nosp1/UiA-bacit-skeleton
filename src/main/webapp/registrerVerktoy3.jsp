@@ -19,14 +19,11 @@
 </div>
 <div class="container">
     <form action="RegistrerVerktoy3" method="post">
-        <input type="text" name="Tilgjengelighet" placeholder="Tilgjengeligheten på verktoy"><br>
-        <input type="text" name="Maksdager" placeholder="Hvor mange dager kan verktoyet bli leid ut"><br>
         <input type="text" name="Gratis" placeholder="Er verktøyet gratis for alle ansatte?"><br>
         <input type="text" name="Kostnad" placeholder="Hvor mye koster verktoyet hvis det ikke er gratis"><br>
-        <input type="hidden" name="VtID" value="${VtID}"><br>
+        <input type="hidden" name="VtID" value="<%= request.getAttribute("VtID")%>"><br>
 
         <input type="submit">
-        <p> <%= request.getAttribute("VtID")%>      </p>
 
     </form>
 </div>

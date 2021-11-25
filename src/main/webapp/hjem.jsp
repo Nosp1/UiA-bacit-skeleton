@@ -2,10 +2,15 @@
 <%@page import="java.util.ArrayList" %>
 <%@ page import="DAO.VerktoyTypeDao" %>
 <%@ page import="modell.loggInn.VerktoyType" %>
+<%@ page import="static kontroller.servlets.LoggInn.validateAdmin" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% Bruker bruker = (Bruker) session.getAttribute("logUser");
     if(bruker==null){
         response.sendRedirect("index.jsp"); } %>
+
+<%
+    if (validateAdmin(session)==true)
+%>
 
 <html>
 <head>
@@ -38,10 +43,15 @@
 
         <div id="links">
             <ul>
-                <a href="RegistrerVerktoy2">Registrer verktøy</a>
-                <a href="RegistrerBruker">Registrer bruker</a>
+                <%
+                    if (validateAdmin(session)==true){
+                        out.println("                <a href=\"RegistrerVerktoy2\">Registrer verktøy</a>\n" +
+                                "                <a href=\"RegistrerBruker\">Registrer bruker</a>\n" +
+                                "                <a href=\"ListTilgjengligeVerktoy\">Tilgjenglige verktøy </a>");
+                    }
+                %>
+
                 <a href="LoggUt">Logg ut</a>
-                <a href="ListTilgjengligeVerktoy">Tilgjenglige verktøy </a>
             </ul>
         </div>
     </nav>

@@ -29,29 +29,31 @@ public class RegistrerVerktoy3 extends HttpServlet {
         Connection con;
 
         //Her henter vi dataene fra rutene til logg inn siden
-        String Tilgjengelighet = req.getParameter("Tilgjengelighet");
-        String Maksdager = req.getParameter("Maksdager");
         String Gratis = (req.getParameter("Gratis")).toLowerCase();
+        System.out.println(Gratis);
         String Kostnad = req.getParameter("Kostnad");
-        String VtID = req.getParameter("VtID");
+        System.out.println(Kostnad);
+        String VerktoyID = req.getParameter("VtID");
+        System.out.println(VerktoyID);
+
+        int Maksdager = 4;
 
 
-        BrukerDB bdb = null;
         try {
 
 
             con = DBUtils.getINSTANCE().getConnection(out);
-            String query = "INSERT INTO Verktoy (VerktoyTypeID, Tilgjengelighet, Maksdager, Gratis, Kostnad) values (?,?,?,?,?)";
+            String query = "INSERT INTO Verktoy (VerktoyTypeID, Tilgjenglighet, Maksdager, Gratis, Kostnad) values (?,?,?,?,?)";
             ps = con.prepareStatement(query);
 
-            ps.setInt(1, Integer.parseInt(VtID));
+            ps.setString(1, VerktoyID);
             ps.setBoolean(2, true);
-            ps.setString(3, Maksdager);
+            ps.setInt(3, Maksdager);
             ps.setBoolean(4, Boolean.parseBoolean(Gratis));
             ps.setString(5, Kostnad);
 
             ps.execute();
-            out.println("Ny bruker registrert!");
+            res.sendRedirect("hjem.jsp");
 
 
         } catch (SQLException | ClassNotFoundException e) {

@@ -51,6 +51,32 @@ public class LoggInn extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    public static boolean validateAdmin(HttpSession session) {
+        Connection db;
+        PreparedStatement ps;
+        Bruker sessionbruker = (Bruker) session.getAttribute("logUser");
+        try {
+            db = DBUtils.getINSTANCE().getConnection();
+            String query = "SELECT Admin FROM Ansatt WHERE AnsattEmail = ?";
+            ResultSet rs;
+            ps = db.prepareStatement(query);
+            ps.setString(1, sessionbruker.getAnsattEmail());
+            rs = ps.executeQuery();
+
+            rs.next();
+            String dbAdmin = rs.getString("Admin");
+            if (dbAdmin.equals("1")) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
 
 

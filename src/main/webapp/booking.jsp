@@ -43,7 +43,11 @@
         <td><%=s.getNavn()%></td>
         <td><%=s.getKostnad()%></td>
         <td><%=s.getMaksDager()%></td>
-        <td><%=s.isGratis()%></td> <%--if false remove? --%>
+        <td><%
+
+            if (s.isGratis()==true){
+                out.println("JA");
+            }%></td> <%--if false remove? --%>
         <td><%=s.isTilgjengelig()%></td>
     </tr>
 
