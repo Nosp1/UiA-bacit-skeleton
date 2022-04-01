@@ -1,0 +1,8 @@
+body {
+    background-image: url("../Images/Battlefield2LogoBigFaded.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: contain;
+}
+

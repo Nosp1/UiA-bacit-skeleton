@@ -1,60 +1,68 @@
-# Java base skeleton for web application
-This application uses Docker to manage maven, tomcat and mariadb to build and host a web application using Java.
-It should serve as a base for further development throughout the course.
-
+# Java base skeleton for a Battlefield 2 Statistics/Leaderboards  web application
+Modified version of Trym's skeleton to serve as a skeleton for a bf2s.com like web application with stats from a local Battlefield 2 gamespy server.
 <br>
 
 ## Notice
-Please read and understand how the dockerfile works. 
-Understand that all scripts used (`build.*` & `startDb.*`) can be run in the terminal without the scripts.
-I recommend getting familiar with executing docker commands in the terminal before using the scripts.
+I ditched Docker and all that. I personally could not find a way to link up with the existing 
+BF2-database when using Docker. I'm sure it's possible, I just couldn't manage to do it. 
 
 ## How to use
 ### Prerequisites:
-To make this work, you need to have [Docker](https://www.docker.com/) installed and running on your system.    
+-A copy of Battlefield 2 version 1.41 or 1.5 (1.41 better with bots)<br>
+-Battlefield 2 Dedicated Server<br>
+-XAMPP (Version 7.4.28)<br>
+-BF2Statistics Web Edition v3
 
-### Via commandline with docker (Recommended):
-Compile and pacakge source code with maven in docker.
+##### 1. Install Battlefield 2 Dedicated Server, XAMPP and BF2Statistics Web Edition.    
+Watch this video:<br>
+https://youtu.be/WpNlfql3wPw <br>
+and/or written guide:<br>
+https://bf2statistics.com/threads/bf2statistics-web-edition-tutorial-and-tips.3022/
 
-> Note: On Unix and Unix-like systems (Mac and Linux) you might need to run the commands with `sudo` to make them work.
-
-##### 1. Copy compiled source code into tomcat docker container:    
-
-|Bash (Mac and Linux)|Powershell (Windows)|
-|--------------------|--------------------|
-|`docker run --rm -it --name mavenbuild -v maven-repo:/root/.m2 -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven mvn clean install` | `docker run --rm -it --name mavenbuild -v maven-repo:/root/.m2 -v "%cd%":/usr/src/mymaven -w /usr/src/mymaven maven mvn clean install`|
+##### 2. Install MySQL and Apache as services in Xampp control panel
+Open xampp control panel and tick off services for Apache and MySQL.
+It makes it so you don't need to manually open xampp and start Apache and MySQL everytime you want to play or make the web application able to contact the DB. 
 
 
-##### 2. Build then start the docker container with the web application:    
-`docker image build -t trym/tomcat .`    
-`docker container run --rm -it -d --name tomcat --publish 8081:8080 trym/tomcat`
+##### 3. Open this project in IntelliJ.
 
-##### 3. Start a mariadb container using the localdirectory "database" to store the data:    
+##### 4. Connect to the database in IntelliJ   
+-Click on "Database" in the far right corner.<br>
+-Click plus sign, then data source<br>
+-Select MariaDB<br>
+-Name it "bf2stats"<br>
+-Host should be "localhost"<br>
+-User should be "root"<br>
+-Password should be blank as in nothing<br>
+-database should be "bf2stats"<br>
 
-|Bash (Mac and Linux)|Powershell (Windows)|
-|--------------------|--------------------|
-|`docker run --rm --name mariadb -p 3308:3306/tcp -v "$(pwd)/database":/var/lib/mysql -e MYSQL_ROOT_PASSWORD=12345 -d mariadb:10.5.11`|`docker run --rm --name mariadb -p 3308:3306/tcp -v "%cd%\database":/var/lib/mysql -e MYSQL_ROOT_PASSWORD=12345 -d mariadb:10.5.11`|
+Alternatively you can use "bf2statslogger" as user and "bf2" as password as in the guide you followed when installing Bf2statistics web edition.
 
-##### 4. Enter the database and create the database and table for this skeleton:    
-`docker exec -it mariadb mysql -p`    
-When prompted enter the password (`12345`), then type or copy in the SQL from [this file](databaseskript/create-user.sql) (line by line).
+##### 5. Connect the xampps tomcat to IntelliJ
+-In intelliJ, click "run" on the top tool menu<br>
+-Click "Edit configurations"<br>
+-Click the "+"sign<br>
+-Scroll down the list until you see Tomcat. Select "local" (NOT "tomcatEE")<br>
+-A menu pops up. Select "Configure" to the right of "application server"<br>
+-Click the "+"sign here as well<br>
+-Hit the folder icon on "Tomcat Home" and navigate to Xampp's tomcat folder. This is mine "C:\Spillting\Battlefield_2_Server-greier\XAMPP\tomcat" 
+-Name it with the tomcat version (or it does so automatically?) and click ok<br>
+-Select the tomcat version you just made in "application server"<br>
+-Choose what you want the url to be. Mine is "http://localhost:8080/Battlefield2Statistikk/" <br>
+-Most likely there will be a red light bulb with and the text "Warning: No artifacts marked for deployment" click it "fix".<br>
+-select "Battlefield2Statistikk:war exploded"<br>
+-In the "Application context", shorten it down to just "/Battlefield2Statistikk" (or whatever suffix you gave the URL two steps ago.)<br>
 
-##### 5. Test out the skeleton at http://localhost:8081/bacit-web-1.0-SNAPSHOT/
+##### 6. Start the tomcat server in IntelliJ
+-click "services" in the menu down left<br>
+-select the tomcat server and hit the green "run" button
+-Wait for it to build the application.
+
+##### 7. Test out the skeleton at http://localhost:8080/Battlefield2Statistikk/ (if you did not change the url)
+-IntelliJ should automatically launch your browser with this link<br>
+-I would advise to add tomcat to "services"-tool window (ALT+8) for fast rebuilding 
+<br>
 
 <br>
 
-### Via scripts:
-The following takes the above steps and deduce them into scripts. (all the above commands are present in the below scripts).
-The scripts allow us to build and deploy our application faster, which can be beneficial when the core concepts of using docker are understood.
-|Bash (Mac and Linux)|Powershell (Windows)|
-|--------------------|--------------------|
-|Run `build.sh` to compile source code and build tomcat docker image.|Run `build.cmd` to compile source code and build tomcat docker image.|
-|Run `startDb.sh` to start database|Run `startDb.cmd` to start database|
-
-> Note: On Unix and Unix-like systems (Mac and Linux) you might need to run the scripts with `sudo` to make them work.
-
-<br>
-
-#### PS
-Remember to recompile your code with maven after code changes. :)
 Have fun and experiment :)

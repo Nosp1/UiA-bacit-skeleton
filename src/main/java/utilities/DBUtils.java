@@ -1,4 +1,4 @@
-package bacit.web.bacit_web;
+package utilities;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -20,9 +20,9 @@ public class DBUtils {
 
     /**
      * Establishes a connection with a mariaDB or returns an existing one.
-     * username=root
-     * password=12345
-     * URL=jdbc:mariadb://172.17.0.1:3308/MytestDB
+     * username=root (alternatively "bf2statslogger")
+     * password=*none* (alternatively "bf2")
+     * URL=jdbc:mariadb://localhost:3306/bf2stats
      *
      * @param out for html printing in front-end e.g. (for errors or content)
      * @return connection to db
@@ -35,9 +35,9 @@ public class DBUtils {
             toReturn = (connection != null)
                 ? connection
                 : DriverManager.getConnection(
-                    "jdbc:mariadb://172.17.0.1:3308/MytestDB",
+                    "jdbc:mariadb://localhost:3306/bf2stats",
                     "root",
-                    "12345");
+                    "");
         } catch (SQLException e) {
             e.printStackTrace();
             out.println("SQL Exception " + e);
