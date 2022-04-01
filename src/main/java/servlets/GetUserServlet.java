@@ -1,5 +1,8 @@
-package bacit.web.bacit_web;
+package servlets;
 
+import html.Html;
+import models.UserModel;
+import utilities.DBUtils;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -20,10 +23,23 @@ public class GetUserServlet extends HttpServlet {
         throws ServletException, IOException {
         String uname = request.getParameter("uname");
         PrintWriter out = response.getWriter();
+
         try {
             UserModel model = getUser(uname, out);
+            double killdeathRatio = getKDratio(model.getKills(), model.getDeaths());
 
-            out.println(model.getFirstName());
+            Html.Start(out, "Player stats:");
+            out.println("Ingame nick: "+model.getNickname()+"<br/>");
+            out.println("Total score: "+model.getScore()+"<br/>");
+            out.println("Rounds played: "+model.getRoundsPlayed()+"<br/>");
+            out.println("Flag captures: "+model.getCaptures()+"<br/>");
+            out.println("Kills: "+model.getKills()+"<br/>");
+            out.println("Deaths: "+model.getDeaths()+"<br/>");
+            out.println("Player KD-ratio: "+killdeathRatio);
+            if(killdeathRatio > 3){
+                out.print("<br/><h3>Certified 1337 player ;)</h3>");
+            }
+            Html.EndBasic(out);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
@@ -43,16 +59,29 @@ public class GetUserServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        String query3 = "select * from user where User_firstName = ?";
+        String query3 = "SELECT name, score, rounds, kills, deaths, captures  FROM player WHERE name = ?";
         PreparedStatement statement = db.prepareStatement(query3);
         statement.setString(1, uname);
         ResultSet rs = statement.executeQuery();
         UserModel model = null;
         while (rs.next()) {
             model =
-                new UserModel(rs.getString("User_firstName"), rs.getString("User_lastName"), rs.getString("User_Email"),
-                    rs.getString("User_password"), rs.getString("User_dob"));
+                new UserModel(
+                        rs.getString("name"),
+                        rs.getInt("score"),
+                        rs.getInt("rounds"),
+                        rs.getInt("kills"),
+                        rs.getInt("deaths"),
+                        rs.getInt("captures")
+                );
         }
         return model;
+    }
+
+    //To circumvent int not wanting to give decimals. Also cuts off too many decimals.
+    private double getKDratio(float kills, float deaths){
+        double kdRatio = (kills/deaths);
+        double kdRatioDecimal = (Math.round(kdRatio*100.0)/100.0);
+        return kdRatioDecimal;
     }
 }
